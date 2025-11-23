@@ -47,13 +47,14 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-primary-border">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/" data-testid="link-home">
-              <span className="text-xl font-bold text-primary-foreground">
-                {t({ en: 'El-Maraei Group', ar: 'المرعي جروب' })}
-              </span>
-            </Link>
-          </div>
+            <div className="flex items-center">
+              <img src="/favicon.png" style={{ width: '50px', height: '50px' }}/>
+              <Link href="/" data-testid="link-home">
+                <span className="text-xl font-bold text-primary-foreground">
+                  {t({ en: 'El-Maraei Group', ar: 'المرعي جروب' })}
+                </span>
+              </Link>
+            </div>
 
           <div className="hidden md:flex items-center gap-6">
             {navigation.map((item) => (

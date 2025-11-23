@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import heroImage from '@assets/generated_images/Corporate_headquarters_hero_image_030060dd.png';
+import logo from '/public/favicon.png'
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -77,15 +78,15 @@ export default function Home() {
         <meta property="og:title" content={language === 'ar' ? 'المرعي جروب - التميز في مختلف الصناعات' : 'El-Maraei Group - Excellence Across Industries'} />
         <meta property="og:description" content={language === 'ar' ? 'مجموعة أعمال مصرية رائدة في الرعاية الصحية والملاحة والإنشاءات والتعدين والتجارة الدولية' : 'Leading Egyptian conglomerate in healthcare, maritime, construction, mining, and international trade'} />
       </Helmet>
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden"> 
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-primary/60"></div>
         </div>
-        
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+          <img src={logo} alt="Company Logo" width={140} height={140} style={{ display: "block", margin: "0 auto" }}/>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
             {t({ 
               en: 'El-Maraei Group', 
