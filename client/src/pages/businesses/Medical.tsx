@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import medicalImage from '@assets/generated_images/Medical_center_interior_image_d55bb764.png';
+import { AboutIntroCard } from "@/extras/AboutIntroCard";
+import { InstallmentInfoCard } from "@/extras/InstallmentInfoCard";
+import { MedicalContactSection } from "@/pages/businesses/ContactSection/MedicalContactSection";
 
 export default function Medical() {
   const { t, language } = useLanguage();
@@ -76,17 +79,14 @@ export default function Medical() {
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">
-              {t({ en: 'About Our Medical Center', ar: 'عن مركزنا الطبي' })}
+           <h2 className="text-3xl font-bold mb-4 text-foreground">
+              {t({ en: "About Our Medical Center", ar: "عن مركزنا الطبي" })}
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {t({ 
-                en: 'El-Maraei Medical Center is a state-of-the-art healthcare facility offering comprehensive medical services. Our team of experienced physicians and healthcare professionals is dedicated to providing the highest quality care to our patients.', 
-                ar: 'المركز الطبي للمرعي هو منشأة رعاية صحية حديثة تقدم خدمات طبية شاملة. فريقنا من الأطباء وأخصائيي الرعاية الصحية ذوي الخبرة مكرس لتقديم أعلى جودة من الرعاية لمرضانا.' 
-              })}
-            </p>
+            <div className="space-y-8">
+              <AboutIntroCard t={t} />
+              <InstallmentInfoCard t={t} />
+            </div>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {services.map((service, index) => (
               <Card key={index} className="text-center hover-elevate transition-all duration-300" data-testid={`service-card-${index}`}>
@@ -119,19 +119,18 @@ export default function Medical() {
                 ))}
               </div>
             </div>
-
-            <Card className="bg-primary text-primary-foreground">
-              <CardContent className="p-8">
-                <Calendar className="h-12 w-12 text-gold mb-4" />
-                <h3 className="text-2xl font-bold mb-4">
-                  {t({ en: 'Book an Appointment', ar: 'احجز موعد' })}
-                </h3>
-                <p className="mb-6 text-primary-foreground/90">
-                  {t({ 
-                    en: 'Schedule your visit with our expert medical team. We offer convenient appointment times to suit your schedule.', 
-                    ar: 'حدد موعد زيارتك مع فريقنا الطبي المتخصص. نقدم مواعيد مريحة تناسب جدولك.' 
-                  })}
-                </p>
+              <Card className="bg-primary text-primary-foreground">
+                <CardContent className="p-8">
+                  <Calendar className="h-12 w-12 text-gold mb-4" />
+                  <h3 className="text-2xl font-bold mb-4">
+                    {t({ en: 'Book an Appointment', ar: 'احجز موعد' })}
+                  </h3>
+                  <p className="mb-6 text-primary-foreground/90">
+                    {t({ 
+                      en: 'Schedule your visit with our expert medical team. We offer convenient appointment times to suit your schedule.', 
+                      ar: 'حدد موعد زيارتك مع فريقنا الطبي المتخصص. نقدم مواعيد مريحة تناسب جدولك.' 
+                    })}
+                  </p>
                 <Link href="/businesses/medical/appointment">
                   <Button className="w-full bg-gold text-gold-foreground hover:bg-gold/90" data-testid="button-book-appointment">
                     {t({ en: 'Book Now', ar: 'احجز الآن' })}
@@ -149,6 +148,7 @@ export default function Medical() {
               </CardContent>
             </Card>
           </div>
+            <MedicalContactSection t={t} />
         </div>
       </section>
 
