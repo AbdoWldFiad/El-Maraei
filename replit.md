@@ -74,8 +74,9 @@ client/
 │   │   │   ├── Marine.tsx               # Marine works
 │   │   │   ├── Mining.tsx               # Mining factory
 │   │   │   └── Trade.tsx                # Trade & agency
-│   │   └── not-found.tsx       # 404 page
-│   ├── App.tsx                 # Main app with routes
+│   │   ├── not-found.tsx       # 404 page
+|   |   └── UnderDevelopment.tsx  # My employar lazy ass will use this untel we find a  
+│   ├── App.tsx                 # Main app with routes         |       way to implement the backend
 │   └── index.css               # Global styles
 ├── index.html                  # SEO meta tags
 └── attached_assets/
