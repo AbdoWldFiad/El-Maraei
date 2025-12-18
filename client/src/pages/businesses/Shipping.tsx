@@ -10,7 +10,7 @@ export default function Shipping() {
   const services = [
     {
       icon: Ship,
-      title: { en: 'Vessel Agency', ar: 'وكالة السفن' },
+      title: { en: 'El-Maraei for Vessel Agency', ar: ' المرعي لي وكالة السفن' },
       description: { en: 'Complete port agency services for all vessel types', ar: 'خدمات وكالة موانئ كاملة لجميع أنواع السفن' },
     },
     {

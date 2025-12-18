@@ -10,7 +10,7 @@ export default function Mining() {
   const services = [
     {
       icon: Mountain,
-      title: { en: 'Mineral Extraction', ar: 'استخراج المعادن' },
+      title: { en: 'El-Maraei for Mineral Extraction', ar: 'المرعي لي استخراج المعادن' },
       description: { en: 'Advanced mining operations and ore extraction', ar: 'عمليات تعدين متقدمة واستخراج الخامات' },
     },
     {

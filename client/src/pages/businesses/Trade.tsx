@@ -10,7 +10,7 @@ export default function Trade() {
   const services = [
     {
       icon: Handshake,
-      title: { en: 'Business Representation', ar: 'تمثيل الأعمال' },
+      title: { en: 'El-Maraei for Business Representation', ar: 'المرعي لي تمثيل الأعمال' },
       description: { en: 'Professional representation for international brands in Egypt', ar: 'تمثيل احترافي للعلامات التجارية الدولية في مصر' },
     },
     {

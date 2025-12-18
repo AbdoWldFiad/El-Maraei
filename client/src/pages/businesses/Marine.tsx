@@ -10,7 +10,7 @@ export default function Marine() {
   const services = [
     {
       icon: Building,
-      title: { en: 'Harbor Construction', ar: 'بناء الموانئ' },
+      title: { en: 'El-Maraei for Harbor Construction', ar: ' المرعي لي بناء الموانئ' },
       description: { en: 'Design and construction of modern harbor facilities', ar: 'تصميم وبناء مرافق موانئ حديثة' },
     },
     {

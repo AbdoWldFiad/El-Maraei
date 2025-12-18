@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import heroImage from '@assets/generated_images/Corporate_headquarters_hero_image_030060dd.png';
-import logo from '/public/favicon.png'
+import logo from '/favicon.png'
 
 export default function Home() {
   const { t, language } = useLanguage();

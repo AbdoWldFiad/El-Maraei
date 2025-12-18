@@ -75,12 +75,13 @@ export const insertJobListingSchema = createInsertSchema(jobListings).omit({
   postedAt: true,
 });
 
-export const insertCareerApplicationSchema = createInsertSchema(careerApplications).omit({
-  id: true,
-  submittedAt: true,
-}).extend({
+export const insertCareerApplicationSchema = z.object({
+  fullName: z.string().min(1),
   email: z.string().email(),
   phone: z.string().min(10),
+  coverLetter: z.string().optional(),
+  jobId: z.string().uuid(),
+  cvFileName: z.string().optional(),
 });
 
 export const insertContactSubmissionSchema = createInsertSchema(contactSubmissions).omit({

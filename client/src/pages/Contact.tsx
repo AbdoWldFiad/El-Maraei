@@ -14,7 +14,7 @@ import { Helmet } from 'react-helmet-async';
 import { insertContactSubmissionSchema } from '@shared/schema';
 import { useMutation } from '@tanstack/react-query';
 import { apiRequest, queryClient } from '@/lib/queryClient';
-import emailjs from "@emailjs/browser";
+import { sendEmail } from "@/extras/emailService"; 
 
 
 export default function Contact() {
@@ -36,44 +36,6 @@ export default function Contact() {
   });
 
 
-  const sendEmailJS = async (data: any) => {
-    setIsSendingEmail(true);
-
-    try {
-      await emailjs.send(
-        "service_vg4xdwl",
-        "template_8pdmeoj",
-        {
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          business: data.business,
-          message: data.message,
-        },
-        "uKR7iZnQnJ7Qb9Ib0"
-      );
-
-      toast({
-        title: t({ en: "Email Sent", ar: "تم إرسال البريد" }),
-        description: t({
-          en: "We've received your message and will get back shortly.",
-          ar: "لقد استلمنا رسالتك وسنعاود التواصل قريبًا.",
-        }),
-      });
-
-    } catch (error) {
-      toast({
-        title: t({ en: "Email Error", ar: "خطأ في البريد" }),
-        description: t({
-          en: "There was an issue sending your message. Try again.",
-          ar: "حدثت مشكلة أثناء إرسال الرسالة. حاول مرة أخرى.",
-        }),
-        variant: "destructive",
-      });
-    } finally {
-      setIsSendingEmail(false);
-    }
-  };
 
   const mutation = useMutation({
     mutationFn: (data: any) => apiRequest('POST', '/api/contact', data),
@@ -101,10 +63,36 @@ export default function Contact() {
   });
 
 
-  const onSubmit = async (data: any) => {
-    await sendEmailJS(data);     // Send email via EmailJS with improved UI
-    mutation.mutate(data);       // Save to backend
-  };
+const onSubmit = async (data: any) => {
+  setIsSendingEmail(true);
+
+  try {
+    await sendEmail(data);
+
+    toast({
+      title: t({ en: "Email Sent", ar: "تم إرسال البريد" }),
+      description: t({
+        en: "We've received your message and will get back shortly.",
+        ar: "لقد استلمنا رسالتك وسنعاود التواصل قريبًا.",
+      }),
+    });
+
+    mutation.mutate(data);
+
+  } catch (error) {
+    toast({
+      title: t({ en: "Email Error", ar: "خطأ في البريد" }),
+      description: t({
+        en: "There was an issue sending your message. Try again.",
+        ar: "حدثت مشكلة أثناء إرسال الرسالة. حاول مرة أخرى.",
+      }),
+      variant: "destructive",
+    });
+  } finally {
+    setIsSendingEmail(false);
+  }
+};
+
 
   const businesses = [
     { value: 'general', label: { en: 'General Inquiry', ar: 'استفسار عام' } },
