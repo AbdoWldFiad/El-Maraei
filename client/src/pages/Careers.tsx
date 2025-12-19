@@ -8,14 +8,18 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
-import { apiRequest, queryClient } from '@/lib/queryClient';
 import type { JobListing } from '@shared/schema';
+import { sendApplicationEmail } from '@/extras/JobApplication';
+
+const MAX_FILE_SIZE = 50 * 1024; // 50 KB
 
 export default function Careers() {
-  const { t, language } = useLanguage();
+  const { t, language  } = useLanguage();
   const { toast } = useToast();
+  const queryClient = useQueryClient();
+
   const [selectedJob, setSelectedJob] = useState<JobListing | null>(null);
   const [applicationData, setApplicationData] = useState({
     fullName: '',
@@ -24,49 +28,97 @@ export default function Careers() {
     coverLetter: '',
   });
   const [cvFile, setCvFile] = useState<File | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [infoMessage, setInfoMessage] = useState<string | null>(null);
 
   const { data: jobs, isLoading } = useQuery<JobListing[]>({
     queryKey: ['/api/jobs'],
-  });
-
-  const mutation = useMutation({
-    mutationFn: async (data: any) => {
-      const reader = new FileReader();
-      const fileData = await new Promise((resolve) => {
-        reader.onload = () => resolve(reader.result);
-        reader.readAsDataURL(cvFile!);
-      });
-
-      return apiRequest('POST', '/api/career-applications', {
-        ...data,
-        cvFileName: cvFile!.name,
-        cvFileData: fileData,
-      });
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/career-applications'] });
-      toast({
-        title: t({ en: 'Application Submitted', ar: 'تم إرسال الطلب' }),
-        description: t({ 
-          en: 'Your application has been submitted successfully.', 
-          ar: 'تم إرسال طلبك بنجاح.' 
-        }),
-      });
-      setSelectedJob(null);
-      setApplicationData({ fullName: '', email: '', phone: '', coverLetter: '' });
-      setCvFile(null);
-    },
-    onError: () => {
-      toast({
-        title: t({ en: 'Error', ar: 'خطأ' }),
-        description: t({ 
-          en: 'Failed to submit application. Please try again.', 
-          ar: 'فشل إرسال الطلب. يرجى المحاولة مرة أخرى.' 
-        }),
-        variant: 'destructive',
-      });
+    queryFn: async () => {
+      const res = await fetch('/api/jobs');
+      if (!res.ok) throw new Error('Failed to fetch jobs');
+      return res.json();
     },
   });
+
+const mutation = useMutation({
+  mutationFn: async ({
+    fullName,
+    email,
+    phone,
+    coverLetter,
+    jobId,
+    cvFile,
+  }: any) => {
+    if (!cvFile) throw new Error('Please upload your CV.');
+    if (cvFile.size > MAX_FILE_SIZE)
+      throw new Error('CV file must be 50 KB or smaller.');
+    if (phone.length < 10)
+      throw new Error('Phone number must be at least 10 digits.');
+
+    const formData = new FormData();
+    formData.append('fullName', fullName);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('coverLetter', coverLetter || 'No cover letter');
+    formData.append('jobId', jobId.toString());
+    formData.append('cv', cvFile);
+
+
+  },
+
+  onSuccess: async (application, variables) => {
+    try {
+      const job = jobs?.find(j => j.id === variables.jobId);
+
+      await sendApplicationEmail({
+        fullName: variables.fullName,
+        email: variables.email,
+        phone: variables.phone,
+        jobTitle: job?.titleEn || 'Unknown Position',
+        jobId: variables.jobId,
+        coverLetter: variables.coverLetter,
+        cvFileName: variables.cvFile.name,
+      });
+    } catch (err) {
+      console.error('EmailJS failed:', err);
+    }
+
+    setInfoMessage('Your application was submitted successfully');
+    setError(null);
+
+    queryClient.invalidateQueries({
+      queryKey: ['/api/career-applications'],
+    });
+
+    toast({
+      title: t({ en: 'Application Submitted', ar: 'تم إرسال الطلب' }),
+      description: t({
+        en: 'Your application has been submitted successfully.',
+        ar: 'تم إرسال طلبك بنجاح.',
+      }),
+    });
+
+    setSelectedJob(null);
+    setApplicationData({
+      fullName: '',
+      email: '',
+      phone: '',
+      coverLetter: '',
+    });
+    setCvFile(null);
+  },
+
+  onError: (err: any) => {
+    setError(err.message);
+    setInfoMessage(null);
+    toast({
+      title: t({ en: 'Error', ar: 'خطأ' }),
+      description: err.message,
+      variant: 'destructive',
+    });
+  },
+});
+
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -76,12 +128,13 @@ export default function Careers() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedJob || !cvFile) return;
 
-    mutation.mutate({
-      jobId: selectedJob.id,
-      ...applicationData,
-    });
+    if (!selectedJob) {
+      setError('Please select a job before submitting.');
+      return;
+    }
+
+    mutation.mutate({ ...applicationData, jobId: selectedJob.id, cvFile });
   };
 
   const getEmploymentTypeBadge = (type: string) => {
