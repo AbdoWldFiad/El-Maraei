@@ -33,15 +33,15 @@ function Router() {
           <Route path="/about" component={About} />
           <Route path="/businesses" component={Businesses} />
           <Route path="/businesses/medical" component={Medical} />
-          <Route path="/businesses/medical/appointment" component={UnderDevelop} /> {/*component={MedicalAppointment} /> */}
+          <Route path="/businesses/medical/appointment" component={MedicalAppointment} /> {/*component={MedicalAppointment} /> */}
           <Route path="/businesses/shipping" component={Shipping} />
           <Route path="/businesses/marine" component={Marine} />
           <Route path="/businesses/mining" component={Mining} />    {/* delete the comments and the component={UnderDevelop} /> */}
           <Route path="/businesses/trade" component={Trade} />
           <Route path="/news" component={News} />
-          <Route path="/news/:id" component={UnderDevelop} /> {/*component={NewsDetail} /> */}
-          <Route path="/careers" component={UnderDevelop} /> {/*component={Careers} /> */}
-          <Route path="/contact" component={UnderDevelop} /> {/*component={Contact} /> */}
+          <Route path="/news/:id" component={NewsDetail} /> 
+          <Route path="/careers" component={Careers} /> 
+          <Route path="/contact" component={Contact} /> 
           <Route path="/UnderDevelopment" component={UnderDevelop} />
           <Route component={NotFound} />
         </Switch>

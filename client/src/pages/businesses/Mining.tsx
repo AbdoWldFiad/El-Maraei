@@ -52,7 +52,7 @@ export default function Mining() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'مصنع التعدين | المرعي جروب' : 'Mining Factory | El-Maraei Group'}</title>
+        <title>{language === 'ar' ? ' المرعي لي مصنع التعدين | المرعي جروب' : 'El-Maraei for Mining Factory | El-Maraei Group'}</title>
         <meta name="description" content={language === 'ar' ? 'معالجة معادن مستدامة واستخراج. تكنولوجيا متقدمة تلبي أعلى معايير السلامة والبيئة' : 'Sustainable mineral processing and extraction. Advanced technology meeting highest safety and environmental standards'} />
         <meta property="og:title" content={language === 'ar' ? 'مصنع التعدين | المرعي جروب' : 'Mining Factory | El-Maraei Group'} />
         <meta property="og:description" content={language === 'ar' ? 'معالجة معادن مستدامة بأعلى معايير السلامة والبيئة' : 'Sustainable mineral processing with highest safety and environmental standards'} />
@@ -68,7 +68,7 @@ export default function Mining() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Mountain className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'Mining Factory', ar: 'مصنع التعدين' })}
+            {t({ en: 'El-Maraei for Mining Factory', ar: 'المرعي لي مصنع التعدين' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 

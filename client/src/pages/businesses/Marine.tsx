@@ -58,7 +58,7 @@ export default function Marine() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'الأشغال البحرية | المرعي جروب' : 'Marine Works | El-Maraei Group'}</title>
+        <title>{language === 'ar' ? 'المرعي لي الأشغال البحرية | المرعي جروب' : 'El-Maraei for Marine Works | El-Maraei Group'}</title>
         <meta name="description" content={language === 'ar' ? 'هندسة ساحلية وبناء موانئ وتطوير بنية تحتية بحرية من قبل خبراء الصناعة' : 'Coastal engineering, harbor construction, and marine infrastructure development by industry experts'} />
         <meta property="og:title" content={language === 'ar' ? 'الأشغال البحرية | المرعي جروب' : 'Marine Works | El-Maraei Group'} />
         <meta property="og:description" content={language === 'ar' ? 'هندسة ساحلية وبناء موانئ وتطوير بنية تحتية بحرية' : 'Coastal engineering, harbor construction, and marine infrastructure development'} />
@@ -74,7 +74,7 @@ export default function Marine() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Waves className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'Marine Works', ar: 'الأشغال البحرية' })}
+            {t({ en: 'El-Maraei for Marine Works', ar: 'المرعي لي الأشغال البحرية' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 

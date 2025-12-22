@@ -51,9 +51,9 @@ export default function Shipping() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'التوكيلات الملاحية | المرعي جروب' : 'Shipping Agency | El-Maraei Group'}</title>
+        <title>{language === 'ar' ? 'المرعي لي التوكيلات الملاحية | المرعي جروب' : 'El-Maraei for Shipping Agency | El-Maraei Group'}</title>
         <meta name="description" content={language === 'ar' ? 'حلول شحن بحري احترافية وخدمات وكالة موانئ عبر الموانئ المصرية الرئيسية' : 'Professional maritime shipping solutions and port agency services across major Egyptian ports'} />
-        <meta property="og:title" content={language === 'ar' ? 'التوكيلات الملاحية | المرعي جروب' : 'Shipping Agency | El-Maraei Group'} />
+        <meta property="og:title" content={language === 'ar' ? 'المرعي لي التوكيلات الملاحية | المرعي جروب' : 'El-Maraei for Shipping Agency | El-Maraei Group'} />
         <meta property="og:description" content={language === 'ar' ? 'حلول شحن بحري احترافية وخدمات وكالة موانئ' : 'Professional maritime shipping and port agency services'} />
       </Helmet>
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
@@ -67,7 +67,7 @@ export default function Shipping() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Ship className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'Shipping Agency', ar: 'التوكيلات الملاحية' })}
+            {t({ en: 'El-Maraei for Shipping Agency', ar: 'المرعي لي التوكيلات الملاحية' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 

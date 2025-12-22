@@ -54,7 +54,7 @@ export default function Trade() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'التجارة والوكالات | المرعي جروب' : 'Trade & Agency | El-Maraei Group'}</title>
+        <title>{language === 'ar' ? 'المرعي لي التجارة والوكالات | المرعي جروب' : 'El-Maraei for Trade & Agency | El-Maraei Group'}</title>
         <meta name="description" content={language === 'ar' ? 'خدمات تمثيل التجارة الدولية والوكالات التجارية. بوابتك إلى الأسواق المصرية والعالمية' : 'International trade representation and business agency services. Your gateway to Egyptian and global markets'} />
         <meta property="og:title" content={language === 'ar' ? 'التجارة والوكالات | المرعي جروب' : 'Trade & Agency | El-Maraei Group'} />
         <meta property="og:description" content={language === 'ar' ? 'خدمات تمثيل التجارة الدولية والوكالات التجارية' : 'International trade representation and business agency services'} />
@@ -70,7 +70,7 @@ export default function Trade() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Handshake className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'Trade & Agency', ar: 'التجارة والوكالات' })}
+            {t({ en: 'El-Maraei for Trade & Agency', ar: 'المرعي لي التجارة والوكالات' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 
