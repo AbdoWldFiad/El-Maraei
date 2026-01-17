@@ -10,7 +10,7 @@ export default function Shipping() {
   const services = [
     {
       icon: Ship,
-      title: { en: 'El-Maraei for Vessel Agency', ar: ' المرعي لي وكالة السفن' },
+      title: { en: 'El-Maraei for Vessel Agency', ar: ' المرعي لوكالة السفن' },
       description: { en: 'Complete port agency services for all vessel types', ar: 'خدمات وكالة موانئ كاملة لجميع أنواع السفن' },
     },
     {
@@ -51,9 +51,9 @@ export default function Shipping() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'المرعي لي التوكيلات الملاحية | المرعي جروب' : 'El-Maraei for Shipping Agency | El-Maraei Group'}</title>
+        <title>{language === 'ar' ? 'المرعي للتوكيلات الملاحية | المرعي جروب' : 'El-Maraei for Shipping Agency | El-Maraei Group'}</title>
         <meta name="description" content={language === 'ar' ? 'حلول شحن بحري احترافية وخدمات وكالة موانئ عبر الموانئ المصرية الرئيسية' : 'Professional maritime shipping solutions and port agency services across major Egyptian ports'} />
-        <meta property="og:title" content={language === 'ar' ? 'المرعي لي التوكيلات الملاحية | المرعي جروب' : 'El-Maraei for Shipping Agency | El-Maraei Group'} />
+        <meta property="og:title" content={language === 'ar' ? 'المرعي للتوكيلات الملاحية | المرعي جروب' : 'El-Maraei for Shipping Agency | El-Maraei Group'} />
         <meta property="og:description" content={language === 'ar' ? 'حلول شحن بحري احترافية وخدمات وكالة موانئ' : 'Professional maritime shipping and port agency services'} />
       </Helmet>
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
@@ -67,7 +67,7 @@ export default function Shipping() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Ship className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'El-Maraei for Shipping Agency', ar: 'المرعي لي التوكيلات الملاحية' })}
+            {t({ en: 'El-Maraei for Shipping Agency', ar: 'المرعي للتوكيلات الملاحية' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 

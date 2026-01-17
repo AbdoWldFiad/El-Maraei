@@ -1,13 +1,13 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { storage } from "./storage.ts";
 import {
   insertNewsArticleSchema,
   insertJobListingSchema,
   insertCareerApplicationSchema,
   insertContactSubmissionSchema,
   insertAppointmentSchema,
-} from "@shared/schema";
+} from "@shared/schema.ts";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/news", async (_req, res) => {

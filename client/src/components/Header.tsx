@@ -3,6 +3,7 @@ import { Link, useLocation } from 'wouter';
 import { Menu, X, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import logo from "../../favicon.png";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,7 +49,7 @@ export function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
-              <img src="/favicon.png" style={{ width: '50px', height: '50px' }}/>
+              <img src={logo} style={{ width: '50px', height: '50px' }}/>
               <Link href="/" data-testid="link-home">
                 <span className="text-xl font-bold text-primary-foreground">
                   {t({ en: 'El-Maraei Group', ar: 'المرعي جروب' })}

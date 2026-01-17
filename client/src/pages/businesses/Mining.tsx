@@ -10,7 +10,7 @@ export default function Mining() {
   const services = [
     {
       icon: Mountain,
-      title: { en: 'El-Maraei for Mineral Extraction', ar: 'المرعي لي استخراج المعادن' },
+      title: { en: 'El-Maraei for Mineral Extraction', ar: 'المرعي لأستخراج المعادن' },
       description: { en: 'Advanced mining operations and ore extraction', ar: 'عمليات تعدين متقدمة واستخراج الخامات' },
     },
     {
@@ -68,7 +68,7 @@ export default function Mining() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Mountain className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'El-Maraei for Mining Factory', ar: 'المرعي لي مصنع التعدين' })}
+            {t({ en: 'El-Maraei for Mining Factory', ar: 'المرعي لمصانع التعدين' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 

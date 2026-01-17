@@ -10,7 +10,7 @@ export default function Trade() {
   const services = [
     {
       icon: Handshake,
-      title: { en: 'El-Maraei for Business Representation', ar: 'المرعي لي تمثيل الأعمال' },
+      title: { en: 'El-Maraei for Business Representation', ar: 'المرعي لتمثيل الأعمال' },
       description: { en: 'Professional representation for international brands in Egypt', ar: 'تمثيل احترافي للعلامات التجارية الدولية في مصر' },
     },
     {
@@ -70,7 +70,7 @@ export default function Trade() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Handshake className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'El-Maraei for Trade & Agency', ar: 'المرعي لي التجارة والوكالات' })}
+            {t({ en: 'El-Maraei for Trade & Agency', ar: 'المرعي للتجارة والوكالات' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 

@@ -10,7 +10,7 @@ export default function Marine() {
   const services = [
     {
       icon: Building,
-      title: { en: 'El-Maraei for Harbor Construction', ar: ' المرعي لي بناء الموانئ' },
+      title: { en: 'El-Maraei for Harbor Construction', ar: ' المرعي لبناء الموانئ' },
       description: { en: 'Design and construction of modern harbor facilities', ar: 'تصميم وبناء مرافق موانئ حديثة' },
     },
     {
@@ -74,7 +74,7 @@ export default function Marine() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Waves className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'El-Maraei for Marine Works', ar: 'المرعي لي الأشغال البحرية' })}
+            {t({ en: 'El-Maraei for Marine Works', ar: 'المرعي للأشغال البحرية' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 
