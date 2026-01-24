@@ -10,7 +10,7 @@ export default function Marine() {
   const services = [
     {
       icon: Building,
-      title: { en: 'El-Maraei for Harbor Construction', ar: ' المرعي لبناء الموانئ' },
+      title: { en: 'El maraie for Harbor Construction', ar: ' المرعي لبناء الموانئ' },
       description: { en: 'Design and construction of modern harbor facilities', ar: 'تصميم وبناء مرافق موانئ حديثة' },
     },
     {
@@ -58,9 +58,9 @@ export default function Marine() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'المرعي لي الأشغال البحرية | المرعي جروب' : 'El-Maraei for Marine Works | El-Maraei Group'}</title>
+        <title>{language === 'ar' ? 'المرعي لي الأشغال البحرية | المرعي جروب' : 'El maraie for Marine Works | El maraie Group'}</title>
         <meta name="description" content={language === 'ar' ? 'هندسة ساحلية وبناء موانئ وتطوير بنية تحتية بحرية من قبل خبراء الصناعة' : 'Coastal engineering, harbor construction, and marine infrastructure development by industry experts'} />
-        <meta property="og:title" content={language === 'ar' ? 'الأشغال البحرية | المرعي جروب' : 'Marine Works | El-Maraei Group'} />
+        <meta property="og:title" content={language === 'ar' ? 'الأشغال البحرية | المرعي جروب' : 'Marine Works | El maraie Group'} />
         <meta property="og:description" content={language === 'ar' ? 'هندسة ساحلية وبناء موانئ وتطوير بنية تحتية بحرية' : 'Coastal engineering, harbor construction, and marine infrastructure development'} />
       </Helmet>
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
@@ -74,7 +74,7 @@ export default function Marine() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Waves className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'El-Maraei for Marine Works', ar: 'المرعي للأشغال البحرية' })}
+            {t({ en: 'El maraie for Marine Works', ar: 'المرعي للأشغال البحرية' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 
@@ -93,7 +93,7 @@ export default function Marine() {
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {t({ 
-                en: 'El-Maraei Marine Works specializes in coastal engineering, harbor construction, and marine infrastructure development. Our team of experts delivers innovative solutions for complex maritime projects.', 
+                en: 'El maraie Marine Works specializes in coastal engineering, harbor construction, and marine infrastructure development. Our team of experts delivers innovative solutions for complex maritime projects.', 
                 ar: 'تتخصص أشغال المرعي البحرية في الهندسة الساحلية وبناء الموانئ وتطوير البنية التحتية البحرية. يقدم فريق خبرائنا حلولاً مبتكرة للمشاريع البحرية المعقدة.' 
               })}
             </p>

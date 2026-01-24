@@ -37,10 +37,10 @@ export default function News() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'آخر الأخبار والتحديثات | المرعي جروب' : 'Latest News & Updates | El-Maraei Group'}</title>
-        <meta name="description" content={language === 'ar' ? 'ابق على اطلاع بآخر تطورات المرعي جروب وإنجازاتها ورؤى الصناعة عبر جميع قطاعات أعمالنا' : 'Stay informed about El-Maraei Group\'s latest developments, achievements, and industry insights across all business sectors'} />
-        <meta property="og:title" content={language === 'ar' ? 'آخر الأخبار والتحديثات | المرعي جروب' : 'Latest News & Updates | El-Maraei Group'} />
-        <meta property="og:description" content={language === 'ar' ? 'ابق على اطلاع بآخر تطورات وإنجازات المرعي جروب' : 'Stay informed about El-Maraei Group\'s latest developments and achievements'} />
+        <title>{language === 'ar' ? 'آخر الأخبار والتحديثات | المرعي جروب' : 'Latest News & Updates | El maraie Group'}</title>
+        <meta name="description" content={language === 'ar' ? 'ابق على اطلاع بآخر تطورات المرعي جروب وإنجازاتها ورؤى الصناعة عبر جميع قطاعات أعمالنا' : 'Stay informed about El maraie Group\'s latest developments, achievements, and industry insights across all business sectors'} />
+        <meta property="og:title" content={language === 'ar' ? 'آخر الأخبار والتحديثات | المرعي جروب' : 'Latest News & Updates | El maraie Group'} />
+        <meta property="og:description" content={language === 'ar' ? 'ابق على اطلاع بآخر تطورات وإنجازات المرعي جروب' : 'Stay informed about El maraie Group\'s latest developments and achievements'} />
       </Helmet>
       <section className="bg-primary text-primary-foreground py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

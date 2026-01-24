@@ -46,7 +46,7 @@ export default function About() {
       year: '1998',
       title: { en: 'Company Founded', ar: 'تأسيس الشركة' },
       description: { 
-        en: 'El-Maraei Group established with a vision for excellence.', 
+        en: 'El maraie Group established with a vision for excellence.', 
         ar: 'تأسست مجموعة المرعي برؤية للتميز.' 
       },
     },
@@ -79,20 +79,20 @@ export default function About() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'عن المرعي جروب | مجموعة الأعمال الرائدة في مصر' : 'About Us | El-Maraei Group'}</title>
+        <title>{language === 'ar' ? 'عن المرعي جروب | مجموعة الأعمال الرائدة في مصر' : 'About Us | El maraie Group'}</title>
         <meta name="description" content={language === 'ar' ? 'اكتشف رحلتنا وقيمنا ورؤيتنا. أكثر من 25 عامًا من التميز في الأعمال المصرية عبر صناعات متعددة' : 'Discover our journey, values, and vision. Over 25 years of excellence in Egyptian business across multiple industries'} />
-        <meta property="og:title" content={language === 'ar' ? 'عن المرعي جروب | مجموعة الأعمال الرائدة في مصر' : 'About Us | El-Maraei Group'} />
+        <meta property="og:title" content={language === 'ar' ? 'عن المرعي جروب | مجموعة الأعمال الرائدة في مصر' : 'About Us | El maraie Group'} />
         <meta property="og:description" content={language === 'ar' ? 'اكتشف رحلتنا وقيمنا ورؤيتنا. أكثر من 25 عامًا من التميز في الأعمال المصرية' : 'Our journey, values, and vision. Over 25 years of excellence in Egyptian business'} />
       </Helmet>
       <section className="bg-primary text-primary-foreground py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              {t({ en: 'About El-Maraei Group', ar: 'عن المرعي جروب' })}
+              {t({ en: 'About El maraie Group', ar: 'عن المرعي جروب' })}
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed">
               {t({ 
-                en: 'Founded in 1998, El-Maraei Group has grown to become one of Egypt\'s most respected business conglomerates, with a diverse portfolio spanning healthcare, maritime services, construction, mining, and international trade.', 
+                en: 'Founded in 1998, El maraie Group has grown to become one of Egypt\'s most respected business conglomerates, with a diverse portfolio spanning healthcare, maritime services, construction, mining, and international trade.', 
                 ar: 'تأسست مجموعة المرعي في عام 1998، ونمت لتصبح واحدة من أكثر تكتلات الأعمال احترامًا في مصر، مع محفظة متنوعة تشمل الرعاية الصحية والخدمات البحرية والإنشاءات والتعدين والتجارة الدولية.' 
               })}
             </p>

@@ -104,7 +104,7 @@ const departments: Department[] = [
 
 
 
-  // 🔥 COLLAPSE STATE FOR DEPARTMENTS
+  // COLLAPSE STATE FOR DEPARTMENTS
   const [open, setOpen] = useState(Array(departments.length).fill(false));
 
   const toggle = (i: number) => {
@@ -119,7 +119,7 @@ const departments: Department[] = [
         <title>
           {language === 'ar'
             ? 'المركز الطبي | المرعي جروب'
-            : 'Medical Center | El-Maraei Group'}
+            : 'Medical Center | El maraie Group'}
         </title>
       </Helmet>
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
@@ -133,7 +133,7 @@ const departments: Department[] = [
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Stethoscope className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'El-Maraei for Medical Center', ar:' العيادات الطبية الحديثة' })}
+            {t({ en: 'El maraie for Medical Center', ar:' العيادات الطبية الحديثة' })}
           </h1>
         </div>
       </section>
@@ -141,9 +141,6 @@ const departments: Department[] = [
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">
-              {t({ en: "About Our Medical Center", ar: "عن مركزنا الطبي" })}
-            </h2>
             <div className="space-y-8">
               <AboutIntroCard t={t} />
               <InstallmentInfoCard t={t} />

@@ -106,8 +106,8 @@ const onSubmit = async (data: any) => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'اتصل بنا | المرعي جروب' : 'Contact Us | El-Maraei Group'}</title>
-        <meta name="description" content={language === 'ar' ? 'تواصل مع المرعي جروب. نحن هنا للمساعدة في استفساراتك عبر جميع أقسام أعمالنا' : 'Get in touch with El-Maraei Group. We\'re here to help with inquiries across all our business divisions'} />
+        <title>{language === 'ar' ? 'اتصل بنا | المرعي جروب' : 'Contact Us | El maraie Group'}</title>
+        <meta name="description" content={language === 'ar' ? 'تواصل مع المرعي جروب. نحن هنا للمساعدة في استفساراتك عبر جميع أقسام أعمالنا' : 'Get in touch with El maraie Group. We\'re here to help with inquiries across all our business divisions'} />
       </Helmet>
       <section className="bg-primary text-primary-foreground py-16">
         <div className="mx-auto max-w-7xl px-4 text-center">
@@ -269,10 +269,10 @@ const onSubmit = async (data: any) => {
                 <CardContent className="p-0">
                   <div className="aspect-video bg-muted rounded-md overflow-hidden">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55251.37706308143!2d31.233334!3d30.044444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2sCairo%2C%20Egypt!5e0!3m2!1sen!2s!4v1234567890"
+                      src="https://www.google.com/maps?q=29.9689246,32.54865&z=17&output=embed"
                       width="100%" height="100%" style={{ border: 0 }}
                       allowFullScreen loading="lazy"
-                      title="El-Maraei Group Location"
+                      title="El maraie Group Location"
                     ></iframe>
                   </div>
                 </CardContent>

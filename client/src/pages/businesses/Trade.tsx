@@ -10,7 +10,7 @@ export default function Trade() {
   const services = [
     {
       icon: Handshake,
-      title: { en: 'El-Maraei for Business Representation', ar: 'المرعي لتمثيل الأعمال' },
+      title: { en: 'El maraie for Business Representation', ar: 'المرعي لتمثيل الأعمال' },
       description: { en: 'Professional representation for international brands in Egypt', ar: 'تمثيل احترافي للعلامات التجارية الدولية في مصر' },
     },
     {
@@ -54,9 +54,9 @@ export default function Trade() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'المرعي لي التجارة والوكالات | المرعي جروب' : 'El-Maraei for Trade & Agency | El-Maraei Group'}</title>
+        <title>{language === 'ar' ? 'المرعي لي التجارة والوكالات | المرعي جروب' : 'El maraie for Trade & Agency | El maraie Group'}</title>
         <meta name="description" content={language === 'ar' ? 'خدمات تمثيل التجارة الدولية والوكالات التجارية. بوابتك إلى الأسواق المصرية والعالمية' : 'International trade representation and business agency services. Your gateway to Egyptian and global markets'} />
-        <meta property="og:title" content={language === 'ar' ? 'التجارة والوكالات | المرعي جروب' : 'Trade & Agency | El-Maraei Group'} />
+        <meta property="og:title" content={language === 'ar' ? 'التجارة والوكالات | المرعي جروب' : 'Trade & Agency | El maraie Group'} />
         <meta property="og:description" content={language === 'ar' ? 'خدمات تمثيل التجارة الدولية والوكالات التجارية' : 'International trade representation and business agency services'} />
       </Helmet>
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
@@ -70,7 +70,7 @@ export default function Trade() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Handshake className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'El-Maraei for Trade & Agency', ar: 'المرعي للتجارة والوكالات' })}
+            {t({ en: 'El maraie for Trade & Agency', ar: 'المرعي للتجارة والوكالات' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 
@@ -89,7 +89,7 @@ export default function Trade() {
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {t({ 
-                en: 'El-Maraei Trade & Agency serves as a trusted bridge between international businesses and the Egyptian market. With extensive experience and a robust network, we facilitate successful business partnerships and trade operations.', 
+                en: 'El maraie Trade & Agency serves as a trusted bridge between international businesses and the Egyptian market. With extensive experience and a robust network, we facilitate successful business partnerships and trade operations.', 
                 ar: 'تعمل شركة المرعي للتجارة والوكالات كجسر موثوق بين الشركات الدولية والسوق المصري. بفضل خبرتنا الواسعة وشبكتنا القوية، نسهل شراكات أعمال وعمليات تجارية ناجحة.' 
               })}
             </p>

@@ -52,7 +52,7 @@ export function Header() {
               <img src={logo} style={{ width: '50px', height: '50px' }}/>
               <Link href="/" data-testid="link-home">
                 <span className="text-xl font-bold text-primary-foreground">
-                  {t({ en: 'El-Maraei Group', ar: 'المرعي جروب' })}
+                  {t({ en: 'El maraie Group', ar: 'المرعي جروب' })}
                 </span>
               </Link>
             </div>

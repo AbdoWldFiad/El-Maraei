@@ -73,10 +73,10 @@ export default function NewsDetail() {
   return (
     <div className="min-h-screen py-16">
       <Helmet>
-        <title>{article ? (language === 'ar' ? `${article.titleAr} | المرعي جروب` : `${article.titleEn} | El-Maraei Group`) : (language === 'ar' ? 'مقال إخباري | المرعي جروب' : 'News Article | El-Maraei Group')}</title>
-        <meta name="description" content={article ? (language === 'ar' ? article.excerptAr : article.excerptEn) : (language === 'ar' ? 'اقرأ آخر الأخبار والتحديثات من المرعي جروب' : 'Read the latest news and updates from El-Maraei Group')} />
-        <meta property="og:title" content={article ? (language === 'ar' ? `${article.titleAr} | المرعي جروب` : `${article.titleEn} | El-Maraei Group`) : (language === 'ar' ? 'مقال إخباري | المرعي جروب' : 'News Article | El-Maraei Group')} />
-        <meta property="og:description" content={article ? (language === 'ar' ? article.excerptAr : article.excerptEn) : (language === 'ar' ? 'آخر الأخبار من المرعي جروب' : 'Latest news from El-Maraei Group')} />
+        <title>{article ? (language === 'ar' ? `${article.titleAr} | المرعي جروب` : `${article.titleEn} | El maraie Group`) : (language === 'ar' ? 'مقال إخباري | المرعي جروب' : 'News Article | El maraie Group')}</title>
+        <meta name="description" content={article ? (language === 'ar' ? article.excerptAr : article.excerptEn) : (language === 'ar' ? 'اقرأ آخر الأخبار والتحديثات من المرعي جروب' : 'Read the latest news and updates from El maraie Group')} />
+        <meta property="og:title" content={article ? (language === 'ar' ? `${article.titleAr} | المرعي جروب` : `${article.titleEn} | El maraie Group`) : (language === 'ar' ? 'مقال إخباري | المرعي جروب' : 'News Article | El maraie Group')} />
+        <meta property="og:description" content={article ? (language === 'ar' ? article.excerptAr : article.excerptEn) : (language === 'ar' ? 'آخر الأخبار من المرعي جروب' : 'Latest news from El maraie Group')} />
       </Helmet>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <Link href="/news">

@@ -66,17 +66,17 @@ export default function Businesses() {
         <title>
           {language === 'ar' 
             ? 'أعمالنا - المرعي جروب | خمسة قطاعات أعمال رائدة' 
-            : 'Our Businesses - El-Maraei Group | Five Leading Business Sectors'}
+            : 'Our Businesses - El maraie Group | Five Leading Business Sectors'}
         </title>
         <meta 
           name="description" 
           content={language === 'ar'
             ? 'استكشف قطاعات أعمال مجموعة المرعي الخمسة: المركز الطبي، التوكيلات الملاحية، الأشغال البحرية، مصنع التعدين، والتجارة والوكالات. نقدم خدمات متميزة في كل قطاع.'
-            : 'Explore El-Maraei Group\'s five business sectors: Medical Center, Shipping Agency, Marine Works, Mining Factory, and Trade & Agency. We deliver excellence across all divisions.'}
+            : 'Explore El maraie Group\'s five business sectors: Medical Center, Shipping Agency, Marine Works, Mining Factory, and Trade & Agency. We deliver excellence across all divisions.'}
         />
         <meta 
           property="og:title" 
-          content={language === 'ar' ? 'أعمالنا - المرعي جروب' : 'Our Businesses - El-Maraei Group'} 
+          content={language === 'ar' ? 'أعمالنا - المرعي جروب' : 'Our Businesses - El maraie Group'} 
         />
         <meta 
           property="og:description" 

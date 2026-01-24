@@ -150,10 +150,10 @@ const mutation = useMutation({
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'الوظائف | انضم إلى فريق المرعي جروب' : 'Careers | Join El-Maraei Group'}</title>
-        <meta name="description" content={language === 'ar' ? 'انضم إلى فريقنا في المرعي جروب. استكشف الفرص الوظيفية في الرعاية الصحية والملاحة والإنشاءات والتعدين والتجارة' : 'Join our team at El-Maraei Group. Explore career opportunities across healthcare, maritime, construction, mining, and trade'} />
-        <meta property="og:title" content={language === 'ar' ? 'الوظائف | انضم إلى فريق المرعي جروب' : 'Careers | Join El-Maraei Group'} />
-        <meta property="og:description" content={language === 'ar' ? 'استكشف الفرص الوظيفية في المرعي جروب عبر صناعات متعددة' : 'Explore career opportunities at El-Maraei Group across multiple industries'} />
+        <title>{language === 'ar' ? 'الوظائف | انضم إلى فريق المرعي جروب' : 'Careers | Join El maraie Group'}</title>
+        <meta name="description" content={language === 'ar' ? 'انضم إلى فريقنا في المرعي جروب. استكشف الفرص الوظيفية في الرعاية الصحية والملاحة والإنشاءات والتعدين والتجارة' : 'Join our team at El maraie Group. Explore career opportunities across healthcare, maritime, construction, mining, and trade'} />
+        <meta property="og:title" content={language === 'ar' ? 'الوظائف | انضم إلى فريق المرعي جروب' : 'Careers | Join El maraie Group'} />
+        <meta property="og:description" content={language === 'ar' ? 'استكشف الفرص الوظيفية في المرعي جروب عبر صناعات متعددة' : 'Explore career opportunities at El maraie Group across multiple industries'} />
       </Helmet>
       <section className="bg-primary text-primary-foreground py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -179,7 +179,7 @@ const mutation = useMutation({
             </h2>
             <p className="text-lg text-muted-foreground">
               {t({ 
-                en: 'At El-Maraei Group, we believe in nurturing talent and providing opportunities for growth across our diverse business portfolio.', 
+                en: 'At El maraie Group, we believe in nurturing talent and providing opportunities for growth across our diverse business portfolio.', 
                 ar: 'في مجموعة المرعي، نؤمن برعاية المواهب وتوفير فرص النمو عبر محفظتنا التجارية المتنوعة.' 
               })}
             </p>

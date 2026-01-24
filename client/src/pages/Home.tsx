@@ -73,9 +73,9 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'المرعي جروب - التميز في مختلف الصناعات' : 'El-Maraei Group - Excellence Across Industries'}</title>
+        <title>{language === 'ar' ? 'المرعي جروب - التميز في مختلف الصناعات' : 'El maraie Group - Excellence Across Industries'}</title>
         <meta name="description" content={language === 'ar' ? 'مجموعة أعمال مصرية رائدة في الرعاية الصحية والملاحة والإنشاءات والتعدين والتجارة الدولية منذ 1998' : 'Leading Egyptian business conglomerate in healthcare, maritime, construction, mining, and international trade since 1998'} />
-        <meta property="og:title" content={language === 'ar' ? 'المرعي جروب - التميز في مختلف الصناعات' : 'El-Maraei Group - Excellence Across Industries'} />
+        <meta property="og:title" content={language === 'ar' ? 'المرعي جروب - التميز في مختلف الصناعات' : 'El maraie Group - Excellence Across Industries'} />
         <meta property="og:description" content={language === 'ar' ? 'مجموعة أعمال مصرية رائدة في الرعاية الصحية والملاحة والإنشاءات والتعدين والتجارة الدولية' : 'Leading Egyptian conglomerate in healthcare, maritime, construction, mining, and international trade'} />
       </Helmet>
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden"> 
@@ -89,7 +89,7 @@ export default function Home() {
           <img src={logo} alt="Company Logo" width={140} height={140} style={{ display: "block", margin: "0 auto" }}/>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
             {t({ 
-              en: 'El-Maraei Group', 
+              en: 'El maraie Group', 
               ar: 'المرعي جروب' 
             })}
           </h1>
@@ -188,7 +188,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                {t({ en: 'Why Choose El-Maraei Group', ar: 'لماذا تختار المرعي جروب' })}
+                {t({ en: 'Why Choose El maraie Group', ar: 'لماذا تختار المرعي جروب' })}
               </h2>
               <div className="space-y-4">
                 <div className="flex gap-4">
@@ -268,7 +268,7 @@ export default function Home() {
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             {t({ 
-              en: 'Discover how El-Maraei Group can help your business grow and succeed.', 
+              en: 'Discover how El maraie Group can help your business grow and succeed.', 
               ar: 'اكتشف كيف يمكن لمجموعة المرعي مساعدة عملك على النمو والنجاح.' 
             })}
           </p>

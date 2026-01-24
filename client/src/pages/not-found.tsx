@@ -10,9 +10,9 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/30">
       <Helmet>
-        <title>{language === 'ar' ? 'الصفحة غير موجودة | المرعي جروب' : 'Page Not Found | El-Maraei Group'}</title>
-        <meta name="description" content={language === 'ar' ? 'الصفحة التي تبحث عنها غير موجودة. العودة إلى الصفحة الرئيسية للمرعي جروب' : 'The page you\'re looking for cannot be found. Return to El-Maraei Group homepage'} />
-        <meta property="og:title" content={language === 'ar' ? 'الصفحة غير موجودة | المرعي جروب' : 'Page Not Found | El-Maraei Group'} />
+        <title>{language === 'ar' ? 'الصفحة غير موجودة | المرعي جروب' : 'Page Not Found | El maraie Group'}</title>
+        <meta name="description" content={language === 'ar' ? 'الصفحة التي تبحث عنها غير موجودة. العودة إلى الصفحة الرئيسية للمرعي جروب' : 'The page you\'re looking for cannot be found. Return to El maraie Group homepage'} />
+        <meta property="og:title" content={language === 'ar' ? 'الصفحة غير موجودة | المرعي جروب' : 'Page Not Found | El maraie Group'} />
         <meta property="og:description" content={language === 'ar' ? 'الصفحة التي تبحث عنها غير موجودة' : 'The page you\'re looking for cannot be found'} />
       </Helmet>
       <div className="text-center px-4 max-w-2xl">

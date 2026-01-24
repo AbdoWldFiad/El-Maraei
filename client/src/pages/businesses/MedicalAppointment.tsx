@@ -92,7 +92,7 @@ export default function MedicalAppointment() {
               </h2>
               <p className="text-muted-foreground mb-6">
                 {t({ 
-                  en: 'Thank you for booking an appointment with El-Maraei Medical Center. We will contact you shortly to confirm your appointment details.', 
+                  en: 'Thank you for booking an appointment with El maraie Medical Center. We will contact you shortly to confirm your appointment details.', 
                   ar: 'شكرًا لحجز موعد مع المركز الطبي للمرعي. سنتصل بك قريبًا لتأكيد تفاصيل موعدك.' 
                 })}
               </p>
@@ -109,10 +109,10 @@ export default function MedicalAppointment() {
   return (
     <div className="min-h-screen py-16 bg-muted/30">
       <Helmet>
-        <title>{language === 'ar' ? 'احجز موعد | المركز الطبي | المرعي جروب' : 'Book Appointment | Medical Center | El-Maraei Group'}</title>
-        <meta name="description" content={language === 'ar' ? 'احجز موعدك الطبي مع المركز الطبي للمرعي. رعاية متخصصة عبر تخصصات متعددة' : 'Schedule your medical appointment with El-Maraei Medical Center. Expert care across multiple specialties'} />
-        <meta property="og:title" content={language === 'ar' ? 'احجز موعد | المركز الطبي | المرعي جروب' : 'Book Appointment | Medical Center | El-Maraei Group'} />
-        <meta property="og:description" content={language === 'ar' ? 'احجز موعدك الطبي مع المركز الطبي للمرعي' : 'Schedule your medical appointment with El-Maraei Medical Center'} />
+        <title>{language === 'ar' ? 'احجز موعد | المركز الطبي | المرعي جروب' : 'Book Appointment | Medical Center | El maraie Group'}</title>
+        <meta name="description" content={language === 'ar' ? 'احجز موعدك الطبي مع المركز الطبي للمرعي. رعاية متخصصة عبر تخصصات متعددة' : 'Schedule your medical appointment with El maraie Medical Center. Expert care across multiple specialties'} />
+        <meta property="og:title" content={language === 'ar' ? 'احجز موعد | المركز الطبي | المرعي جروب' : 'Book Appointment | Medical Center | El maraie Group'} />
+        <meta property="og:description" content={language === 'ar' ? 'احجز موعدك الطبي مع المركز الطبي للمرعي' : 'Schedule your medical appointment with El maraie Medical Center'} />
       </Helmet>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">

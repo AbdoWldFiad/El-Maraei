@@ -10,7 +10,7 @@ export default function Shipping() {
   const services = [
     {
       icon: Ship,
-      title: { en: 'El-Maraei for Vessel Agency', ar: ' المرعي لوكالة السفن' },
+      title: { en: 'El maraie for Vessel Agency', ar: ' المرعي لوكالة السفن' },
       description: { en: 'Complete port agency services for all vessel types', ar: 'خدمات وكالة موانئ كاملة لجميع أنواع السفن' },
     },
     {
@@ -51,9 +51,9 @@ export default function Shipping() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>{language === 'ar' ? 'المرعي للتوكيلات الملاحية | المرعي جروب' : 'El-Maraei for Shipping Agency | El-Maraei Group'}</title>
+        <title>{language === 'ar' ? 'المرعي للتوكيلات الملاحية | المرعي جروب' : 'El maraie for Shipping Agency | El maraie Group'}</title>
         <meta name="description" content={language === 'ar' ? 'حلول شحن بحري احترافية وخدمات وكالة موانئ عبر الموانئ المصرية الرئيسية' : 'Professional maritime shipping solutions and port agency services across major Egyptian ports'} />
-        <meta property="og:title" content={language === 'ar' ? 'المرعي للتوكيلات الملاحية | المرعي جروب' : 'El-Maraei for Shipping Agency | El-Maraei Group'} />
+        <meta property="og:title" content={language === 'ar' ? 'المرعي للتوكيلات الملاحية | المرعي جروب' : 'El maraie for Shipping Agency | El maraie Group'} />
         <meta property="og:description" content={language === 'ar' ? 'حلول شحن بحري احترافية وخدمات وكالة موانئ' : 'Professional maritime shipping and port agency services'} />
       </Helmet>
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
@@ -67,7 +67,7 @@ export default function Shipping() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <Ship className="h-16 w-16 text-gold mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t({ en: 'El-Maraei for Shipping Agency', ar: 'المرعي للتوكيلات الملاحية' })}
+            {t({ en: 'El maraie for Shipping Agency', ar: 'المرعي للتوكيلات الملاحية' })}
           </h1>
           <p className="text-xl text-white/90">
             {t({ 
@@ -86,7 +86,7 @@ export default function Shipping() {
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {t({ 
-                en: 'El-Maraei Shipping Agency provides comprehensive maritime services across major Egyptian ports. With decades of experience, we ensure efficient and reliable shipping solutions for our clients worldwide.', 
+                en: 'El maraie Shipping Agency provides comprehensive maritime services across major Egyptian ports. With decades of experience, we ensure efficient and reliable shipping solutions for our clients worldwide.', 
                 ar: 'توفر وكالة المرعي للملاحة خدمات بحرية شاملة عبر الموانئ المصرية الرئيسية. بفضل عقود من الخبرة، نضمن حلول شحن فعالة وموثوقة لعملائنا في جميع أنحاء العالم.' 
               })}
             </p>

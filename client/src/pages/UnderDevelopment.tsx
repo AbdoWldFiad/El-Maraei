@@ -13,7 +13,7 @@ export default function NotFound() {
         <title>
           {language === 'ar'
             ? 'الصفحة تحت التطوير | المرعي جروب'
-            : 'Still Under Development | El-Maraei Group'}
+            : 'Still Under Development | El maraie Group'}
         </title>
 
         <meta
@@ -30,7 +30,7 @@ export default function NotFound() {
           content={
             language === 'ar'
               ? 'الصفحة تحت التطوير | المرعي جروب'
-              : 'Still Under Development | El-Maraei Group'
+              : 'Still Under Development | El maraie Group'
           }
         />
 

@@ -26,7 +26,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4 text-gold">
-              {t({ en: 'El-Maraei Group', ar: 'المرعي جروب' })}
+              {t({ en: 'El maraie Group', ar: 'المرعي جروب' })}
             </h3>
             <p className="text-sm text-primary-foreground/80 mb-4">
               {t({ 
@@ -102,7 +102,7 @@ export function Footer() {
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/60">
           <p>
             {t({ 
-              en: `© ${new Date().getFullYear()} El-Maraei Group. All rights reserved.`, 
+              en: `© ${new Date().getFullYear()} El maraie Group. All rights reserved.`, 
               ar: `© ${new Date().getFullYear()} المرعي جروب. جميع الحقوق محفوظة.` 
             })}
           </p>
