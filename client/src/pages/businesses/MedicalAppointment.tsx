@@ -14,6 +14,7 @@ import { Helmet } from 'react-helmet-async';
 import { insertAppointmentSchema } from '@shared/schema';
 import { useMutation } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
+import { sendAppointmentEmail } from '@/extras/MedAppointmentSend';
 
 export default function MedicalAppointment() {
   const { t, language } = useLanguage();
@@ -35,7 +36,14 @@ export default function MedicalAppointment() {
 
   const mutation = useMutation({
     mutationFn: (data: any) => apiRequest('POST', '/api/appointments', data),
-    onSuccess: () => {
+    onSuccess: async (_res, data) => {
+      try {
+        await sendAppointmentEmail(data);
+      } catch (err) {
+        console.error('EmailJS failed:', err);
+        // optional: show a warning toast, but don’t block success
+      }
+
       setIsSubmitted(true);
       toast({
         title: t({ en: 'Appointment Booked', ar: 'تم حجز الموعد' }),
@@ -44,6 +52,7 @@ export default function MedicalAppointment() {
           ar: 'تم جدولة موعدك بنجاح.' 
         }),
       });
+
       form.reset();
     },
     onError: () => {
@@ -61,6 +70,7 @@ export default function MedicalAppointment() {
   const onSubmit = (data: any) => {
     mutation.mutate(data);
   };
+
 
   const departments = [
     { value: 'cardiology', label: { en: 'Cardiology', ar: 'أمراض القلب' } },
