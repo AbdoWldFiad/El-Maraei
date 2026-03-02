@@ -28,6 +28,7 @@ export function Header() {
         { name: { en: 'Marine Works', ar: 'الأشغال البحرية' }, href: '/businesses/marine' },
         { name: { en: 'Mining Factory', ar: 'مصنع التعدين' }, href: '/businesses/mining' },
         { name: { en: 'Trade & Agency', ar: 'التجارة والوكالات' }, href: '/businesses/trade' },
+        { name: { en: 'Midical Products', ar: ' منتجات طبية' }, href: '/businesses/midicalproduts' },
       ]
     },
     { 
