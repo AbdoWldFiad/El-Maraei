@@ -37,8 +37,7 @@ export const careerApplications = pgTable("career_applications", {
   fullName: text("full_name").notNull(),
   email: text("email").notNull(),
   phone: text("phone").notNull(),
-  cvFileName: text("cv_file_name").notNull(),
-  cvFileData: text("cv_file_data").notNull(),
+  cvFilePath: text("cv_file_name").notNull(),
   coverLetter: text("cover_letter"),
   submittedAt: timestamp("submitted_at").notNull().defaultNow(),
 });
@@ -81,7 +80,7 @@ export const insertCareerApplicationSchema = z.object({
   phone: z.string().min(10),
   coverLetter: z.string().optional(),
   jobId: z.string().uuid(),
-  cvFileName: z.string().optional(),
+  cvFilePath: z.string().optional(),
 });
 
 export const insertContactSubmissionSchema = createInsertSchema(contactSubmissions).omit({

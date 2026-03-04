@@ -150,6 +150,7 @@ export class MemStorage implements IStorage {
       this.newsArticles.set(id, {
         ...news,
         id,
+        imageUrl: news.imageUrl ?? null,
         publishedAt: new Date(),
       });
     });
@@ -179,6 +180,7 @@ export class MemStorage implements IStorage {
     const newArticle: NewsArticle = {
       ...article,
       id,
+      imageUrl: article.imageUrl ?? null,
       publishedAt: new Date(),
     };
     this.newsArticles.set(id, newArticle);
@@ -219,6 +221,8 @@ export class MemStorage implements IStorage {
     const newApplication: CareerApplication = {
       ...application,
       id,
+      cvFilePath: application.cvFilePath ?? "",
+      coverLetter: application.coverLetter ?? null,
       submittedAt: new Date(),
     };
     this.careerApplications.set(id, newApplication);
@@ -238,6 +242,7 @@ export class MemStorage implements IStorage {
     const newSubmission: ContactSubmission = {
       ...submission,
       id,
+      phone: submission.phone ?? null,
       submittedAt: new Date(),
     };
     this.contactSubmissions.set(id, newSubmission);
@@ -255,6 +260,7 @@ export class MemStorage implements IStorage {
     const newAppointment: Appointment = {
       ...appointment,
       id,
+      notes: appointment.notes ?? null,
       createdAt: new Date(),
     };
     this.appointments.set(id, newAppointment);

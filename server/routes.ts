@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage.ts";
+import { upload } from "./upload";
 import {
   insertNewsArticleSchema,
   insertJobListingSchema,
@@ -30,6 +31,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ error: "Failed to fetch news article" });
     }
   });
+
+    app.post( "/api/career-applications", upload.single("cvFile"), async (req, res) => {
+        try {
+          if (!req.file) {
+            return res.status(400).json({ error: "CV file is required" });
+          }
+          const newApplication = await storage.createCareerApplication({
+            fullName: req.body.fullName,
+            email: req.body.email,
+            phone: req.body.phone,
+            jobId: req.body.jobId,
+            coverLetter: req.body.coverLetter,
+            cvFilePath: req.file.path, 
+          });
+
+          res.json(newApplication);
+        } catch (error: any) {
+          res.status(400).json({ error: error.message });
+        }
+      }
+    );
 
   app.post("/api/news", async (req, res) => {
     try {

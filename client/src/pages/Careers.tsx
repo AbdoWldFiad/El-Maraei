@@ -77,7 +77,6 @@ const mutation = useMutation({
         jobTitle: job?.titleEn || 'Unknown Position',
         jobId: variables.jobId,
         coverLetter: variables.coverLetter,
-        cvFileName: variables.cvFile.name,
       });
     } catch (err) {
       console.error('EmailJS failed:', err);

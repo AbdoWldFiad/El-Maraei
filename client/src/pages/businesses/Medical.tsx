@@ -323,9 +323,7 @@ export default function Medical() {
                       </div>
                     ))
                   ) : (
-                    <p className="text-muted-foreground">
-                      {t({ en: "Coming Soon", ar: "قريبًا" })}
-                    </p>
+                    <p className="text-muted-foreground col-span-full text-center"> {t({ en: "Coming Soon", ar: "قريبًا" })}</p>
                   )}
                 </div>
               )}

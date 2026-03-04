@@ -9,8 +9,8 @@ type ApplicationEmailParams = {
   phone: string;
   jobTitle: string;
   jobId: string;
-  coverLetter?: string;
-  cvFileName?: string;
+  coverLetter?: string; 
+  cvFilePath?: string;
 };
 
 export const sendApplicationEmail = async (data: ApplicationEmailParams) => {
@@ -25,7 +25,7 @@ export const sendApplicationEmail = async (data: ApplicationEmailParams) => {
       jobTitle: data.jobTitle,
       jobId: data.jobId,
       coverLetter: data.coverLetter,
-      cvFileName: data.cvFileName,
+      cvFilePath: data.cvFilePath,
     },
   };
 

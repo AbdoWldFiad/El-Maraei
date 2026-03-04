@@ -24,11 +24,11 @@ export function Header() {
       href: '/businesses',
       submenu: [
         { name: { en: 'Medical Center', ar: 'المركز الطبي' }, href: '/businesses/medical' },
+        { name: { en: 'Midical Products', ar: ' منتجات طبية' }, href: '/businesses/midicalproduts' },
         { name: { en: 'Shipping Agency', ar: 'التوكيلات الملاحية' }, href: '/businesses/shipping' },
         { name: { en: 'Marine Works', ar: 'الأشغال البحرية' }, href: '/businesses/marine' },
         { name: { en: 'Mining Factory', ar: 'مصنع التعدين' }, href: '/businesses/mining' },
         { name: { en: 'Trade & Agency', ar: 'التجارة والوكالات' }, href: '/businesses/trade' },
-        { name: { en: 'Midical Products', ar: ' منتجات طبية' }, href: '/businesses/midicalproduts' },
       ]
     },
     { 

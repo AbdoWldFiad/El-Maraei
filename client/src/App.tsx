@@ -26,7 +26,7 @@ import UnderDevelop from "@/pages/UnderDevelopment"
 
 function Router() {
   return (
-    <>            {/* until the backend is ready */}
+    <>          
       <Header />
       <main className="flex-1">
         <Switch>
