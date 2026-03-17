@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { Stethoscope, Ship, Waves, Mountain, Handshake, ArrowRight, CircleMinusIcon } from 'lucide-react';
+import { Stethoscope, Ship, Waves, Mountain, Handshake, ArrowRight, CircleMinusIcon, Pill } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
@@ -59,8 +59,8 @@ export default function Businesses() {
       color: 'bg-chart-5',
     },
     {
-      icon: CircleMinusIcon,
-      name: { en: 'Midical Products', ar: ' منتجات طبية' },
+      icon: Pill,
+      name: { en: 'Medical Products', ar: ' منتجات طبية' },
       description: { 
         en: 'Specialized in coastal engineering, harbor construction, and marine infrastructure development. Our expert team delivers innovative solutions for complex maritime projects.', 
         ar: 'متخصصون في الهندسة الساحلية وبناء الموانئ وتطوير البنية التحتية البحرية. يقدم فريقنا المتخصص حلولاً مبتكرة للمشاريع البحرية المعقدة.' 

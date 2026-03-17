@@ -1,12 +1,12 @@
 import { Link } from "wouter";
-import { Stethoscope, Clock, Award, Users, Calendar, Phone, ChevronDown } from "lucide-react";
+import { Stethoscope, Clock, Award, Users, Calendar, Phone, ChevronDown, Key } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import medicalImage from "@assets/generated_images/Medical_center_interior_image_d55bb764.png";
-import doctorPlaceholder from "@assets/doctors/fallback.png";
+import { getDoctorImage } from "@/extras/doctorImages";
 
 import { AboutIntroCard } from "@/extras/AboutIntroCard";
 import { InstallmentInfoCard } from "@/extras/InstallmentInfoCard";
@@ -94,7 +94,7 @@ const departments: Department[] = [
       {
         en: "Dr. Emad Zohran",
         ar: "د. عماد زهران",
-        image: "/images/doctors/emad-zohran.png",
+        image: getDoctorImage("emad_zohran.jpeg"),
       },
     ],
   },
@@ -106,32 +106,32 @@ const departments: Department[] = [
       {
         en: "Dr. Yasmin Samir",
         ar: "د. ياسمين سمير",
-        image: "/images/doctors/yasmin-samir.png",
+        image: getDoctorImage("yasmen.jpeg"),
       },
       {
         en: "Dr. Osama Arafat",
         ar: "د. اسامة عرفات",
-        image: "/images/doctors/osama-arafat.png",
+        image: getDoctorImage("osama_farahat.jpeg"),
       },
       {
         en: "Dr. Basem Mohab",
         ar: "د. باسم مهاب",
-        image: "/images/doctors/basem-mohab.png",
+        image: getDoctorImage("bassem_hahap.jpeg"),
       },
       {
         en: "Dr. Mohamed Nagy",
         ar: "د. محمد ناجي",
-        image: "/images/doctors/mohamed-nagy.png",
+        image: getDoctorImage("mohamed_nagy.jpeg"),
       },
       {
         en: "Dr. Dalia",
         ar: "د. داليا",
-        image: "/images/doctors/dalia.png",
+        image: getDoctorImage("dalia.jpeg"),
       },
       {
-        en: "Dr. Ahmed Abdel Meguid",
+        en: "Dr. Ahmed Abdelhamid",
         ar: "د. احمد عبد المجيد",
-        image: "/images/doctors/ahmed-abdel-meguid.png",
+        image: getDoctorImage("ahmed_abdelhamed.jpeg"),
       },
     ],
   },
@@ -143,7 +143,7 @@ const departments: Department[] = [
       {
         en: "Dr. Amr Mohab",
         ar: "د. عمرو مهاب",
-        image: "/images/doctors/amr-mohab.png",
+        image: getDoctorImage("amr_mohab.jpeg"),
       },
     ],
   },
@@ -155,7 +155,7 @@ const departments: Department[] = [
       {
         en: "Dr. Islam Abdel Meguid",
         ar: "د. اسلام عبدالمجيد",
-        image: "/images/doctors/islam-abdel-meguid.png",
+        image: getDoctorImage("islam_abdel_meguid.jpeg"),
       },
     ],
   },
@@ -165,9 +165,9 @@ const departments: Department[] = [
     desc: { en: "", ar: "" },
     doctors: [
       {
-        en: "Dr. Mohamed El-Moselmani",
+        en: "Dr. Mohamed El_Moselmani",
         ar: "د. محمد المسلماني",
-        image: "/images/doctors/mohamed-moselmani.png",
+        image: getDoctorImage("mohamed_moselmani.jpeg"),
       },
     ],
   },
@@ -179,7 +179,7 @@ const departments: Department[] = [
       {
         en: "Aya Gamal",
         ar: "آية جمال",
-        image: "/images/doctors/aya-gamal.png",
+        image: getDoctorImage("aya_gamal.jpeg"),
       },
     ],
   },
@@ -191,7 +191,7 @@ const departments: Department[] = [
       {
         en: "Dr. Ahmed Emam",
         ar: "د. احمد امام",
-        image: "/images/doctors/ahmed-emam.png",
+        image: getDoctorImage("ahmed_emam.jpeg"),
       },
     ],
   },
@@ -203,7 +203,7 @@ const departments: Department[] = [
       {
         en: "Dr. Ali Said",
         ar: "د. علي سعيد",
-        image: "/images/doctors/ali-said.png",
+        image: getDoctorImage("ali_said.jpeg"),
       },
     ],
   },
@@ -215,7 +215,7 @@ const departments: Department[] = [
       {
         en: "Ezzat Khalaf",
         ar: "عزت خلف",
-        image: "/images/doctors/ezzat-khalaf.png",
+        image: getDoctorImage("ezzat_khalaf.jpeg"),
       },
     ],
   },
@@ -312,11 +312,11 @@ export default function Medical() {
                         className="flex items-center gap-4 border-b pb-3"
                       >
                         <img
-                          src={doc.image || doctorPlaceholder}
+                          src={doc.image || getDoctorImage("fallback.png")}
                           alt={doc.en}
                           className="w-14 h-14 rounded-full object-cover border"
                           onError={(e) => {
-                            e.currentTarget.src = doctorPlaceholder ;
+                            e.currentTarget.src = getDoctorImage("fallback.png");
                           }}
                         />
                         <span className="font-medium">{t(doc)}</span>

@@ -16,7 +16,7 @@ import Shipping from "@/pages/businesses/Shipping";
 import Marine from "@/pages/businesses/Marine";
 import Mining from "@/pages/businesses/Mining";
 import Trade from "@/pages/businesses/Trade";
-import MidicalProducts from "@/pages/businesses/MedicalProductsPage"
+import MedicalProducts from "@/pages/businesses/MedicalProductsPage"
 import News from "@/pages/News";
 import NewsDetail from "@/pages/NewsDetail";
 import Careers from "@/pages/Careers";
@@ -36,7 +36,7 @@ function Router() {
           <Route path="/businesses/medical" component={Medical} />
           <Route path="/businesses/medical/appointment" component={MedicalAppointment} /> 
           <Route path="/businesses/shipping" component={Shipping} />
-          <Route path="/businesses/midicalproduts" component={MidicalProducts} />
+          <Route path="/businesses/midicalproduts" component={MedicalProducts} />
           <Route path="/businesses/marine" component={Marine} />
           <Route path="/businesses/mining" component={Mining} />    
           <Route path="/businesses/trade" component={Trade} />
