@@ -1,58 +1,34 @@
-import { Waves, Wrench, Building, Anchor, HardHat, TrendingUp } from 'lucide-react';
+import { Waves, Wrench, Building, Anchor, HardHat, TrendingUp, MailIcon } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import marineImage from '@assets/generated_images/Marine_works_construction_image_d652c626.png';
+import { useState } from 'react';
 
 export default function Marine() {
   const { t, language } = useLanguage();
 
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("elmaraie@elmaraie-marine-eg.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const services = [
-    {
-      icon: Building,
-      title: { en: 'El maraie for Harbor Construction', ar: ' المرعي لبناء الموانئ' },
-      description: { en: 'Design and construction of modern harbor facilities', ar: 'تصميم وبناء مرافق موانئ حديثة' },
-    },
-    {
-      icon: Anchor,
-      title: { en: 'Dredging Services', ar: 'خدمات التجريف' },
-      description: { en: 'Professional underwater excavation and maintenance', ar: 'حفر وصيانة تحت الماء احترافية' },
-    },
-    {
-      icon: Waves,
-      title: { en: 'Coastal Engineering', ar: 'الهندسة الساحلية' },
-      description: { en: 'Erosion control and coastal protection solutions', ar: 'حلول مكافحة التآكل وحماية السواحل' },
-    },
-    {
-      icon: Wrench,
-      title: { en: 'Marine Maintenance', ar: 'الصيانة البحرية' },
-      description: { en: 'Ongoing maintenance of maritime structures', ar: 'صيانة مستمرة للهياكل البحرية' },
-    },
-    {
-      icon: HardHat,
-      title: { en: 'Underwater Construction', ar: 'البناء تحت الماء' },
-      description: { en: 'Specialized submarine construction projects', ar: 'مشاريع بناء تحت الماء متخصصة' },
-    },
-    {
-      icon: TrendingUp,
-      title: { en: 'Infrastructure Development', ar: 'تطوير البنية التحتية' },
-      description: { en: 'Marine infrastructure planning and execution', ar: 'تخطيط وتنفيذ البنية التحتية البحرية' },
-    },
+    { icon: Building, title: { en: 'El maraie for Harbor Construction', ar: ' المرعي لبناء الموانئ' }, description: { en: 'Design and construction of modern harbor facilities', ar: 'تصميم وبناء مرافق موانئ حديثة' } },
+    { icon: Anchor, title: { en: 'Dredging Services', ar: 'خدمات التجريف' }, description: { en: 'Professional underwater excavation and maintenance', ar: 'حفر وصيانة تحت الماء احترافية' } },
+    { icon: Waves, title: { en: 'Coastal Engineering', ar: 'الهندسة الساحلية' }, description: { en: 'Erosion control and coastal protection solutions', ar: 'حلول مكافحة التآكل وحماية السواحل' } },
+    { icon: Wrench, title: { en: 'Marine Maintenance', ar: 'الصيانة البحرية' }, description: { en: 'Ongoing maintenance of maritime structures', ar: 'صيانة مستمرة للهياكل البحرية' } },
+    { icon: HardHat, title: { en: 'Underwater Construction', ar: 'البناء تحت الماء' }, description: { en: 'Specialized submarine construction projects', ar: 'مشاريع بناء تحت الماء متخصصة' } },
+    { icon: TrendingUp, title: { en: 'Infrastructure Development', ar: 'تطوير البنية التحتية' }, description: { en: 'Marine infrastructure planning and execution', ar: 'تخطيط وتنفيذ البنية التحتية البحرية' } },
   ];
 
   const projects = [
-    {
-      name: { en: 'Port Expansion Project', ar: 'مشروع توسعة الميناء' },
-      description: { en: 'Major harbor expansion in Alexandria', ar: 'توسعة كبرى للميناء في الإسكندرية' },
-    },
-    {
-      name: { en: 'Coastal Protection', ar: 'حماية السواحل' },
-      description: { en: 'Erosion prevention along Red Sea coast', ar: 'منع التآكل على طول ساحل البحر الأحمر' },
-    },
-    {
-      name: { en: 'Marina Development', ar: 'تطوير المارينا' },
-      description: { en: 'Luxury yacht marina construction', ar: 'بناء مارينا يخوت فاخرة' },
-    },
+    { name: { en: 'Port Expansion Project', ar: 'مشروع توسعة الميناء' }, description: { en: 'Major harbor expansion in Alexandria', ar: 'توسعة كبرى للميناء في الإسكندرية' } },
+    { name: { en: 'Coastal Protection', ar: 'حماية السواحل' }, description: { en: 'Erosion prevention along Red Sea coast', ar: 'منع التآكل على طول ساحل البحر الأحمر' } },
+    { name: { en: 'Marina Development', ar: 'تطوير المارينا' }, description: { en: 'Luxury yacht marina construction', ar: 'بناء مارينا يخوت فاخرة' } },
   ];
 
   return (
@@ -128,12 +104,8 @@ export default function Marine() {
                     <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center mb-4">
                       <Waves className="h-6 w-6 text-gold" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">
-                      {t(project.name)}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {t(project.description)}
-                    </p>
+                    <h3 className="text-lg font-semibold mb-2 text-foreground">{t(project.name)}</h3>
+                    <p className="text-sm text-muted-foreground">{t(project.description)}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -182,6 +154,24 @@ export default function Marine() {
               {t({ en: 'Contact Us', ar: 'اتصل بنا' })}
             </button>
           </a>
+          <div
+            onClick={handleCopy}
+            className="mt-6 mx-auto flex items-center justify-between gap-4 max-w-xl px-5 py-3 bg-muted/60 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:bg-muted transition-all duration-200 cursor-pointer group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-primary/10 rounded-md group-hover:bg-primary/20 transition">
+                <MailIcon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+              </div>
+
+              <span dir="ltr" className="text-sm font-medium">
+                elmaraie@elmaraie-marine-eg.com
+              </span>
+            </div>
+
+            <span className="text-xs text-muted-foreground group-hover:text-primary transition">
+              {copied ? "Copied!" : "Click to copy"}
+            </span>
+          </div>
         </div>
       </section>
     </div>

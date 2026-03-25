@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Stethoscope, Clock, Award, Users, Calendar, Phone, ChevronDown, Key } from "lucide-react";
+import { Stethoscope, Clock, Award, Users, Calendar, Phone, ChevronDown, Key, MessageSquare, MessageSquareCode, MessageSquareCodeIcon, MessageCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -351,9 +351,21 @@ export default function Medical() {
               </Button>
             </Link>
 
-            <div className="mt-6 flex justify-center items-center gap-3 text-sm">
-              <Phone className="h-5 w-5 text-gold" />
-              <span dir="ltr">+20 123 456 7890</span>
+            <div className="mt-6 flex justify-center items-center gap-6 text-sm">
+              <div className="flex items-center gap-2">
+                <Phone className="h-5 w-5 text-gold" />
+                <span dir="ltr">+20 01091044200</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Phone className="h-5 w-5 text-gold" />
+                <span dir="ltr">+20 1117966644</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <MessageCircle className="h-5 w-5 text-gold" />
+                <span dir="ltr">+20 1553101188</span>
+              </div>
             </div>
           </CardContent>
         </Card>

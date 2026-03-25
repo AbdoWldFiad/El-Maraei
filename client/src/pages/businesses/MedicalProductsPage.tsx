@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-/*import medicalStoreImage from "@assets/generated_images/Medical_store_banner.png";*/ /*TODO uncomment when ready*/ 
+import medicalStoreImage from "@assets/generated_images/mateo-hernandez-reyes-BGbLDm77t0M-unsplash.jpg"; /*TODO uncomment when ready*/ 
 import doctorPlaceholder from "@assets/products/fallback.png";
 
 type LocalizedString = { en: string; ar: string; };
@@ -53,7 +53,7 @@ export default function MedicalProducts() {
       {/* Hero */}
       <section
         className="relative h-[50vh] flex items-center justify-center bg-cover bg-center"
-        /*style={{ backgroundImage: `url(${medicalStoreImage})` }}*/ /*TODO uncomment when ready*/ 
+        style={{ backgroundImage: `url(${medicalStoreImage})` }} /*TODO uncomment when ready*/ 
       >
         <div className="absolute inset-0 bg-primary/70"></div>
         <h1 className="relative text-4xl md:text-5xl font-bold text-white">
