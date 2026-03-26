@@ -332,43 +332,66 @@ export default function Medical() {
         </div>
 
         {/* BOOK APPOINTMENT MOVED UNDER */}
-        <Card className="mt-16 bg-primary text-primary-foreground">
-          <CardContent className="p-8 text-center">
-            <Calendar className="h-12 w-12 text-gold mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-4">
-              {t({ en: "Book an Appointment", ar: "احجز موعد" })}
-            </h3>
-            <p className="mb-6">
-              {t({
-                en: "Schedule your visit with our expert medical team.",
-                ar: "حدد موعد زيارتك مع فريقنا الطبي المتخصص.",
-              })}
-            </p>
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Appointment Card */}
+          <div>
+            <h2 className="text-3xl font-bold mb-6">{t({ en: "Book an Appointment", ar: "احجز موعد" })}</h2>
+            <Card className="bg-primary text-primary-foreground">
+              <CardContent className="p-8 text-center">
+                <Calendar className="h-12 w-12 text-gold mx-auto mb-4" />
 
-            <Link href="/businesses/medical/appointment">
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90">
-                {t({ en: "Book Now", ar: "احجز الآن" })}
-              </Button>
-            </Link>
+                <p className="mb-6">
+                  {t({
+                    en: "Schedule your visit with our expert medical team.",
+                    ar: "حدد موعد زيارتك مع فريقنا الطبي المتخصص.",
+                  })}
+                </p>
 
-            <div className="mt-6 flex justify-center items-center gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <Phone className="h-5 w-5 text-gold" />
-                <span dir="ltr">+20 01091044200</span>
-              </div>
+                <Link href="/businesses/medical/appointment">
+                  <Button className="bg-gold text-gold-foreground hover:bg-gold/90">
+                    {t({ en: "Book Now", ar: "احجز الآن" })}
+                  </Button>
+                </Link>
 
-              <div className="flex items-center gap-2">
-                <Phone className="h-5 w-5 text-gold" />
-                <span dir="ltr">+20 1117966644</span>
-              </div>
+                <div className="mt-6 flex flex-wrap justify-center items-center gap-6 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-5 w-5 text-gold" />
+                    <span dir="ltr">+20 01091044200</span>
+                  </div>
 
-              <div className="flex items-center gap-2">
-                <MessageCircle className="h-5 w-5 text-gold" />
-                <span dir="ltr">+20 1553101188</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-5 w-5 text-gold" />
+                    <span dir="ltr">+20 1117966644</span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <MessageCircle className="h-5 w-5 text-gold" />
+                    <span dir="ltr">+20 1553101188</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          {/* Location Card */}
+          <div>
+              <h2 className="text-3xl font-bold mb-6">{t({ en: 'Our Location', ar: 'موقعنا' })}</h2>
+            <Card>
+              <CardContent className="p-0">
+                <div className="aspect-video bg-muted rounded-md overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps?q=29.9689246,32.54865&z=17&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    title="El maraie Group Location"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
 
         <MedicalContactSection t={t} />
       </section>
