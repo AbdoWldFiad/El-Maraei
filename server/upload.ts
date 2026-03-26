@@ -24,18 +24,19 @@ const storage = multer.diskStorage({
     const fullName = req.body.fullName || "unknown";
     const safeName = sanitizeFileName(fullName);
 
-    const uniqueName = `${safeName}-${Date.now()}.pdf`;
+    const ext = path.extname(file.originalname) || ".pdf";
+    const uniqueName = `${safeName}-${Date.now()}${ext}`;
 
     cb(null, uniqueName);
   },
 });
 
 const fileFilter: multer.Options["fileFilter"] = (req, file, cb) => {
-  if (file.mimetype !== "application/pdf") {
-    cb(new Error("Only PDF files are allowed"));
-    return;
-  }
-  cb(null, true);
+if ( file.mimetype !== "application/pdf" || !file.originalname.toLowerCase().endsWith(".pdf"))
+  {
+  cb(new Error("Only PDF files are allowed"));
+  return;
+}
 };
 
 export const upload = multer({

@@ -14,7 +14,6 @@ import { Helmet } from 'react-helmet-async';
 import { insertContactSubmissionSchema } from '@shared/schema';
 import { useMutation } from '@tanstack/react-query';
 import { apiRequest, queryClient } from '@/lib/queryClient';
-import { sendEmail } from "@/extras/emailService"; 
 
 
 export default function Contact() {
@@ -37,46 +36,36 @@ export default function Contact() {
 
 
 
-  const mutation = useMutation({
-    mutationFn: (data: any) => apiRequest('POST', '/api/contact', data),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/contact'] });
-      toast({
-        title: t({ en: 'Message Sent', ar: 'تم إرسال الرسالة' }),
-        description: t({
-          en: 'Thank you for contacting us. We will get back to you soon.',
-          ar: 'شكرًا لتواصلك معنا. سنرد عليك قريبًا.'
-        }),
-      });
-      form.reset();
-    },
-    onError: () => {
-      toast({
-        title: t({ en: 'Error', ar: 'خطأ' }),
-        description: t({
-          en: 'Failed to send message. Please try again.',
-          ar: 'فشل إرسال الرسالة. يرجى المحاولة مرة أخرى.'
-        }),
-        variant: 'destructive',
-      });
-    },
-  });
+const mutation = useMutation({
+  mutationFn: (data: any) => apiRequest('POST', '/api/contact', data),
 
+  onSuccess: () => {
+    queryClient.invalidateQueries({ queryKey: ['/api/contact'] });
+
+    toast({
+      title: t({ en: 'Message Sent', ar: 'تم إرسال الرسالة' }),
+      description: t({
+        en: 'Thank you for contacting us. We will get back to you soon.',
+        ar: 'شكرًا لتواصلك معنا. سنرد عليك قريبًا.'
+      }),
+    });
+
+    form.reset();
+  },
+
+  onError: (error: any) => {
+    toast({
+      title: t({ en: 'Error', ar: 'خطأ' }),
+      description: error?.message || t({ en: 'Failed to send message.', ar: 'فشل إرسال الرسالة.' }),
+      variant: 'destructive',
+    });
+  },
+});
 
 const onSubmit = async (data: any) => {
   setIsSendingEmail(true);
 
   try {
-    await sendEmail(data);
-
-    toast({
-      title: t({ en: "Email Sent", ar: "تم إرسال البريد" }),
-      description: t({
-        en: "We've received your message and will get back shortly.",
-        ar: "لقد استلمنا رسالتك وسنعاود التواصل قريبًا.",
-      }),
-    });
-
     mutation.mutate(data);
 
   } catch (error) {
@@ -92,7 +81,6 @@ const onSubmit = async (data: any) => {
     setIsSendingEmail(false);
   }
 };
-
 
   const businesses = [
     { value: 'general', label: { en: 'General Inquiry', ar: 'استفسار عام' } },

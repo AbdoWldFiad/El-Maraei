@@ -1,6 +1,8 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes.ts";
 import { setupVite, serveStatic, log } from "./vite.ts";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 

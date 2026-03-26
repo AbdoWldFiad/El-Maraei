@@ -9,6 +9,8 @@ import {
   insertContactSubmissionSchema,
   insertAppointmentSchema,
 } from "@shared/schema.ts";
+import { sendAppointmentEmail } from "server/MedAppointmentSend.ts";
+import { sendEmail } from "./emailService.ts";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/news", async (_req, res) => {
@@ -115,11 +117,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/contact", async (req, res) => {
     try {
-      const data = insertContactSubmissionSchema.parse(req.body);
-      const submission = await storage.createContactSubmission(data);
-      res.status(201).json(submission);
-    } catch (error) {
-      res.status(400).json({ error: "Invalid contact submission data" });
+      await sendEmail(req.body);
+      res.json({ success: true });
+    } catch (err: any) {
+      console.error("EmailJS sendContactEmail error:", err); // ✅ log full error
+      res.status(400).json({ 
+        error: "Failed to send message",
+        details: err.message || err,         // optional: send message for debugging
+      });
     }
   });
 
@@ -136,6 +141,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const data = insertAppointmentSchema.parse(req.body);
       const appointment = await storage.createAppointment(data);
+      const emailData = {
+        ...data,
+        notes: data.notes ?? undefined,
+      };
+      await sendAppointmentEmail(emailData);
       res.status(201).json(appointment);
     } catch (error) {
       res.status(400).json({ error: "Invalid appointment data" });

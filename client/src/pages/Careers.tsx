@@ -11,9 +11,8 @@ import { Helmet } from 'react-helmet-async';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
 import type { JobListing } from '@shared/schema';
-import { sendApplicationEmail } from '@/extras/JobApplication';
+import { sendJobApplicationEmail } from 'server/JobApplication';
 
-const MAX_FILE_SIZE = 50 * 1024; // 50 KB
 
 export default function Careers() {
   const { t, language  } = useLanguage();
@@ -50,8 +49,6 @@ const mutation = useMutation({
     cvFile,
   }: any) => {
     if (!cvFile) throw new Error('Please upload your CV.');
-    if (cvFile.size > MAX_FILE_SIZE)
-      throw new Error('CV file must be 50 KB or smaller.');
     if (phone.length < 10)
       throw new Error('Phone number must be at least 10 digits.');
 
@@ -63,25 +60,18 @@ const mutation = useMutation({
     formData.append('jobId', jobId.toString());
     formData.append('cv', cvFile);
 
-
+    const res = await fetch('/api/job-application', {
+      method: 'POST',
+      body: formData,
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(text || 'Failed to submit application');
+    }
+    return res.json();
   },
 
-  onSuccess: async (application, variables) => {
-    try {
-      const job = jobs?.find(j => j.id === variables.jobId);
-
-      await sendApplicationEmail({
-        fullName: variables.fullName,
-        email: variables.email,
-        phone: variables.phone,
-        jobTitle: job?.titleEn || 'Unknown Position',
-        jobId: variables.jobId,
-        coverLetter: variables.coverLetter,
-      });
-    } catch (err) {
-      console.error('EmailJS failed:', err);
-    }
-
+  onSuccess: (_res, variables) => {
     setInfoMessage('Your application was submitted successfully');
     setError(null);
 

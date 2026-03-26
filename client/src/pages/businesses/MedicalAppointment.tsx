@@ -14,7 +14,7 @@ import { Helmet } from 'react-helmet-async';
 import { insertAppointmentSchema } from '@shared/schema';
 import { useMutation } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
-import { sendAppointmentEmail } from '@/extras/MedAppointmentSend';
+import { sendAppointmentEmail } from 'server/MedAppointmentSend';
 
 export default function MedicalAppointment() {
   const { t, language } = useLanguage();
@@ -37,12 +37,6 @@ export default function MedicalAppointment() {
   const mutation = useMutation({
     mutationFn: (data: any) => apiRequest('POST', '/api/appointments', data),
     onSuccess: async (_res, data) => {
-      try {
-        await sendAppointmentEmail(data);
-      } catch (err) {
-        console.error('EmailJS failed:', err);
-        // optional: show a warning toast, but don’t block success
-      }
 
       setIsSubmitted(true);
       toast({

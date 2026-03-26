@@ -8,3 +8,4 @@ vite.config.ts.*
 replit.md
 design_guidelines.md
 Doctors/ 
+.env
