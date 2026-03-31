@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import medicalStoreImage from "@assets/generated_images/mateo-hernandez-reyes-BGbLDm77t0M-unsplash.jpg"; /*TODO uncomment when ready*/ 
+import medicalStoreImage from "@assets/generated_images/mateo-hernandez-reyes-BGbLDm77t0M-unsplash.png"; 
 import doctorPlaceholder from "@assets/products/fallback.png";
 
 type LocalizedString = { en: string; ar: string; };

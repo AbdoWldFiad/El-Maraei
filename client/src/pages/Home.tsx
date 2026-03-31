@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { ArrowRight, Building2, Ship, Waves, Mountain, Handshake, Stethoscope, ChevronDown } from 'lucide-react';
+import { ArrowRight, Building2, Ship, Waves, Mountain, Handshake, Stethoscope, ChevronDown, Pill } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -60,6 +60,16 @@ export default function Home() {
       },
       href: '/businesses/trade',
       color: 'bg-chart-5',
+    },
+    {
+      icon: Pill,
+      name: { en: 'Medical Products', ar: ' منتجات طبية' },
+      description: { 
+        en: 'Specialized in coastal engineering, harbor construction, and marine infrastructure development. Our expert team delivers innovative solutions for complex maritime projects.', 
+        ar: 'متخصصون في الهندسة الساحلية وبناء الموانئ وتطوير البنية التحتية البحرية. يقدم فريقنا المتخصص حلولاً مبتكرة للمشاريع البحرية المعقدة.' 
+      },
+      href: '/businesses/midicalproduts',
+      color: 'bg-chart-3',
     },
   ];
 
