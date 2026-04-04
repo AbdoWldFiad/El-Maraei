@@ -12,8 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import { insertContactSubmissionSchema } from '@shared/schema';
-import { useMutation } from '@tanstack/react-query';
-import { apiRequest, queryClient } from '@/lib/queryClient';
+import emailjs from "@emailjs/browser";
 
 
 export default function Contact() {
@@ -36,50 +35,35 @@ export default function Contact() {
 
 
 
-const mutation = useMutation({
-  mutationFn: (data: any) => apiRequest('POST', '/api/contact', data),
+const [isSubmitting, setIsSubmitting] = useState(false);
+const [isSubmitted, setIsSubmitted] = useState(false);
 
-  onSuccess: () => {
-    queryClient.invalidateQueries({ queryKey: ['/api/contact'] });
-
+const onSubmit = (data: any) => {
+  console.log("Submitting form:", data); // debug log
+  setIsSubmitting(true); // mark as submitting
+  emailjs.send(
+    "service_od0i4qq",
+    "template_8pdmeoj",
+    data,
+    "uKR7iZnQnJ7Qb9Ib0"
+  )
+  .then(() => {
+    setIsSubmitted(true); 
     toast({
-      title: t({ en: 'Message Sent', ar: 'تم إرسال الرسالة' }),
-      description: t({
-        en: 'Thank you for contacting us. We will get back to you soon.',
-        ar: 'شكرًا لتواصلك معنا. سنرد عليك قريبًا.'
-      }),
+      title: 'Appointment Booked',
+      description: 'Your appointment has been successfully scheduled.'
     });
-
     form.reset();
-  },
-
-  onError: (error: any) => {
-    toast({
-      title: t({ en: 'Error', ar: 'خطأ' }),
-      description: error?.message || t({ en: 'Failed to send message.', ar: 'فشل إرسال الرسالة.' }),
-      variant: 'destructive',
-    });
-  },
-});
-
-const onSubmit = async (data: any) => {
-  setIsSendingEmail(true);
-
-  try {
-    mutation.mutate(data);
-
-  } catch (error) {
+  })
+  .catch((err) => {
+    console.error("EmailJS error:", err);
     toast({
       title: t({ en: "Email Error", ar: "خطأ في البريد" }),
-      description: t({
-        en: "There was an issue sending your message. Try again.",
-        ar: "حدثت مشكلة أثناء إرسال الرسالة. حاول مرة أخرى.",
-      }),
-      variant: "destructive",
+      description: t({ en: "There was an issue sending your message. Try again.", ar: "حدثت مشكلة أثناء إرسال الرسالة. حاول مرة أخرى.", }),
+      variant: 'destructive'
     });
-  } finally {
-    setIsSendingEmail(false);
-  }
+  })
+  .finally(() => { setIsSubmitting(false); });
 };
 
   const businesses = [
@@ -224,12 +208,12 @@ const onSubmit = async (data: any) => {
                         )}
                       />
 
-                      <Button 
+                  <Button 
                         type="submit"
                         className="w-full bg-primary text-primary-foreground"
-                        disabled={mutation.isPending || isSendingEmail}
+                        disabled={isSendingEmail}
                       >
-                        {mutation.isPending || isSendingEmail ? (
+                        {isSendingEmail ? (
                           <div className="flex items-center gap-2">
                             <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
                               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>

@@ -12,14 +12,11 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import { insertAppointmentSchema } from '@shared/schema';
-import { useMutation } from '@tanstack/react-query';
-import { apiRequest } from '@/lib/queryClient';
-import { sendAppointmentEmail } from 'server/MedAppointmentSend';
+import emailjs from "@emailjs/browser";
 
 export default function MedicalAppointment() {
   const { t, language } = useLanguage();
   const { toast } = useToast();
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(insertAppointmentSchema),
@@ -34,37 +31,39 @@ export default function MedicalAppointment() {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: (data: any) => apiRequest('POST', '/api/appointments', data),
-    onSuccess: async (_res, data) => {
 
-      setIsSubmitted(true);
-      toast({
-        title: t({ en: 'Appointment Booked', ar: 'تم حجز الموعد' }),
-        description: t({ 
-          en: 'Your appointment has been successfully scheduled.', 
-          ar: 'تم جدولة موعدك بنجاح.' 
-        }),
-      });
+const [isSubmitting, setIsSubmitting] = useState(false);
+const [isSubmitted, setIsSubmitted] = useState(false);
 
-      form.reset();
-    },
-    onError: () => {
-      toast({
-        title: t({ en: 'Error', ar: 'خطأ' }),
-        description: t({ 
-          en: 'Failed to book appointment. Please try again.', 
-          ar: 'فشل حجز الموعد. يرجى المحاولة مرة أخرى.' 
-        }),
-        variant: 'destructive',
-      });
-    },
+const onSubmit = (data: any) => {
+  console.log("Submitting form:", data); // debug log
+  setIsSubmitting(true); // mark as submitting
+  emailjs.send(
+    "service_od0i4qq",
+    "template_0185ig7",
+    data,
+    "uKR7iZnQnJ7Qb9Ib0"
+  )
+  .then(() => {
+    setIsSubmitted(true); // mark as successfully submitted
+    toast({
+      title: 'Appointment Booked',
+      description: 'Your appointment has been successfully scheduled.'
+    });
+    form.reset();
+  })
+  .catch((err) => {
+    console.error("EmailJS error:", err);
+    toast({
+      title: 'Error',
+      description: 'Failed to book appointment. Please try again.',
+      variant: 'destructive'
+    });
+  })
+  .finally(() => {
+    setIsSubmitting(false); // always reset submitting state
   });
-
-  const onSubmit = (data: any) => {
-    mutation.mutate(data);
-  };
-
+};
 
   const departments = [
     { value: 'cardiology', label: { en: 'Cardiology', ar: 'أمراض القلب' } },
@@ -289,13 +288,13 @@ export default function MedicalAppointment() {
                   )}
                 />
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-primary text-primary-foreground" 
-                  disabled={mutation.isPending}
+                <Button
+                  type="submit"
+                  className="w-full bg-primary text-primary-foreground"
+                  disabled={isSubmitting}
                   data-testid="button-submit-appointment"
                 >
-                  {mutation.isPending 
+                  {isSubmitting
                     ? t({ en: 'Booking...', ar: 'جارٍ الحجز...' })
                     : t({ en: 'Book Appointment', ar: 'احجز موعد' })
                   }

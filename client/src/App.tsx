@@ -36,7 +36,7 @@ function Router() {
           <Route path="/businesses/medical" component={Medical} />
           <Route path="/businesses/medical/appointment" component={MedicalAppointment} /> 
           <Route path="/businesses/shipping" component={Shipping} />
-          <Route path="/businesses/midicalproduts" component={MedicalProducts} />
+          <Route path="/businesses/medicalproducts" component={MedicalProducts} />
           <Route path="/businesses/marine" component={Marine} />
           <Route path="/businesses/mining" component={Mining} />    
           <Route path="/businesses/trade" component={Trade} />
