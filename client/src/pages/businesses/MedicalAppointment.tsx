@@ -13,6 +13,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import { insertAppointmentSchema } from '@shared/schema';
 import emailjs from "@emailjs/browser";
+import { departments } from "@/extras/departments";
 
 export default function MedicalAppointment() {
   const { t, language } = useLanguage();
@@ -25,6 +26,7 @@ export default function MedicalAppointment() {
       email: '',
       phone: '',
       department: '',
+      doctor: '',
       appointmentDate: '',
       appointmentTime: '',
       notes: '',
@@ -42,7 +44,7 @@ const onSubmit = (data: any) => {
     "service_od0i4qq",
     "template_0185ig7",
     data,
-    "uKR7iZnQnJ7Qb9Ib0"
+    "fIUf7yHJdcdp1l_ap"
   )
   .then(() => {
     setIsSubmitted(true); // mark as successfully submitted
@@ -65,16 +67,11 @@ const onSubmit = (data: any) => {
   });
 };
 
-  const departments = [
-    { value: 'cardiology', label: { en: 'Cardiology', ar: 'أمراض القلب' } },
-    { value: 'orthopedics', label: { en: 'Orthopedics', ar: 'جراحة العظام' } },
-    { value: 'pediatrics', label: { en: 'Pediatrics', ar: 'طب الأطفال' } },
-    { value: 'gynecology', label: { en: 'Gynecology', ar: 'أمراض النساء' } },
-    { value: 'dermatology', label: { en: 'Dermatology', ar: 'الأمراض الجلدية' } },
-    { value: 'ophthalmology', label: { en: 'Ophthalmology', ar: 'طب العيون' } },
-    { value: 'dentistry', label: { en: 'Dentistry', ar: 'طب الأسنان' } },
-    { value: 'general', label: { en: 'General Medicine', ar: 'الطب العام' } },
-  ];
+const selectedDepartment = form.watch("department");
+
+const selectedDepartmentData = departments.find(
+  (dept) => dept.en === selectedDepartment
+);
 
   const timeSlots = [
     '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
@@ -155,18 +152,26 @@ const onSubmit = (data: any) => {
                     )}
                   />
 
-                  <FormField
+                                    <FormField
                     control={form.control}
-                    name="email"
+                    name="department"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t({ en: 'Email', ar: 'البريد الإلكتروني' })}</FormLabel>
-                        <FormControl>
-                          <div className="relative">
-                            <Mail className="absolute ltr:left-3 rtl:right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                            <Input {...field} className="ltr:pl-9 rtl:pr-9" data-testid="input-email" />
-                          </div>
-                        </FormControl>
+                        <FormLabel>{t({ en: 'Department', ar: 'القسم' })}</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger data-testid="select-department">
+                              <SelectValue placeholder={t({ en: 'Select department', ar: 'اختر القسم' })} />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {departments.map((dept) => (
+                              <SelectItem key={dept.en} value={dept.en}>
+                                {language === "ar" ? dept.ar : dept.en}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -189,26 +194,62 @@ const onSubmit = (data: any) => {
                     )}
                   />
 
-                  <FormField
+                                    <FormField
                     control={form.control}
-                    name="department"
+                    name="doctor"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t({ en: 'Department', ar: 'القسم' })}</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormLabel>
+                          {t({ en: "Doctor", ar: "الطبيب" })}
+                        </FormLabel>
+
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          disabled={!selectedDepartment}
+                        >
                           <FormControl>
-                            <SelectTrigger data-testid="select-department">
-                              <SelectValue placeholder={t({ en: 'Select department', ar: 'اختر القسم' })} />
+                            <SelectTrigger>
+                              <SelectValue
+                                placeholder={t({
+                                  en: "Select doctor",
+                                  ar: "اختر الطبيب",
+                                })}
+                              />
                             </SelectTrigger>
                           </FormControl>
+
                           <SelectContent>
-                            {departments.map((dept) => (
-                              <SelectItem key={dept.value} value={dept.value}>
-                                {t(dept.label)}
+                            {selectedDepartmentData?.doctors.map((doctor) => (
+                              <SelectItem
+                                key={doctor.en}
+                                value={doctor.en}
+                              >
+                                {language === "ar"
+                                  ? doctor.ar
+                                  : doctor.en}
                               </SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>{t({ en: 'Email', ar: 'البريد الإلكتروني' })}</FormLabel>
+                        <FormControl>
+                          <div className="relative">
+                            <Mail className="absolute ltr:left-3 rtl:right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                            <Input {...field} className="ltr:pl-9 rtl:pr-9" data-testid="input-email" />
+                          </div>
+                        </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}

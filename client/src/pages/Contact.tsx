@@ -20,8 +20,6 @@ export default function Contact() {
   const { toast } = useToast();
 
 
-  const [isSendingEmail, setIsSendingEmail] = useState(false);
-
   const form = useForm({
     resolver: zodResolver(insertContactSubmissionSchema),
     defaultValues: {
@@ -45,21 +43,21 @@ const onSubmit = (data: any) => {
     "service_od0i4qq",
     "template_8pdmeoj",
     data,
-    "uKR7iZnQnJ7Qb9Ib0"
+    "fIUf7yHJdcdp1l_ap"
   )
   .then(() => {
     setIsSubmitted(true); 
     toast({
-      title: 'Appointment Booked',
-      description: 'Your appointment has been successfully scheduled.'
+      title: 'Massage Sent',
+      description: 'We have received your message and will get back shortly.'
     });
     form.reset();
   })
   .catch((err) => {
     console.error("EmailJS error:", err);
     toast({
-      title: t({ en: "Email Error", ar: "خطأ في البريد" }),
-      description: t({ en: "There was an issue sending your message. Try again.", ar: "حدثت مشكلة أثناء إرسال الرسالة. حاول مرة أخرى.", }),
+      title: t({ en: "Error happened will sending", ar: "حدث عطل اثناء الارسال" }),
+      description: t({ en: "There was an issue when sending your message. Try again.", ar: "حدثت مشكلة أثناء إرسال الرسالة. حاول مرة أخرى.", }),
       variant: 'destructive'
     });
   })
@@ -208,26 +206,15 @@ const onSubmit = (data: any) => {
                         )}
                       />
 
-                  <Button 
-                        type="submit"
-                        className="w-full bg-primary text-primary-foreground"
-                        disabled={isSendingEmail}
-                      >
-                        {isSendingEmail ? (
-                          <div className="flex items-center gap-2">
-                            <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
-                            </svg>
-                            {t({ en: 'Sending...', ar: 'جارٍ الإرسال...' })}
-                          </div>
-                        ) : (
-                          <>
-                            <Send className="h-4 w-4" />
-                            {t({ en: 'Send Message', ar: 'إرسال الرسالة' })}
-                          </>
-                        )}
-                      </Button>
+                  <Button
+                    type="submit"
+                    className="w-full bg-primary text-primary-foreground"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting
+                      ? t({ en: 'Sending...', ar: 'جارٍ الإرسال...' })
+                      : t({ en: 'Send Message', ar: 'إرسال الرسالة' })}
+                  </Button>
                     </form>
                   </Form>
                 </CardContent>
