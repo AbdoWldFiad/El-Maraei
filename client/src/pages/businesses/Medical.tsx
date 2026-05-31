@@ -4,14 +4,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import medicalImage from "@assets/generated_images/Medical_center_interior_image_d55bb764.png";
 import { getDoctorImage } from "@/extras/doctorImages";
 
 import { AboutIntroCard } from "@/extras/AboutIntroCard";
 import { InstallmentInfoCard } from "@/extras/InstallmentInfoCard";
 import { MedicalContactSection } from "@/pages/businesses/ContactSection/MedicalContactSection";
-import { departments } from "@/extras/departments";
+import { Department, getDepartments } from "@/extras/departments";
 
 const services = [
   {
@@ -52,6 +52,16 @@ const services = [
 export default function Medical() {
   const { t, language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const [departments, setDepartments] = useState<Department[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getDepartments()
+      .then(setDepartments)
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
 
   const toggle = (i: number) => {
     setOpenIndex((prev) => (prev === i ? null : i));

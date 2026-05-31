@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Calendar, Clock, User, Mail, Phone, FileText } from 'lucide-react';
@@ -13,7 +13,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import { insertAppointmentSchema } from '@shared/schema';
 import emailjs from "@emailjs/browser";
-import { departments } from "@/extras/departments";
+import { Department, getDepartments } from "@/extras/departments";
 
 export default function MedicalAppointment() {
   const { t, language } = useLanguage();
@@ -67,11 +67,21 @@ const onSubmit = (data: any) => {
   });
 };
 
-const selectedDepartment = form.watch("department");
+const [departments, setDepartments] = useState<Department[]>([]);
+const [loading, setLoading] = useState(true);
 
-const selectedDepartmentData = departments.find(
-  (dept) => dept.en === selectedDepartment
-);
+useEffect(() => {
+  getDepartments()
+    .then(setDepartments)
+    .catch(console.error)
+    .finally(() => setLoading(false));
+}, []);
+
+const departmentValue = form.watch("department");
+
+const selectedDepartment = useMemo(() => {
+  return departments.find(d => d.en === departmentValue);
+}, [departments, departmentValue]);
 
   const timeSlots = [
     '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
@@ -220,16 +230,23 @@ const selectedDepartmentData = departments.find(
                           </FormControl>
 
                           <SelectContent>
-                            {selectedDepartmentData?.doctors.map((doctor) => (
-                              <SelectItem
-                                key={doctor.en}
-                                value={doctor.en}
-                              >
-                                {language === "ar"
-                                  ? doctor.ar
-                                  : doctor.en}
+                            {selectedDepartment ? (
+                              selectedDepartment.doctors.length > 0 ? (
+                                selectedDepartment.doctors.map((doctor) => (
+                                  <SelectItem key={doctor.en} value={doctor.en}>
+                                    {language === "ar" ? doctor.ar : doctor.en}
+                                  </SelectItem>
+                                ))
+                              ) : (
+                                <SelectItem value="none" disabled>
+                                  {t({ en: "Coming soon", ar: "قريبًا" })}
+                                </SelectItem>
+                              )
+                            ) : (
+                              <SelectItem value="none" disabled>
+                                {t({ en: "Select department first", ar: "اختر القسم أولاً" })}
                               </SelectItem>
-                            ))}
+                            )}
                           </SelectContent>
                         </Select>
 
