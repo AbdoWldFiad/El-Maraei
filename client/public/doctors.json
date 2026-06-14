@@ -14,7 +14,7 @@
       },
       {
         "en": "Dr. Osama Arafat",
-        "ar": "د. اسامة عرفات",
+        "ar": "د. اسامه فرحات",
         "image": "osama.jpeg"
       },
       {
@@ -36,7 +36,18 @@
         "en": "Dr. Ahmed Abdelhamid",
         "ar": "د. احمد عبد المجيد",
         "image": "ahmed_abdelhamed.jpeg"
+      },
+      {
+        "en": "Dr. Mohamed Behket",
+        "ar":"د. محمد بخيت",
+        "image": "Mohamed_Behket.jpeg"
+      },
+      {
+        "en": "Dr. Mohamed Elbadry",
+        "ar":"د.  محمد البدري",
+        "image": "Mohamed_Elbadry.jpeg"
       }
+      
     ]
   },
   {
@@ -51,6 +62,11 @@
         "en": "Dr. Emad Zohran",
         "ar": "د. عماد زهران",
         "image": "emad_zohran.jpeg"
+      },
+      {
+        "en": "Dr. Nehal Abo Elmagd",
+        "ar":"د.  نهال ابو المجد",
+        "image": "Nehal_Abo_Elmagd.jpeg"
       }
     ]
   },
@@ -70,7 +86,28 @@
       "en": "Bone & joint treatments.",
       "ar": "علاج العظام والمفاصل."
     },
-    "doctors": []
+    "doctors": [
+      {
+        "en": "Dr. Mohamed El sewedy",
+        "ar":"د. محمد السويدي",
+        "image": "Mohamed_Elsewedy.jpeg"
+      },
+      {
+        "en": "Dr. Mohamed Tawfeek",
+        "ar":"د. محمد توفيق",
+        "image": "Mohamed_Tawfeek.jpeg"
+      },
+      {
+        "en": "Dr. Hossam Elgazy",
+        "ar":"د. حسام غازي",
+        "image": "Hossam_Elgazy.jpeg"
+      },
+      {
+        "en": "Dr. Ahmed Sabry",
+        "ar":"د. احمد صبري",
+        "image": "Ahmed_sabry.jpeg"
+      }
+    ]
   },
   {
     "en": "Pediatrics",
@@ -79,8 +116,20 @@
       "en": "Children healthcare.",
       "ar": "رعاية الأطفال."
     },
-    "doctors": []
+    "doctors": [
+      {
+        "en": "Dr. Mohamed Diaa",
+        "ar":"د. محمد ضياء",
+        "image": "Mohamed_Diaa.jpeg"
+      },
+      {
+        "en": "Dr. Marwa Abd elWahab",
+        "ar":"د. مروة عبد الوهاب",
+        "image": "Marwa_Abd_elWahab.jpeg"
+      }
+    ]
   },
+
   {
     "en": "Gynecology",
     "ar": "أمراض النساء",
@@ -88,7 +137,13 @@
       "en": "Women’s health.",
       "ar": "صحة المرأة."
     },
-    "doctors": []
+    "doctors": [
+      {
+        "en": "Dr. Basem Gamal",
+        "ar":"د. باسم جمال",
+        "image": "Basem_Gamal.jpeg"
+      }
+    ]
   },
   {
     "en": "Internal Medicine",
@@ -102,6 +157,11 @@
         "en": "Dr. Amr Mohab",
         "ar": "د. عمرو مهاب",
         "image": "amr_mohab.jpeg"
+      },
+      {
+        "en": "Dr. Momen Ahmad",
+        "ar":"د. مؤمن احمد",
+        "image": "Momen_Ahmad.jpeg"
       }
     ]
   },
@@ -132,21 +192,21 @@
         "en": "Dr. Mohamed El_Moselmani",
         "ar": "د. محمد المسلماني",
         "image": "moselmani.jpeg"
-      }
-    ]
-  },
-  {
-    "en": "Psychologist",
-    "ar": "أخصائي نفسي",
-    "desc": {
-      "en": "",
-      "ar": ""
-    },
-    "doctors": [
+      },
+      {
+        "en": "Dr. Sara Elwerdany",
+        "ar":"د. ساره الورداني",
+        "image": "Sara_Elwerdany.jpeg"
+      },
       {
         "en": "Aya Gamal",
         "ar": "آية جمال",
         "image": "aya.jpeg"
+      },
+      {
+        "en": "Mai Yuness",
+        "ar": "د. مي يونس",
+        "image": "Mai_Yuness.jpeg"
       }
     ]
   },
@@ -162,6 +222,16 @@
         "en": "Dr. Ahmed Emam",
         "ar": "د. احمد امام",
         "image": "emam.jpeg"
+      },
+      {
+        "en": "Dr. Ahmed Esmaile ",
+        "ar":"د. احمد اسماعيل",
+        "image": "Ahmed_Esmaile.jpeg"
+      },
+      {
+        "en": "Dr. Hossam",
+        "ar":"د. حسام",
+        "image": "Hossam.jpeg"
       }
     ]
   },
