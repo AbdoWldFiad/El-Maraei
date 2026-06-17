@@ -5,8 +5,17 @@ export type LocalizedString = {
   ar: string;
 };
 
+export type Schedule = {
+  day_ar: string;
+  day_en: string;
+  time: string;
+  end: string;
+};
+
 export type Doctor = LocalizedString & {
   image?: string;
+  price?: number;
+  schedule?: Schedule[];
 };
 
 export type Department = LocalizedString & {
@@ -22,7 +31,7 @@ export const getDepartments = async (): Promise<Department[]> => {
       throw new Error("Failed to load doctors data");
     }
 
-    const departments: Department[] = await response.json();
+    const departments = (await response.json()) as Department[];
 
     return departments.map((department) => ({
       ...department,

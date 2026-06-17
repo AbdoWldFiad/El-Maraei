@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Calendar, Clock, User, Mail, Phone, FileText } from 'lucide-react';
+import { User, Mail, Phone, FileText } from 'lucide-react';
+import { Calendar } from "@/components/ui/calendar";
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -83,10 +84,136 @@ const selectedDepartment = useMemo(() => {
   return departments.find(d => d.en === departmentValue);
 }, [departments, departmentValue]);
 
-  const timeSlots = [
-    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
-    '14:00', '14:30', '15:00', '15:30', '16:00', '16:30',
-  ];
+const doctorValue = form.watch("doctor");
+
+const selectedDoctor = useMemo(() => {
+  return selectedDepartment?.doctors.find(
+    (d) => d.en === doctorValue
+  );
+}, [selectedDepartment, doctorValue]);
+
+
+const allowedDays = useMemo(() => {
+  return selectedDoctor?.schedule?.map((s) => s.day_en) ?? [];
+}, [selectedDoctor]);
+
+const isAllowedDate = (dateString: string) => {
+  if (!allowedDays.length) return true;
+
+  const [year, month, day] = dateString.split("-").map(Number);
+
+  const date = new Date(year, month - 1, day);
+
+  const dayName = date.toLocaleDateString("en-US", {
+    weekday: "long",
+  });
+
+  return allowedDays.includes(dayName);
+};
+
+const formatDateLocal = (date: Date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};
+
+const CLINIC_END_TIME = "23:30";
+const SLOT_INTERVAL = 30;
+
+const generateSlots = (
+  start: string,
+  end: string,
+  interval = 30
+) => {
+  const slots: string[] = [];
+
+  const [sh, sm] = start.split(":").map(Number);
+  const [eh, em] = end.split(":").map(Number);
+
+  let current = sh * 60 + sm;
+  const finish = eh * 60 + em;
+
+  while (current <= finish) {
+    const h = Math.floor(current / 60);
+    const m = current % 60;
+
+    const displayHour = h % 12 || 12;
+    const period = h >= 12 ? "PM" : "AM";
+
+    slots.push(
+      `${displayHour}:${String(m).padStart(2, "0")} ${period}`
+    );
+
+    current += interval;
+  }
+
+  return slots;
+};
+
+const appointmentDate = form.watch("appointmentDate");
+
+const locale = language === "ar" ? "ar-EG" : "en-US";
+
+const availableSlots = useMemo(() => {
+  if (!selectedDoctor || !appointmentDate) return [];
+
+  const date = new Date(appointmentDate);
+
+  const dayName = date.toLocaleDateString("en-US", {
+    weekday: "long",
+  });
+
+  const schedule = selectedDoctor.schedule?.find(
+    (s) => s.day_en === dayName
+  );
+
+  if (!schedule) return [];
+
+  const endTime = schedule.end ?? CLINIC_END_TIME;
+
+  return generateSlots(schedule.time, endTime, SLOT_INTERVAL);
+}, [selectedDoctor, appointmentDate]);
+
+const getNextAvailableDates = (
+  allowedDays: string[],
+  daysAhead = 30
+) => {
+  const dates: { label: string; value: string }[] = [];
+
+  const today = new Date();
+
+  for (let i = 0; i < daysAhead; i++) {
+    const date = new Date();
+    date.setDate(today.getDate() + i);
+
+    const dayName = date.toLocaleDateString("en-US", {
+      weekday: "long",
+    });
+
+    if (allowedDays.includes(dayName)) {
+      const value = formatDateLocal(date);
+
+      dates.push({
+        value,
+        label: date.toLocaleDateString(locale, {
+          weekday: "long",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }),
+      });
+    }
+  }
+  return dates;
+};
+
+const availableDates = useMemo(() => {
+  if (!selectedDoctor) return [];
+
+  return getNextAvailableDates(allowedDays, 30);
+}, [selectedDoctor, allowedDays]);
 
   if (isSubmitted) {
     return (
@@ -161,8 +288,8 @@ const selectedDepartment = useMemo(() => {
                       </FormItem>
                     )}
                   />
-
-                                    <FormField
+                  {/* department */}
+                  <FormField
                     control={form.control}
                     name="department"
                     render={({ field }) => (
@@ -186,7 +313,7 @@ const selectedDepartment = useMemo(() => {
                       </FormItem>
                     )}
                   />
-
+                  {/* phone */}
                   <FormField
                     control={form.control}
                     name="phone"
@@ -204,7 +331,8 @@ const selectedDepartment = useMemo(() => {
                     )}
                   />
 
-                                    <FormField
+                    {/* doctor */}
+                  <FormField
                     control={form.control}
                     name="doctor"
                     render={({ field }) => (
@@ -255,6 +383,7 @@ const selectedDepartment = useMemo(() => {
                     )}
                   />
 
+                  {/* email */}
                   <FormField
                     control={form.control}
                     name="email"
@@ -271,30 +400,75 @@ const selectedDepartment = useMemo(() => {
                       </FormItem>
                     )}
                   />
-
+                  
+                  {/* appointmentDate */}
                   <FormField
                     control={form.control}
                     name="appointmentDate"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t({ en: 'Preferred Date', ar: 'التاريخ المفضل' })}</FormLabel>
+                        <FormLabel>
+                          {t({ en: "Preferred Date", ar: "التاريخ المفضل" })}
+                        </FormLabel>
+
                         <FormControl>
-                          <div className="relative">
-                            <Calendar className="absolute ltr:left-3 rtl:right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                            <Input 
-                              {...field} 
-                              type="date" 
-                              min={new Date().toISOString().split('T')[0]}
-                              className="ltr:pl-9 rtl:pr-9" 
-                              data-testid="input-date" 
-                            />
-                          </div>
+                          <Select
+                            value={field.value}
+                            onValueChange={(value) => {
+                              if (!selectedDoctor) return;
+
+                              if (!isAllowedDate(value)) {
+                                toast({
+                                  title: t({
+                                    en: "Invalid date",
+                                    ar: "تاريخ غير متاح",
+                                  }),
+                                  description: t({
+                                    en: "This doctor is not available on that day.",
+                                    ar: "هذا الطبيب غير متاح في هذا اليوم.",
+                                  }),
+                                  variant: "destructive",
+                                });
+                                return;
+                              }
+
+                              field.onChange(value);
+                            }}
+                            disabled={!selectedDoctor}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue
+                                  placeholder={t({
+                                    en: "Select date",
+                                    ar: "اختر التاريخ",
+                                  })}
+                                />
+                              </SelectTrigger>
+                            </FormControl>
+
+                            <SelectContent>
+                              {availableDates.length > 0 ? (
+                                availableDates.map((date) => (
+                                  <SelectItem key={date.value} value={date.value}>
+                                    {date.label}
+                                  </SelectItem>
+                                ))
+                              ) : (
+                                <SelectItem value="none" disabled>
+                                  {t({ en: "No available dates", ar: "لا توجد مواعيد متاحة" })}
+                                </SelectItem>
+                              )}
+                            </SelectContent>
+                          </Select>
                         </FormControl>
+
                         <FormMessage />
                       </FormItem>
                     )}
                   />
 
+                    {/* appointmentTime */}
                   <FormField
                     control={form.control}
                     name="appointmentTime"
@@ -308,7 +482,7 @@ const selectedDepartment = useMemo(() => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {timeSlots.map((time) => (
+                            {availableSlots.map((time) => (
                               <SelectItem key={time} value={time}>
                                 {time}
                               </SelectItem>
@@ -319,6 +493,8 @@ const selectedDepartment = useMemo(() => {
                       </FormItem>
                     )}
                   />
+
+
                 </div>
 
                 <FormField

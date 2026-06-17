@@ -157,7 +157,28 @@ export default function Medical() {
                             e.currentTarget.src = getDoctorImage("fallback.png");
                           }}
                         />
-                        <span className="font-medium">{t(doc)}</span>
+                        <div className="flex items-center gap-3 flex-wrap">
+                          <span className="font-medium">{t(doc)}</span>
+
+                          {doc.price && (
+                            <span className="text-sm text-muted-foreground">
+                              {doc.price} EGP
+                            </span>
+                          )}
+
+                          {doc.schedule?.length  && (
+                            <span className="text-sm text-muted-foreground">
+                              {t({
+                                en: doc.schedule
+                                  .map((s) => `${s.day_en} ${s.time}`)
+                                  .join(" | "),
+                                ar: doc.schedule
+                                  .map((s) => `${s.day_ar} ${s.time}`)
+                                  .join(" | "),
+                              })}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     ))
                   ) : (
