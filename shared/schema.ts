@@ -76,7 +76,7 @@ export const insertJobListingSchema = createInsertSchema(jobListings).omit({
 
 export const insertCareerApplicationSchema = z.object({
   fullName: z.string().min(1),
-  email: z.string().email(),
+  email: z.string().email().optional(),
   phone: z.string().min(10),
   coverLetter: z.string().optional(),
   jobId: z.string().uuid(),
@@ -87,14 +87,14 @@ export const insertContactSubmissionSchema = createInsertSchema(contactSubmissio
   id: true,
   submittedAt: true,
 }).extend({
-  email: z.string().email(),
+  email: z.string().email().optional(),
 });
 
 export const insertAppointmentSchema = createInsertSchema(appointments).omit({
   id: true,
   createdAt: true,
 }).extend({
-  email: z.string().email(),
+  email: z.string().email().optional(),
   phone: z.string().min(10),
 });
 

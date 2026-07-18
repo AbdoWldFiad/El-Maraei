@@ -24,7 +24,6 @@ export default function MedicalAppointment() {
     resolver: zodResolver(insertAppointmentSchema),
     defaultValues: {
       patientName: '',
-      email: '',
       phone: '',
       department: '',
       doctor: '',
@@ -380,7 +379,7 @@ const availableDates = useMemo(() => {
                     )}
                   />
 
-                  {/* email */}
+                  {/* email , if needed, remove the comment and add email in line 22.
                   <FormField
                     control={form.control}
                     name="email"
@@ -397,6 +396,7 @@ const availableDates = useMemo(() => {
                       </FormItem>
                     )}
                   />
+                  */}
                   
                   {/* appointmentDate */}
                   <FormField
