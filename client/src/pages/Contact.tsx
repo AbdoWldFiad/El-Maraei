@@ -110,7 +110,8 @@ const onSubmit = (data: any) => {
                 <Phone className="h-6 w-6 text-primary" />
               </div>
               <h3 className="font-semibold mb-2">{t({ en: 'Call Us', ar: 'اتصل بنا' })}</h3>
-              <p className="text-muted-foreground text-sm" dir="ltr">+20 123 456 7890</p>
+              <p className="text-muted-foreground text-sm" dir="ltr">+20 109 104 4200</p>
+              <p className="text-muted-foreground text-sm" dir="ltr">+20 111 796 6644</p>
             </CardContent></Card>
 
             <Card><CardContent className="p-6 text-center">
@@ -118,7 +119,7 @@ const onSubmit = (data: any) => {
                 <Mail className="h-6 w-6 text-primary" />
               </div>
               <h3 className="font-semibold mb-2">{t({ en: 'Email Us', ar: 'راسلنا' })}</h3>
-              <p className="text-muted-foreground text-sm" dir="ltr">info@elmaraeigroup.com</p>
+              <p className="text-muted-foreground text-sm" dir="ltr">elmaraie4js@gmail.com</p>
             </CardContent></Card>
           </div>
 
@@ -246,7 +247,7 @@ const onSubmit = (data: any) => {
                       <div className="space-y-1 text-sm text-muted-foreground">
                         <div className="flex justify-between">
                           <span>{t({ en: 'Sunday - Thursday', ar: 'الأحد - الخميس' })}</span>
-                          <span dir="ltr">9:00 AM - 5:00 PM</span>
+                          <span dir="ltr">9:00 AM - 11:00 PM</span>
                         </div>
                         <div className="flex justify-between">
                           <span>{t({ en: 'Friday - Saturday', ar: 'الجمعة - السبت' })}</span>

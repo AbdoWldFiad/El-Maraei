@@ -221,9 +221,6 @@ const availableDates = useMemo(() => {
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <Card className="text-center">
             <CardContent className="p-12">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Calendar className="h-8 w-8 text-primary" />
-              </div>
               <h2 className="text-2xl font-bold mb-4 text-foreground">
                 {t({ en: 'Appointment Confirmed!', ar: 'تم تأكيد الموعد!' })}
               </h2>

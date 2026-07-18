@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export function Footer() {
@@ -90,11 +90,19 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-primary-foreground/80">
                 <Phone className="h-5 w-5 flex-shrink-0" />
-                <span dir="ltr">+20 123 456 7890</span>
+                <span dir="ltr">+20 111 796 6644</span>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-primary-foreground/80">
+                <Phone className="h-5 w-5 flex-shrink-0" />
+                <span dir="ltr">+20 109 104 4200</span>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-primary-foreground/80">
+                <MessageCircle className="h-5 w-5 flex-shrink-0" />
+                <span dir="ltr">+20 155 310 1188</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-primary-foreground/80">
                 <Mail className="h-5 w-5 flex-shrink-0" />
-                <span dir="ltr">info@elmaraeigroup.com</span>
+                <span dir="ltr">elmaraie4js@gmail.com</span>
               </li>
             </ul>
           </div>
