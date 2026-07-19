@@ -8,82 +8,98 @@
     },
     "doctors": [
       {
-        "en": "Dr. Yasmin Samir",
-        "ar": "د. ياسمين سمير",
-        "image": "yasmen.jpeg",
+        "en": "Dr. Yasmin Saeed",
+        "ar": "د. ياسمين سعيد",
+        "image": "yasmen_Saeed.jpeg",
         "price": 110,
         "schedule": [
-          { "day_ar": "سبت", "day_en": "Saturday", "time": "5:00" },
-          { "day_ar": "الخميس", "day_en": "Thursday", "time": "5:00" }
+          { "day_ar": "سبت", "day_en": "Saturday", "time": "17:00" },
+          { "day_ar": "الخميس", "day_en": "Thursday", "time": "17:00" }
         ]
       },
       {
-        "en": "Dr. Osama Arafat",
-        "ar": "د. اسامه فرحات",
-        "image": "osama.jpeg",
+        "en": "Dr. Marwa Abd elWahab",
+        "ar":"د. مروة عبد الوهاب",
+        "image": "Marwa_Abd_elWahab.jpeg",
+        "price": 410,
+        "schedule": [
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "13:00" }
+        ]
+      },
+      {
+        "en": "Dr. Osama Farhat",
+        "ar":"د. اسامه فرحات",
+        "image": "Osama_Farhat.jpeg",
         "price": 110,
         "schedule": [
-          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "5:00" }
+          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "18:00" }
+        ]
+      },
+      {
+        "en": "Dr. Khaled Mohammed",
+        "ar":"د. خالد محمد",
+        "image": "Khaled_Mohammed.jpeg",
+        "price": 110,
+        "schedule": [
+          { "day_ar": "الاثنين", "day_en": "Monday", "time": "13:00" },
+          { "day_ar": "الجمعه", "day_en": "Friday", "time": "17:00" }
         ]
       },
       {
         "en": "Dr. Basem Mohab",
         "ar": "د. باسم مهاب",
-        "image": "bassem.jpeg",
+        "image": "bassem_Mohab.jpeg",
         "price": 110,
         "schedule": [
           { "day_ar": "الخميس", "day_en": "Thursday", "time": "12:00" }
         ]
       },
       {
-        "en": "Dr. Mohamed Nagy",
-        "ar": "د. محمد ناجي",
-        "image": "nagy.jpeg",
-        "price": 410,
-    "schedule": [
-      { "day_ar": "السبت", "day_en": "Saturday", "time": "8:00" },
-      { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "8:00" }
-    ]
-      },
-      {
-        "en": "Dr. Dalia",
-        "ar": "د. داليا",
-        "image": "dalia.jpeg",
+        "en": "Dr. Dalia Mohamed",
+        "ar": "د. داليا محمد",
+        "image": "dalia_Mohamed.jpeg",
         "price": 110,
         "schedule": [
-          { "day_ar": "سبت", "day_en": "Saturday", "time": "12:00" },
-          { "day_ar": "الاحد", "day_en": "Sunday", "time": "12:00" },
-          { "day_ar": "الجمعه", "day_en": "Friday", "time": "12:00 - 10:00 PM" }
+          { "day_ar": "الجمعه", "day_en": "Friday", "time": "17:00" }
+        ]
+      },
+      {
+        "en": "Dr. Ahmed Ihab",
+        "ar": "د. احمد ايهاب",
+        "image": "Ahmed_Ihab.jpeg",
+        "price": 110,
+        "schedule": [
+          { "day_ar": "الاحد", "day_en": "Sunday", "time": "13:00" }
         ]
       },
       {
         "en": "Dr. Ahmed Abdelhamid",
-        "ar": "د. احمد عبد المجيد",
-        "image": "ahmed_abdelhamed.jpeg",
+        "ar": "د. احمد عبد الحميد",
+        "image": "ahmad_abdelhamed.jpeg",
         "price": 110,
         "schedule": [
-          { "day_ar": "الاحد", "day_en": "Sunday", "time": "5:00" },
-          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "5:00" }
+          { "day_ar": "الاحد", "day_en": "Sunday", "time": "17:00" },
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "17:00" }
         ]
       },
       {
-        "en": "Dr. Mohamed Behket",
+        "en": "Dr. Mohammed Bakhit",
         "ar":"د. محمد بخيت",
         "image": "Mohamed_Behket.jpeg",
         "price": 110,
         "schedule": [
-          { "day_ar": "الاثنين", "day_en": "Monday", "time": "12:00" },
-          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "12:00" }
+          { "day_ar": "السبت", "day_en": "Saturday", "time": "12:00" },
+          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "13:00" }
         ]
       },
       {
-        "en": "Dr. Mohamed Elbadry",
+        "en": "Dr. Mohammed Al-Badri",
         "ar":"د.  محمد البدري",
-        "image": "Mohamed_Elbadry.jpeg",
-        "price": 410,
+        "image": "Mohamed_Al-Badri.jpeg",
+        "price": 110,
         "schedule": [
-          { "day_ar": "الاثنين", "day_en": "Monday", "time": "5:00" },
-          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "1:00" }
+          { "day_ar": "الاثنين", "day_en": "Monday", "time": "13:00" },
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "13:00" }
         ]
       }
       
@@ -101,9 +117,9 @@
         "en": "Dr. Emad Zohran",
         "ar": "د. عماد زهران",
         "image": "emad_zohran.jpeg",
-        "price": 350,
+        "price": 360,
         "schedule": [
-          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "14:00" }
+          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "12:00" }
         ]
       },
       {
@@ -112,8 +128,7 @@
         "image": "Nehal_Abo_Elmagd.jpeg",
         "price": 410,
     "schedule": [
-      { "day_ar": "السبت", "day_en": "Saturday", "time": "8:00" },
-      { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "8:00" }
+      { "day_ar": "الجمعه", "day_en": "Friday", "time": "13:00" }
     ]
       }
     ]
@@ -125,7 +140,17 @@
       "en": "Heart care services.",
       "ar": "خدمات رعاية القلب."
     },
-    "doctors": []
+    "doctors": [
+        {
+        "en": "Dr. Amr Mohab",
+        "ar": "د. عمرو مهاب",
+        "image": "amr_mohab.jpeg",
+        "price": 410,
+        "schedule": [
+          { "day_ar": "الخميس", "day_en": "Thursday", "time": "12:00" }
+        ]
+      }
+    ]
   },
   {
     "en": "Orthopedics",
@@ -136,25 +161,40 @@
     },
     "doctors": [
       {
-        "en": "Dr. Mohamed El sewedy",
-        "ar":"د. محمد السويدي",
-        "image": "Mohamed_Elsewedy.jpeg",
-        "price": 410,
+        "en": "Dr. Mahmoud Khairy",
+        "ar":"د. محمود خيري",
+        "image": "Mahmoud_Khairy.jpeg",
+        "price": 310,
         "schedule": [
-          { "day_ar": "الاثنين", "day_en": "Monday", "time": "11:00" }
+          { "day_ar": "الاثنين", "day_en": "Monday", "time": "15:00" }
+        ]
+      },
+      {
+        "en": "Dr. Taha Muhammad",
+        "ar":"د. طه محمد",
+        "image": "Taha_Muhammad.jpeg",
+        "price": 310,
+        "schedule": [
+          { "day_ar": "الجمعه", "day_en": "Friday", "time": "21:00" }
+        ]
+      },
+      {
+        "en": "Dr. Metwally El-Dessouki",
+        "ar":"د. متولي الدسوقي",
+        "image": "Metwally_El-Dessouki.jpeg",
+        "price": 310,
+        "schedule": [
+          { "day_ar": "السبت", "day_en": "Saturday", "time": "21:00" }
         ]
       },
       {
         "en": "Dr. Mohamed Tawfeek",
         "ar":"د. محمد توفيق",
         "image": "Mohamed_Tawfeek.jpeg",
-        "price": 410
-      },
-      {
-        "en": "Dr. Hossam Elgazy",
-        "ar":"د. حسام غازي",
-        "image": "Hossam_Elgazy.jpeg",
-        "price": 260
+        "price": 410,
+        "schedule": [
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "13:00" }
+        ]
       },
       {
         "en": "Dr. Ahmed Sabry",
@@ -162,8 +202,8 @@
         "image": "Ahmed_sabry.jpeg",
         "price": 360,
         "schedule": [
-          { "day_ar": "الاحد", "day_en": "Sunday", "time": "9:30" },
-          { "day_ar": "الخميس", "day_en": "Thursday", "time": "9:30" }
+          { "day_ar": "الاحد", "day_en": "Sunday", "time": "21:00" },
+          { "day_ar": "الخميس", "day_en": "Thursday", "time": "21:00" }
         ]
       }
     ]
@@ -177,23 +217,12 @@
     },
     "doctors": [
       {
-        "en": "Dr. Mohamed Diaa",
-        "ar":"د. محمد ضياء",
-        "image": "Mohamed_Diaa.jpeg",
-        "price": 410,
-        "schedule": [
-          { "day_ar": "السبت", "day_en": "Saturday", "time": "7:00" },
-          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "7:00" }
-        ]
-      },
-      {
         "en": "Dr. Marwa Abd elWahab",
         "ar":"د. مروة عبد الوهاب",
         "image": "Marwa_Abd_elWahab.jpeg",
         "price": 410,
         "schedule": [
-          { "day_ar": "السبت", "day_en": "Saturday", "time": "8:00" },
-          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "8:00" }
+          { "day_ar": "السبت", "day_en": "Saturday", "time": "18:00" }
         ]
       }
     ]
@@ -213,8 +242,8 @@
         "image": "Basem_Gamal.jpeg",
         "price": 310,
         "schedule": [
-          { "day_ar": "الاحد", "day_en": "Sunday", "time": "7:00" },
-          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "7:00" }
+          { "day_ar": "الاحد", "day_en": "Sunday", "time": "19:00" },
+          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "19:00" }
         ]
       }
     ]
@@ -230,24 +259,38 @@
       {
         "en": "Dr. Amr Mohab",
         "ar": "د. عمرو مهاب",
-        "image": "amr_mohab.jpeg"
-      },
-      {
-        "en": "Dr. Momen Ahmad",
-        "ar":"د. مؤمن احمد",
-        "image": "Momen_Ahmad.jpeg",
+        "image": "amr_mohab.jpeg",
         "price": 410,
         "schedule": [
-          { "day_ar": "الجمعه", "day_en": "Friday", "time": "8:00" }
+          { "day_ar": "الخميس", "day_en": "Thursday", "time": "12:00" }
         ]
       },
       {
-        "en": "Dr. Ali Elsayed",
-        "ar":"د. علي السيد",
-        "image": "Ali_Elsayed.jpeg",
+        "en": "Dr. Mahmoud Abdel Nabi",
+        "ar":"د. محمود عبد النبي",
+        "image": "Mahmoud_AbdelNabi.jpeg",
         "price": 410,
         "schedule": [
-          { "day_ar": "السبت", "day_en": "Saturday", "time": "3:00" }
+          { "day_ar": "الاثنين", "day_en": "Monday", "time": "20:00" },
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "20:00" }
+        ]
+      },
+      {
+        "en": "Dr. Yumni Mohammed",
+        "ar":"د. يمني محمد",
+        "image": "Yumni_Mohammed.jpeg",
+        "price": 410,
+        "schedule": [
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "20:00" }
+        ]
+      },
+      {
+        "en": "Dr. Ali Al-Sayed",
+        "ar":"د. علي السيد",
+        "image": "Ali_Al-Sayed.jpeg",
+        "price": 410,
+        "schedule": [
+          { "day_ar": "السبت", "day_en": "Saturday", "time": "12:00" }
         ]
       }
     ]
@@ -260,11 +303,6 @@
       "ar": ""
     },
     "doctors": [
-      {
-        "en": "Dr. Islam Abdel Meguid",
-        "ar": "د. اسلام عبدالمجيد",
-        "image": "islam.jpeg"
-      }
     ]
   },
   {
@@ -276,36 +314,22 @@
     },
     "doctors": [
       {
-        "en": "Dr. Mohamed El_Moselmani",
-        "ar": "د. محمد المسلماني",
-        "image": "moselmani.jpeg"
-      },
-      {
         "en": "Dr. Sara Elwerdany",
         "ar":"د. ساره الورداني",
         "image": "Sara_Elwerdany.jpeg",
-        "price": 260,
-        "schedule": [
-          { "day_ar": "الاثنين", "day_en": "Monday", "time": "5:00" },
-          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "5:00" }
-        ]
-      },
-      {
-        "en": "Aya Gamal",
-        "ar": "آية جمال",
-        "image": "aya.jpeg",
         "price": 410,
         "schedule": [
-          { "day_ar": "سبت", "day_en": "Saturday", "time": "12:00" }
+          { "day_ar": "الاثنين", "day_en": "Monday", "time": "17:00" },
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "17:00" }
         ]
       },
       {
         "en": "Mai Yuness",
         "ar": "د. مي يونس",
         "image": "Mai_Yuness.jpeg",
-        "price": 260,
+        "price": 310,
         "schedule": [
-          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "3:00" }
+          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "15:00" }
         ]
       }
     ]
@@ -319,26 +343,14 @@
     },
     "doctors": [
       {
-        "en": "Dr. Ahmed Emam",
-        "ar": "د. احمد امام",
-        "image": "emam.jpeg"
-      },
-      {
         "en": "Dr. Ahmed Esmaile ",
         "ar":"د. احمد اسماعيل",
         "image": "Ahmed_Esmaile.jpeg",
-        "price": 290,
+        "price": 260,
         "schedule": [
-          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "9:00" }
-        ]
-      },
-      {
-        "en": "Dr. Hossam",
-        "ar":"د. حسام",
-        "image": "Hossam.jpeg",
-        "price": 410,
-        "schedule": [
-          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "12:00" }
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "21:00" },
+          { "day_ar": "السبت", "day_en": "Saturday", "time": "21:00" }
+
         ]
       }
     ]
@@ -351,11 +363,6 @@
       "ar": ""
     },
     "doctors": [
-      {
-        "en": "Dr. Ali Said",
-        "ar": "د. علي سعيد",
-        "image": "ali.jpeg"
-      }
     ]
   },
   {
@@ -367,15 +374,39 @@
     },
     "doctors": [
       {
-        "en": "Ezzat Khalaf",
-        "ar": "عزت خلف",
-        "image": "ezzat.jpeg"
+        "en": "Dr. Sayed Abdel Aziz",
+        "ar":"د. سيد عبد العزيز",
+        "image": "Sayed_AbdelAziz.jpeg",
+        "price": 160,
+        "schedule": [
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "15:00" },
+          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "15:00" }
+        ]
       },
+      {
+        "en": "Dr. Amira Baha",
+        "ar":"د. اميره بهاء",
+        "image": "Amira_Baha.jpeg",
+        "price": 410,
+        "schedule": [
+          { "day_ar": "السبت", "day_en": "Saturday", "time": "13:00" }
+        ]
+      }
+    ]
+  },
+    {
+    "en": "Urology",
+    "ar": "مسالك بوليه",
+    "desc": {
+      "en": "",
+      "ar": ""
+    },
+    "doctors": [
       {
         "en": "Dr. loay Mohammad",
         "ar":"د. لؤي محمد ",
         "image": "loay_Mohammad.jpeg",
-        "price": 410,
+        "price": 310,
         "schedule": [
           { "day_ar": "السبت", "day_en": "Saturday", "time": "12:00" },
           { "day_ar": "الاحد", "day_en": "Sunday", "time": "12:00" },
@@ -384,25 +415,6 @@
           { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "12:00" },
           { "day_ar": "الخميس", "day_en": "Thursday", "time": "12:00" },
           { "day_ar": "الجمعه", "day_en": "Friday", "time": "12:00" }
-        ]
-      },
-      {
-        "en": "Dr. Amr Hassan",
-        "ar":"د. عمرو حسان",
-        "image": "Amr_Hassan.jpeg",
-        "price": 410,
-        "schedule": [
-          { "day_ar": "السبت", "day_en": "Saturday", "time": "12:00" },
-          { "day_ar": "الاحد", "day_en": "Sunday", "time": "12:00" }
-        ]
-      },
-      {
-        "en": "Dr. Ead Abdelmeged",
-        "ar":"د. عيد عبدالمجيد",
-        "image": "Ead_Abdelmeged.jpeg",
-        "price": 410,
-        "schedule": [
-          { "day_ar": "الجمعه", "day_en": "Friday", "time": "11:00" }
         ]
       }
     ]

@@ -48,6 +48,18 @@ const services = [
   },
 ];
 
+const formatTime = (time: string) => {
+  const [hours, minutes] = time.split(":").map(Number);
+  const date = new Date();
+  date.setHours(hours, minutes);
+
+  return date.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+};
+
 
 export default function Medical() {
   const { t, language } = useLanguage();
@@ -170,10 +182,10 @@ export default function Medical() {
                             <span className="text-sm text-muted-foreground">
                               {t({
                                 en: doc.schedule
-                                  .map((s) => `${s.day_en} ${s.time}`)
+                                  .map((s) => `${s.day_en} ${formatTime(s.time)}`)
                                   .join(" | "),
                                 ar: doc.schedule
-                                  .map((s) => `${s.day_ar} ${s.time}`)
+                                  .map((s) => `${s.day_ar} ${formatTime(s.time)}`)
                                   .join(" | "),
                               })}
                             </span>
