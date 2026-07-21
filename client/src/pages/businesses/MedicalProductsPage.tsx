@@ -64,7 +64,7 @@ export default function MedicalProducts() {
       {/* Services */}
       <section className="py-12 max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
         {services.map((service, i) => (
-          <div key={i} className="bg-white p-6 rounded-lg shadow text-center">
+          <div key={i} className="bg-white rounded-lg p-6 text-center shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md">
             <h3 className="font-semibold text-xl mb-2">{t(service.title)}</h3>
             <p className="text-muted-foreground">{t(service.description)}</p>
           </div>

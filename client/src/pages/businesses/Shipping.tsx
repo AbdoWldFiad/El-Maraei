@@ -80,8 +80,8 @@ export default function Shipping() {
 
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">
+          <div className="rounded-xl border bg-card p-6 mb-12 shadow-sm">
+            <h2 className="text-2xl font-semibold mb-3 text-center text-foreground">
               {t({ en: 'About Our Shipping Services', ar: 'عن خدماتنا الملاحية' })}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -94,7 +94,7 @@ export default function Shipping() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {services.map((service, index) => (
-              <Card key={index} className="hover-elevate transition-all duration-300" data-testid={`service-card-${index}`}>
+              <Card key={index} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-testid={`service-card-${index}`}>
                 <CardContent className="p-6">
                   <div className="w-14 h-14 rounded-full bg-chart-2/20 flex items-center justify-center mb-4">
                     <service.icon className="h-7 w-7 text-chart-2" />
@@ -117,7 +117,7 @@ export default function Shipping() {
               </h2>
               <div className="space-y-3">
                 {ports.map((port, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 rounded-md hover-elevate" data-testid={`port-${index}`}>
+                  <div key={index} className="flex items-center gap-2 p-3 rounded-md transition-all duration-300 hover:translate-x-2 hover-elevate" data-testid={`port-${index}`}>
                     <Anchor className="h-5 w-5 text-gold flex-shrink-0" />
                     <span className="text-muted-foreground">{t(port)}</span>
                   </div>

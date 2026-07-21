@@ -7,9 +7,6 @@ import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import medicalImage from "@assets/generated_images/Medical_center_interior_image_d55bb764.png";
 import { getDoctorImage } from "@/extras/doctorImages";
-
-import { AboutIntroCard } from "@/extras/AboutIntroCard";
-import { InstallmentInfoCard } from "@/extras/InstallmentInfoCard";
 import { MedicalContactSection } from "@/pages/businesses/ContactSection/MedicalContactSection";
 import { Department, getDepartments } from "@/extras/departments";
 
@@ -106,13 +103,41 @@ export default function Medical() {
       </section>
 
       <section className="py-16 max-w-6xl mx-auto px-4">
-        <AboutIntroCard t={t} />
-        <InstallmentInfoCard t={t} />
+        {/* ABOUT INTRO */}
+        <div className="rounded-xl border bg-card p-6 shadow-sm">
+          <h2 className="text-2xl font-semibold mb-3 text-center text-foreground">
+            {t({
+              en: "About Our Medical Center",
+              ar: "عن مركزنا الطبي",
+            })}
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            {t({
+              en: "Welcome to Modern Specialized Clinics — your family’s trusted health home, where comfort and well-being come first. Our team of experienced doctors and consultants provides warm, comprehensive care using the latest diagnostic and treatment technologies. We strive to create a safe and compassionate environment where every family member feels supported.",
+              ar: "نرحّب بكم في العيادات التخصصية الحديثة، بيتكم الصحي الذي نهتم فيه بكم وبعائلاتكم أولاً. يضم فريقنا نخبة من الأطباء والاستشاريين الذين يقدمون رعاية شاملة ومريحة باستخدام أحدث وسائل التشخيص والعلاج، مع الحرص على توفير بيئة آمنة وإنسانية يشعر فيها كل فرد من العائلة بالدعم والاهتمام."
+            })}
+          </p>
+        </div>
+        {/* INSTALLMENT INFO */}
+        <div className="rounded-xl border bg-card p-6 shadow-sm mt-6">
+          <h3 className="text-xl font-semibold mb-3 text-center text-foreground">
+            {t({
+              en: "Flexible Installment Plans",
+              ar: "خطط تقسيط ميسّرة",
+            })}
+          </h3>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            {t({
+              en: "To support our patients further, we offer convenient installment plans for surgical procedures in collaboration with trusted hospitals and medical financing partners. This service helps families access the care they need without financial stress, while maintaining the high quality of care they deserve.",
+              ar: "ولمزيد من دعم مرضانا، نوفر خدمة تقسيط العمليات الجراحية بالتعاون مع مستشفيات وجهات تمويل طبية موثوقة. تهدف هذه الخدمة إلى تسهيل حصول العائلات على الرعاية التي تحتاجها دون أعباء مالية، مع الحفاظ على نفس مستوى الجودة والرعاية التي يستحقونها."
+            })}
+          </p>
+        </div>
 
         {/* SERVICES */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-16">
           {services.map((service) => (
-            <Card key={service.title.en} className="text-center hover-elevate">
+            <Card key={service.title.en} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
               <CardContent className="p-6">
                 <service.icon className="h-7 w-7 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{t(service.title)}</h3>

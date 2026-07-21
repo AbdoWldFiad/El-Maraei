@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import heroImage from '@assets/generated_images/Corporate_headquarters_hero_image_030060dd.png';
 import logo from '/favicon.png'
+import CountUp from "@/extras/countup.tsx";
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -74,10 +75,10 @@ export default function Home() {
   ];
 
   const stats = [
-    { value: '25+', label: { en: 'Years Experience', ar: 'سنوات من الخبرة' } },
-    { value: '5', label: { en: 'Business Sectors', ar: 'قطاعات أعمال' } },
-    { value: '1000+', label: { en: 'Satisfied Clients', ar: 'عميل راضٍ' } },
-    { value: '50+', label: { en: 'Expert Team', ar: 'فريق خبراء' } },
+    { value: 25, suffix: "+", label: { en: "Years Experience", ar: "سنوات من الخبرة" }},
+    { value: 5, suffix: "", label: { en: "Business Sectors", ar: "قطاعات أعمال" }},
+    { value: 1000, suffix: "+", label: { en: "Satisfied Clients", ar: "عميل راضٍ" }},
+    { value: 50, suffix: "+", label: { en: "Expert Team", ar: "فريق خبراء" }},
   ];
 
   return (
@@ -145,7 +146,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center" data-testid={`stat-${index}`}>
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2"> <CountUp end={stat.value} suffix={stat.suffix} /> </div>
                 <div className="text-sm md:text-base text-muted-foreground">{t(stat.label)}</div>
               </div>
             ))}
@@ -169,7 +170,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {businesses.map((business, index) => (
-              <Card key={index} className="hover-elevate transition-all duration-300 border-card-border" data-testid={`business-card-${index}`}>
+              <Card key={index} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-testid={`business-card-${index}`}>
                 <CardContent className="p-6">
                   <div className={`w-16 h-16 rounded-full ${business.color} flex items-center justify-center mb-4`}>
                     <business.icon className="h-8 w-8 text-white" />
@@ -201,7 +202,7 @@ export default function Home() {
                 {t({ en: 'Why Choose El maraie Group', ar: 'لماذا تختار المرعي جروب' })}
               </h2>
               <div className="space-y-4">
-                <div className="flex gap-4">
+                <div className="flex items-center gap-2 p-3 rounded-md transition-all duration-300 hover:translate-x-2 hover-elevate">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center">
                     <Building2 className="h-6 w-6 text-gold-foreground" />
                   </div>
@@ -215,7 +216,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex items-center gap-2 p-3 rounded-md transition-all duration-300 hover:translate-x-2 hover-elevate">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center">
                     <Handshake className="h-6 w-6 text-gold-foreground" />
                   </div>
@@ -229,7 +230,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex items-center gap-2 p-3 rounded-md transition-all duration-300 hover:translate-x-2 hover-elevate">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center">
                     <Mountain className="h-6 w-6 text-gold-foreground" />
                   </div>
@@ -276,7 +277,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
             {t({ en: 'Ready to Work With Us?', ar: 'هل أنت مستعد للعمل معنا؟' })}
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
             {t({ 
               en: 'Discover how El maraie Group can help your business grow and succeed.', 
               ar: 'اكتشف كيف يمكن لمجموعة المرعي مساعدة عملك على النمو والنجاح.' 

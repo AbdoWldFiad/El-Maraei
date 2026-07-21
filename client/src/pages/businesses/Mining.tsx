@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import miningImage from '@assets/generated_images/Mining_factory_operations_image_ab02d1b7.png';
+import CountUp from "@/extras/countup.tsx";
 
 export default function Mining() {
   const { t, language } = useLanguage();
@@ -81,8 +82,8 @@ export default function Mining() {
 
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">
+          <div className="rounded-xl border bg-card p-6 mb-12 shadow-sm">
+            <h2 className="text-2xl font-semibold mb-3 text-center text-foreground">
               {t({ en: 'About Our Mining Operations', ar: 'عن عمليات التعدين لدينا' })}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -95,7 +96,7 @@ export default function Mining() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {services.map((service, index) => (
-              <Card key={index} className="hover-elevate transition-all duration-300" data-testid={`service-card-${index}`}>
+              <Card key={index} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-testid={`service-card-${index}`}>
                 <CardContent className="p-6">
                   <div className="w-14 h-14 rounded-full bg-chart-4/20 flex items-center justify-center mb-4">
                     <service.icon className="h-7 w-7 text-chart-4" />
@@ -118,7 +119,7 @@ export default function Mining() {
               </h2>
               <div className="grid grid-cols-2 gap-4">
                 {minerals.map((mineral, index) => (
-                  <div key={index} className="flex items-center gap-2" data-testid={`mineral-${index}`}>
+                  <div key={index} className="flex items-center gap-2 p-3 rounded-md transition-all duration-300 hover:translate-x-2 hover-elevate" data-testid={`mineral-${index}`}>
                     <Gem className="h-5 w-5 text-gold flex-shrink-0" />
                     <span className="text-muted-foreground">{t(mineral)}</span>
                   </div>
@@ -180,15 +181,15 @@ export default function Mining() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               <div>
-                <div className="text-4xl font-bold text-gold mb-2">500K+</div>
+                <div className="text-4xl font-bold text-gold mb-2"> <CountUp end={500} suffix="+" /> </div>
                 <div className="text-primary-foreground/80">{t({ en: 'Tons Processed Annually', ar: 'طن معالج سنويًا' })}</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-gold mb-2">20+</div>
+                <div className="text-4xl font-bold text-gold mb-2"> <CountUp end={20} suffix="+" /> </div>
                 <div className="text-primary-foreground/80">{t({ en: 'Years Experience', ar: 'سنوات من الخبرة' })}</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-gold mb-2">99.5%</div>
+                <div className="text-4xl font-bold text-gold mb-2"> <CountUp end={99.5} suffix="%" /> </div>
                 <div className="text-primary-foreground/80">{t({ en: 'Product Purity', ar: 'نقاء المنتج' })}</div>
               </div>
             </div>
@@ -197,21 +198,21 @@ export default function Mining() {
       </section>
 
       <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-foreground">
+        <div className="rounded-xl border bg-card p-6 mb-12 shadow-sm">
+          <h2 className="text-2xl font-semibold mb-3 text-center text-foreground">
             {t({ en: 'Partner With Us', ar: 'شارك معنا' })}
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
             {t({ 
               en: 'Looking for reliable mineral supply? Contact us for wholesale pricing and delivery options.', 
               ar: 'تبحث عن إمدادات معادن موثوقة؟ اتصل بنا للحصول على أسعار الجملة وخيارات التوصيل.' 
             })}
           </p>
-          <a href="/contact">
-            <button className="px-8 py-3 bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2 font-medium" data-testid="button-contact">
-              {t({ en: 'Request Information', ar: 'طلب معلومات' })}
-            </button>
-          </a>
+          <div className="flex justify-center">
+            <a href="/contact" className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2 font-medium" >
+              {t({ en: "Discuss Opportunities", ar: "مناقشة الفرص" })}
+            </a>
+          </div>
         </div>
       </section>
     </div>

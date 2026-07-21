@@ -83,16 +83,6 @@
         ]
       },
       {
-        "en": "Dr. Mohammed Bakhit",
-        "ar":"د. محمد بخيت",
-        "image": "Mohamed_Behket.jpeg",
-        "price": 110,
-        "schedule": [
-          { "day_ar": "السبت", "day_en": "Saturday", "time": "12:00" },
-          { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "13:00" }
-        ]
-      },
-      {
         "en": "Dr. Mohammed Al-Badri",
         "ar":"د.  محمد البدري",
         "image": "Mohamed_Al-Badri.jpeg",
@@ -128,7 +118,7 @@
         "image": "Nehal_Abo_Elmagd.jpeg",
         "price": 410,
     "schedule": [
-      { "day_ar": "الجمعه", "day_en": "Friday", "time": "13:00" }
+      { "day_ar": "الجمعه", "day_en": "Friday", "time": "21:00" }
     ]
       }
     ]
@@ -191,7 +181,7 @@
         "en": "Dr. Mohamed Tawfeek",
         "ar":"د. محمد توفيق",
         "image": "Mohamed_Tawfeek.jpeg",
-        "price": 410,
+        "price": 310,
         "schedule": [
           { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "13:00" }
         ]
@@ -222,7 +212,8 @@
         "image": "Marwa_Abd_elWahab.jpeg",
         "price": 410,
         "schedule": [
-          { "day_ar": "السبت", "day_en": "Saturday", "time": "18:00" }
+          { "day_ar": "السبت", "day_en": "Saturday", "time": "18:00", "end": "19:30" },
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "21:00", "end": "23:30" }
         ]
       }
     ]
@@ -269,7 +260,7 @@
         "en": "Dr. Mahmoud Abdel Nabi",
         "ar":"د. محمود عبد النبي",
         "image": "Mahmoud_AbdelNabi.jpeg",
-        "price": 410,
+        "price": 310,
         "schedule": [
           { "day_ar": "الاثنين", "day_en": "Monday", "time": "20:00" },
           { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "20:00" }
@@ -279,7 +270,7 @@
         "en": "Dr. Yumni Mohammed",
         "ar":"د. يمني محمد",
         "image": "Yumni_Mohammed.jpeg",
-        "price": 410,
+        "price": 310,
         "schedule": [
           { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "20:00" }
         ]
@@ -303,6 +294,16 @@
       "ar": ""
     },
     "doctors": [
+      {
+        "en": "Dr.  Muhammad Othman",
+        "ar":"د. محمد عثمان",
+        "image": "Muhammad_Othman.jpeg",
+        "price": 410,
+        "schedule": [
+          { "day_ar": "الاثنين", "day_en": "Monday", "time": "17:00" },
+          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "17:00" }
+        ]
+      }
     ]
   },
   {
@@ -406,7 +407,7 @@
         "en": "Dr. loay Mohammad",
         "ar":"د. لؤي محمد ",
         "image": "loay_Mohammad.jpeg",
-        "price": 310,
+        "price": 260,
         "schedule": [
           { "day_ar": "السبت", "day_en": "Saturday", "time": "12:00" },
           { "day_ar": "الاحد", "day_en": "Sunday", "time": "12:00" },

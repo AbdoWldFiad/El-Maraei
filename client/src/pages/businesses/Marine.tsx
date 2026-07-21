@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
 import marineImage from '@assets/generated_images/Marine_works_construction_image_d652c626.png';
 import { useState } from 'react';
+import CountUp from "@/extras/countup.tsx";
 
 export default function Marine() {
   const { t, language } = useLanguage();
@@ -63,8 +64,8 @@ export default function Marine() {
 
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">
+          <div className="rounded-xl border bg-card p-6 mb-12 shadow-sm">
+            <h2 className="text-2xl font-semibold mb-3 text-center text-foreground">
               {t({ en: 'About Our Marine Works', ar: 'عن أشغالنا البحرية' })}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -77,7 +78,7 @@ export default function Marine() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {services.map((service, index) => (
-              <Card key={index} className="hover-elevate transition-all duration-300" data-testid={`service-card-${index}`}>
+              <Card key={index} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-testid={`service-card-${index}`}>
                 <CardContent className="p-6">
                   <div className="w-14 h-14 rounded-full bg-chart-3/20 flex items-center justify-center mb-4">
                     <service.icon className="h-7 w-7 text-chart-3" />
@@ -99,7 +100,7 @@ export default function Marine() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {projects.map((project, index) => (
-                <Card key={index} className="hover-elevate" data-testid={`project-card-${index}`}>
+                <Card key={index} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-testid={`project-card-${index}`}>
                   <CardContent className="p-6">
                     <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center mb-4">
                       <Waves className="h-6 w-6 text-gold" />
@@ -122,16 +123,22 @@ export default function Marine() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">50+</div>
-                <div className="text-muted-foreground">{t({ en: 'Projects Completed', ar: 'مشروع مكتمل' })}</div>
+                <div className="text-4xl font-bold text-primary mb-2"> <CountUp end={50} suffix="+" /> </div>
+                <div className="text-muted-foreground">
+                  {t({ en: "Projects Completed", ar: "مشروع مكتمل" })}
+                </div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">30+</div>
-                <div className="text-muted-foreground">{t({ en: 'Expert Engineers', ar: 'مهندس خبير' })}</div>
+                <div className="text-4xl font-bold text-primary mb-2"> <CountUp end={30} suffix="+" /> </div>
+                <div className="text-muted-foreground">
+                  {t({ en: "Expert Engineers", ar: "مهندس خبير" })}
+                </div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                <div className="text-muted-foreground">{t({ en: 'Safety Record', ar: 'سجل السلامة' })}</div>
+                <div className="text-4xl font-bold text-primary mb-2"> <CountUp end={100} suffix="%" /> </div>
+                <div className="text-muted-foreground">
+                  {t({ en: "Safety Record", ar: "سجل السلامة" })}
+                </div>
               </div>
             </div>
           </div>
@@ -139,26 +146,26 @@ export default function Marine() {
       </section>
 
       <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-foreground">
+        <div className="rounded-xl border bg-card p-6 mb-12 shadow-sm">
+          <h2 className="text-2xl font-semibold mb-3 text-center text-foreground">
             {t({ en: 'Have a Marine Project?', ar: 'لديك مشروع بحري؟' })}
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
             {t({ 
               en: 'Let\'s discuss how we can bring your maritime infrastructure vision to life.', 
               ar: 'دعنا نناقش كيف يمكننا تحقيق رؤيتك للبنية التحتية البحرية.' 
             })}
           </p>
-          <a href="/contact">
-            <button className="px-8 py-3 bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2 font-medium" data-testid="button-contact">
-              {t({ en: 'Contact Us', ar: 'اتصل بنا' })}
-            </button>
-          </a>
+          <div className="flex justify-center">
+            <a href="/contact" className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2 font-medium" >
+              {t({ en: "Discuss Opportunities", ar: "مناقشة الفرص" })}
+            </a>
+          </div>
           <div
             onClick={handleCopy}
-            className="mt-6 mx-auto flex items-center justify-between gap-4 max-w-xl px-5 py-3 bg-muted/60 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:bg-muted transition-all duration-200 cursor-pointer group"
+            className="mt-12 mx-auto flex items-center justify-between gap-4 max-w-xl px-5 py-3 bg-muted/60 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:bg-muted transition-all duration-200 cursor-pointer group"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center  gap-3">
               <div className="p-2 bg-primary/10 rounded-md group-hover:bg-primary/20 transition">
                 <MailIcon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               </div>

@@ -139,7 +139,7 @@ export default function About() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
-                <Card key={index} className="text-center hover-elevate transition-all duration-300" data-testid={`value-card-${index}`}>
+                <Card key={index} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-testid={`value-card-${index}`}>
                   <CardContent className="p-6">
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                       <value.icon className="h-8 w-8 text-primary" />
@@ -165,23 +165,35 @@ export default function About() {
               <div className="space-y-12">
                 {milestones.map((milestone, index) => (
                   <div key={index} className="relative" data-testid={`milestone-${index}`}>
-                    <div className={`flex flex-col md:flex-row gap-6 items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                      <div className="flex-1 text-center md:text-right rtl:md:text-left">
+                    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-6">
+                      <div className="flex justify-end">
                         {index % 2 === 0 && (
-                          <Card className="p-6 hover-elevate">
-                            <div className="text-2xl font-bold text-gold mb-2">{milestone.year}</div>
-                            <h3 className="text-xl font-semibold mb-2 text-foreground">{t(milestone.title)}</h3>
-                            <p className="text-muted-foreground">{t(milestone.description)}</p>
+                          <Card className="p-6 hover-elevate w-full">
+                            <div className="text-2xl font-bold text-gold mb-2">
+                              {milestone.year}
+                            </div>
+                            <h3 className="text-xl font-semibold mb-2 text-foreground">
+                              {t(milestone.title)}
+                            </h3>
+                            <p className="text-muted-foreground">
+                              {t(milestone.description)}
+                            </p>
                           </Card>
                         )}
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-gold border-4 border-background flex-shrink-0 z-10"></div>
-                      <div className="flex-1 text-center md:text-left rtl:md:text-right">
+
+                      <div className="w-8 h-8 rounded-full bg-gold border-4 border-background z-10"></div>
+                      
+                      <div className="flex justify-start">
                         {index % 2 !== 0 && (
-                          <Card className="p-6 hover-elevate">
-                            <div className="text-2xl font-bold text-gold mb-2">{milestone.year}</div>
-                            <h3 className="text-xl font-semibold mb-2 text-foreground">{t(milestone.title)}</h3>
-                            <p className="text-muted-foreground">{t(milestone.description)}</p>
+                          <Card className="p-6 hover-elevate w-full">
+                            <div className="text-2xl font-bold text-gold mb-2">
+                              {milestone.year}
+                            </div>
+                            <h3 className="text-xl font-semibold mb-2 text-foreground">
+                              {t(milestone.title)}
+                            </h3>
+                            <p className="text-muted-foreground"> {t(milestone.description)} </p>
                           </Card>
                         )}
                       </div>
@@ -194,22 +206,22 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 bg-muted/30">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-foreground">
+      <section className="py-16">
+        <div className="rounded-xl border bg-card p-6 mb-12 shadow-sm">
+          <h2 className="text-2xl font-semibold mb-3 text-center text-foreground">
             {t({ en: 'Join Our Team', ar: 'انضم إلى فريقنا' })}
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
             {t({ 
               en: 'We are always looking for talented individuals to join our growing team.', 
               ar: 'نحن نبحث دائمًا عن الأفراد الموهوبين للانضمام إلى فريقنا المتنامي.' 
             })}
           </p>
-          <a href="/careers">
-            <button className="px-8 py-3 bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2 font-medium" data-testid="button-view-careers">
-              {t({ en: 'View Career Opportunities', ar: 'عرض الفرص الوظيفية' })}
-            </button>
-          </a>
+          <div className="flex justify-center">
+            <a href="/careers" className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2 font-medium" >
+              {t({ en: "Discuss Opportunities", ar: "مناقشة الفرص" })}
+            </a>
+          </div>
         </div>
       </section>
     </div>
