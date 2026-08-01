@@ -154,72 +154,101 @@ export default function Medical() {
           {t({ en: "Our Departments", ar: "أقسامنا" })}
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {departments.map((dept, index) => (
             <div
-              key={dept.en}
-              className="border rounded-lg overflow-hidden bg-card"
-            >
+              key={dept.en} className="border rounded-lg overflow-hidden bg-card" >
               <button
                 type="button"
                 onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center p-5 text-left hover:bg-muted transition"
-              >
-                <div>
-                  <h3 className="font-semibold text-lg">{t(dept)}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {t(dept.desc)}
-                  </p>
+                className="w-full flex justify-between items-center p-5 text-left hover:bg-muted/60 transition cursor-pointer" >
+                  <div className="flex items-start gap-6">
+                    <Stethoscope className="h-5 w-5 text-primary mt-1" />
+
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="font-semibold text-lg">{t(dept)}</h3>
+
+                        <span className="rounded-full bg-primary/10 text-primary px-2 py-0.5 text-xs font-medium">
+                          {dept.doctors.length}{" "}
+                          {t({
+                            en: "Doctors",
+                            ar: "أطباء",
+                          })}
+                        </span>
+                      </div>
+
+                      <p className={`${language === "ar" ? "text-right" : "text-left"} text-sm text-muted-foreground`}>
+                        {t(dept.desc)}
+                      </p>
+                    </div>
+                  </div>
+                <div className="flex items-center gap-2 text-sm text-primary">
+                   <span>
+                      {openIndex === index
+                        ? t({ en: "Hide doctors", ar: "إخفاء الأطباء" })
+                        : t({ en: "View doctors", ar: "عرض الأطباء" })}
+                    </span>
+                  <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${ openIndex === index ? "rotate-180" : "" }`} />
                 </div>
-                <ChevronDown
-                  className={`transition-transform ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                />
               </button>
 
               {openIndex === index && (
-                <div className="px-6 pb-6 space-y-4">
+                <div className="px-6 pb-6 space-y-6">
                   {dept.doctors.length > 0 ? (
                     dept.doctors.map((doc) => (
                       <div
-                        key={doc.en}
-                        className="flex items-center gap-4 border-b pb-3"
-                      >
+                        key={doc.en} className="flex items-center gap-4 border-b pb-3" >
                         <img
                           src={doc.image || getDoctorImage("fallback.png")}
                           alt={doc.en}
-                          className="w-14 h-14 rounded-full object-cover border"
-                          onError={(e) => {
-                            e.currentTarget.src = getDoctorImage("fallback.png");
-                          }}
-                        />
-                        <div className="flex items-center gap-3 flex-wrap">
-                          <span className="font-medium">{t(doc)}</span>
+                          className="w-14 h-14 rounded-full object-cover border" />
 
-                          {doc.price && (
-                            <span className="text-sm text-muted-foreground">
-                              {doc.price} EGP
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 flex-wrap">
+                            <span className="font-semibold text-primary">
+                              {t(doc)}
+                            </span>
+
+                            <Link
+                              href={`/businesses/medical/appointment?department=${encodeURIComponent(
+                                dept.en.trim()
+                              )}&doctor=${encodeURIComponent(doc.en.trim())}`}
+                              dir={language === "ar" ? "rtl" : "ltr"}
+                            >
+                              <Button className="bg-gold text-gold-foreground hover:bg-gold/90">
+                                {t({
+                                  en: "Book Now",
+                                  ar: "احجز الآن",
+                                })}
+                              </Button>
+                            </Link>
+                          </div>
+
+                           {doc.price && (
+                            <span className="rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-medium">
+                             {t({ en: "Consultation prise :", ar: "سعر الكشف:" })} {doc.price} EGP
                             </span>
                           )}
 
-                          {doc.schedule?.length  && (
-                            <span className="text-sm text-muted-foreground">
-                              {t({
-                                en: doc.schedule
-                                  .map((s) => `${s.day_en} ${formatTime(s.time)}`)
-                                  .join(" | "),
-                                ar: doc.schedule
-                                  .map((s) => `${s.day_ar} ${formatTime(s.time)}`)
-                                  .join(" | "),
-                              })}
-                            </span>
-                          )}
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {doc.schedule?.map((s) => (
+                              <span
+                                key={`${s.day_en}-${s.time}`}
+                                className="rounded-md bg-muted px-2 py-1 text-xs"
+                              >
+                                {t({
+                                  en: `${s.day_en} ${formatTime(s.time)}`,
+                                  ar: `${s.day_ar} ${formatTime(s.time)}`,
+                                })}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     ))
                   ) : (
-                    <p className="text-muted-foreground col-span-full text-center"> {t({ en: "Coming Soon", ar: "قريبًا" })}</p>
+                     <p className="text-muted-foreground col-span-full text-center"> {t({ en: "No doctors available yet", ar: "لا يوجد أطباء حاليًا", })} </p>
                   )}
                 </div>
               )}

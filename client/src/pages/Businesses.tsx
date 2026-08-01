@@ -117,7 +117,7 @@ export default function Businesses() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {businesses.map((business, index) => (
-                <Card key={index} className="hover-elevate transition-all duration-300 border-card-border h-full" data-testid={`business-overview-card-${index}`}>
+                <Card key={index} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-testid={`business-card-${index}`}>
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className={`w-20 h-20 rounded-full ${business.color} flex items-center justify-center mb-6`}>
                       <business.icon className="h-10 w-10 text-white" />

@@ -163,8 +163,7 @@ export default function Marine() {
           </div>
           <div
             onClick={handleCopy}
-            className="mt-12 mx-auto flex items-center justify-between gap-4 max-w-xl px-5 py-3 bg-muted/60 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:bg-muted transition-all duration-200 cursor-pointer group"
-          >
+            className="mt-12 mx-auto flex items-center justify-between gap-4 max-w-xl px-5 py-3 bg-muted/60 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:bg-muted transition-all duration-200 cursor-pointer group" >
             <div className="flex items-center  gap-3">
               <div className="p-2 bg-primary/10 rounded-md group-hover:bg-primary/20 transition">
                 <MailIcon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />

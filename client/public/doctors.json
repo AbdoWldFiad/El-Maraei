@@ -18,15 +18,6 @@
         ]
       },
       {
-        "en": "Dr. Marwa Abd elWahab",
-        "ar":"د. مروة عبد الوهاب",
-        "image": "Marwa_Abd_elWahab.jpeg",
-        "price": 410,
-        "schedule": [
-          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "13:00" }
-        ]
-      },
-      {
         "en": "Dr. Osama Farhat",
         "ar":"د. اسامه فرحات",
         "image": "Osama_Farhat.jpeg",
@@ -88,7 +79,7 @@
         "image": "Mohamed_Al-Badri.jpeg",
         "price": 110,
         "schedule": [
-          { "day_ar": "الاثنين", "day_en": "Monday", "time": "13:00" },
+          { "day_ar": "الاثنين", "day_en": "Monday", "time": "17:00" },
           { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "13:00" }
         ]
       }
@@ -243,8 +234,8 @@
     "en": "Internal Medicine",
     "ar": "باطنة",
     "desc": {
-      "en": "",
-      "ar": ""
+      "en": "Adult medical care.",
+      "ar": "رعاية الأمراض الباطنية."
     },
     "doctors": [
       {
@@ -265,7 +256,56 @@
           { "day_ar": "الاثنين", "day_en": "Monday", "time": "20:00" },
           { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "20:00" }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "en": "ENT",
+    "ar": "أنف وأذن وحنجرة",
+    "desc": {
+      "en": "Ear, nose, and throat care.",
+      "ar": "علاج الأنف والأذن والحنجرة."
+    },
+    "doctors": [
+      {
+        "en": "Dr.  Muhammad Othman",
+        "ar":"د. محمد عثمان",
+        "image": "Muhammad_Othman.jpeg",
+        "price": 410,
+        "schedule": [
+          { "day_ar": "الاثنين", "day_en": "Monday", "time": "17:00" },
+          { "day_ar": "الاحد", "day_en": "Sunday", "time": "17:00" }
+        ]
+      }
+    ]
+  },
+  {
+    "en": "Ophthalmology",
+    "ar": "عيون",
+    "desc": {
+      "en": "Eye care services.",
+      "ar": "خدمات العناية بالعيون."
+    },
+    "doctors": [
+      {
+        "en": "Dr. Amira Baha",
+        "ar":"د. اميره بهاء",
+        "image": "Amira_Baha.jpeg",
+        "price": 410,
+        "schedule": [
+          { "day_ar": "السبت", "day_en": "Saturday", "time": "13:00" }
+        ]
+      }
+    ]
+  },
+  {
+    "en": "Hematology",
+    "ar": "أمراض دم",
+    "desc": {
+      "en": "Blood disorder treatment.",
+      "ar": "علاج أمراض الدم."
+    },
+    "doctors": [
       {
         "en": "Dr. Yumni Mohammed",
         "ar":"د. يمني محمد",
@@ -274,7 +314,17 @@
         "schedule": [
           { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "20:00" }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "en": "Immunology",
+    "ar": "أمراض مناعة",
+    "desc": {
+      "en": "Immune system care.",
+      "ar": "رعاية الجهاز المناعي."
+    },
+    "doctors": [
       {
         "en": "Dr. Ali Al-Sayed",
         "ar":"د. علي السيد",
@@ -287,31 +337,11 @@
     ]
   },
   {
-    "en": "ENT",
-    "ar": "أنف وأذن",
-    "desc": {
-      "en": "",
-      "ar": ""
-    },
-    "doctors": [
-      {
-        "en": "Dr.  Muhammad Othman",
-        "ar":"د. محمد عثمان",
-        "image": "Muhammad_Othman.jpeg",
-        "price": 410,
-        "schedule": [
-          { "day_ar": "الاثنين", "day_en": "Monday", "time": "17:00" },
-          { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "17:00" }
-        ]
-      }
-    ]
-  },
-  {
     "en": "Psychiatry & Addiction",
     "ar": "طب نفسي وعلاج إدمان",
     "desc": {
-      "en": "",
-      "ar": ""
+      "en": "Mental health and addiction care.",
+      "ar": "رعاية الصحة النفسية وعلاج الإدمان."
     },
     "doctors": [
       {
@@ -339,8 +369,8 @@
     "en": "Neurosurgery",
     "ar": "جراحة مخ وأعصاب",
     "desc": {
-      "en": "",
-      "ar": ""
+      "en": "Brain and nerve surgery.",
+      "ar": "جراحة المخ والأعصاب."
     },
     "doctors": [
       {
@@ -360,8 +390,8 @@
     "en": "Radiology",
     "ar": "أشعة",
     "desc": {
-      "en": "",
-      "ar": ""
+      "en": "Medical imaging services.",
+      "ar": "خدمات التصوير الطبي."
     },
     "doctors": [
     ]
@@ -370,8 +400,8 @@
     "en": "General Surgery",
     "ar": "جراحة عامة",
     "desc": {
-      "en": "",
-      "ar": ""
+      "en": "General surgical procedures.",
+      "ar": "العمليات الجراحية العامة."
     },
     "doctors": [
       {
@@ -383,15 +413,6 @@
           { "day_ar": "الثلاثاء", "day_en": "Tuesday", "time": "15:00" },
           { "day_ar": "الاربعاء", "day_en": "Wednesday", "time": "15:00" }
         ]
-      },
-      {
-        "en": "Dr. Amira Baha",
-        "ar":"د. اميره بهاء",
-        "image": "Amira_Baha.jpeg",
-        "price": 410,
-        "schedule": [
-          { "day_ar": "السبت", "day_en": "Saturday", "time": "13:00" }
-        ]
       }
     ]
   },
@@ -399,8 +420,8 @@
     "en": "Urology",
     "ar": "مسالك بوليه",
     "desc": {
-      "en": "",
-      "ar": ""
+      "en": "Urinary tract care.",
+      "ar": "رعاية المسالك البولية."
     },
     "doctors": [
       {

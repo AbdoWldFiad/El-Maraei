@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { User, Mail, Phone, FileText } from 'lucide-react';
-import { Calendar } from "@/components/ui/calendar";
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -15,6 +15,7 @@ import { Helmet } from 'react-helmet-async';
 import { insertAppointmentSchema } from '@shared/schema';
 import emailjs from "@emailjs/browser";
 import { Department, getDepartments } from "@/extras/departments";
+import { useSearch } from "wouter";
 
 export default function MedicalAppointment() {
   const { t, language } = useLanguage();
@@ -214,6 +215,25 @@ const availableDates = useMemo(() => {
   return getNextAvailableDates(allowedDays, 30);
 }, [selectedDoctor, allowedDays]);
 
+const search = useSearch();
+
+const params = new URLSearchParams(search);
+
+const departmentParam = params.get("department") || "";
+const doctorParam = params.get("doctor") || "";
+
+useEffect(() => {
+  if (!departments.length) return;
+
+  if (departmentParam) {
+    form.setValue("department", departmentParam);
+  }
+
+  if (doctorParam) {
+    form.setValue("doctor", doctorParam);
+  }
+}, [ departments, doctorValue, departmentParam, doctorParam, form, ]);
+
   if (isSubmitted) {
     return (
       <div className="min-h-screen py-16 bg-muted/30">
@@ -232,6 +252,9 @@ const availableDates = useMemo(() => {
               <Button onClick={() => setIsSubmitted(false)} data-testid="button-book-another">
                 {t({ en: 'Book Another Appointment', ar: 'احجز موعدًا آخر' })}
               </Button>
+              <a href="/businesses/medical/" className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2 font-medium" >
+                {t({ en: "Back to Medical Center", ar: "الرجوع ألي المركز الطبي" })}
+              </a>
             </CardContent>
           </Card>
         </div>
@@ -290,11 +313,22 @@ const availableDates = useMemo(() => {
                     name="department"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t({ en: 'Department', ar: 'القسم' })}</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormLabel>
+                          {t({ en: "Department", ar: "القسم" })}
+                        </FormLabel>
+
+                        <Select
+                          value={field.value}
+                          onValueChange={field.onChange}
+                        >
                           <FormControl>
                             <SelectTrigger data-testid="select-department">
-                              <SelectValue placeholder={t({ en: 'Select department', ar: 'اختر القسم' })} />
+                              <SelectValue
+                                placeholder={t({
+                                  en: "Select department",
+                                  ar: "اختر القسم",
+                                })}
+                              />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -338,9 +372,8 @@ const availableDates = useMemo(() => {
                         </FormLabel>
 
                         <Select
+                          value={field.value}
                           onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          disabled={!selectedDepartment}
                         >
                           <FormControl>
                             <SelectTrigger>
@@ -357,7 +390,10 @@ const availableDates = useMemo(() => {
                             {selectedDepartment ? (
                               selectedDepartment.doctors.length > 0 ? (
                                 selectedDepartment.doctors.map((doctor) => (
-                                  <SelectItem key={doctor.en} value={doctor.en}>
+                                  <SelectItem
+                                    key={doctor.en}
+                                    value={doctor.en}
+                                  >
                                     {language === "ar" ? doctor.ar : doctor.en}
                                   </SelectItem>
                                 ))
@@ -368,7 +404,10 @@ const availableDates = useMemo(() => {
                               )
                             ) : (
                               <SelectItem value="none" disabled>
-                                {t({ en: "Select department first", ar: "اختر القسم أولاً" })}
+                                {t({
+                                  en: "Select department first",
+                                  ar: "اختر القسم أولاً",
+                                })}
                               </SelectItem>
                             )}
                           </SelectContent>
@@ -397,8 +436,8 @@ const availableDates = useMemo(() => {
                     )}
                   />
                   */}
-                  
-                  {/* appointmentDate */}
+
+                   {/* appointmentDate */}
                   <FormField
                     control={form.control}
                     name="appointmentDate"
@@ -492,8 +531,28 @@ const availableDates = useMemo(() => {
                   />
 
 
-                </div>
+                {selectedDoctor?.price && (
+                  <div className="mt-3 flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100">
+                      💰
+                    </div>
 
+                    <div>
+                      <p className="text-xs text-muted-foreground">
+                        {t({
+                          en: "Consultation Fee",
+                          ar: "سعر الكشف",
+                        })}
+                      </p>
+
+                      <p className="font-bold text-emerald-700">
+                        {selectedDoctor.price} EGP
+                      </p>
+                    </div>
+                  </div>
+                )}
+                </div>
+                 {/* notes */}
                 <FormField
                   control={form.control}
                   name="notes"
