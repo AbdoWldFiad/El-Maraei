@@ -1,3 +1,4 @@
+import { doctorImages } from "@/extras/doctorImages";
 import { sql } from "drizzle-orm";
 import { pgTable, text, varchar, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
@@ -58,6 +59,7 @@ export const appointments = pgTable("appointments", {
   email: text("email").notNull(),
   phone: text("phone").notNull(),
   department: text("department").notNull(),
+  doctor: text("doctor").notNull(),
   appointmentDate: text("appointment_date").notNull(),
   appointmentTime: text("appointment_time").notNull(),
   notes: text("notes"),

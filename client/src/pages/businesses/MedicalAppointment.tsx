@@ -238,23 +238,44 @@ useEffect(() => {
     return (
       <div className="min-h-screen py-16 bg-muted/30">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-          <Card className="text-center">
-            <CardContent className="p-12">
-              <h2 className="text-2xl font-bold mb-4 text-foreground">
-                {t({ en: 'Appointment Confirmed!', ar: 'تم تأكيد الموعد!' })}
+          <Card className="mx-auto max-w-2xl border-0 shadow-xl bg-gradient-to-b from-background to-muted/30">
+            <CardContent className="flex flex-col items-center p-10 md:p-14 text-center">
+              {/* Success Icon */}
+              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+                <svg className="h-10 w-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                {t({
+                  en: "Appointment Confirmed!",
+                  ar: "تم تأكيد الموعد!",
+                })}
               </h2>
-              <p className="text-muted-foreground mb-6">
-                {t({ 
-                  en: 'Thank you for booking an appointment with El maraie Medical Center. We will contact you shortly to confirm your appointment details.', 
-                  ar: 'شكرًا لحجز موعد مع المركز الطبي للمرعي. سنتصل بك قريبًا لتأكيد تفاصيل موعدك.' 
+              <p className="mt-4 max-w-lg text-base leading-7 text-muted-foreground">
+                {t({
+                  en: "Thank you for booking an appointment with El Maraie Medical Center. Our team will contact you shortly to confirm your appointment details.",
+                  ar: "شكرًا لحجز موعد مع المركز الطبي للمرعي. سيتواصل معك فريقنا قريبًا لتأكيد تفاصيل موعدك.",
                 })}
               </p>
-              <Button onClick={() => setIsSubmitted(false)} data-testid="button-book-another">
-                {t({ en: 'Book Another Appointment', ar: 'احجز موعدًا آخر' })}
-              </Button>
-              <a href="/businesses/medical/" className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2 font-medium" >
-                {t({ en: "Back to Medical Center", ar: "الرجوع ألي المركز الطبي" })}
-              </a>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Button onClick={() => setIsSubmitted(false)} size="lg" className="min-w-[220px]" data-testid="button-book-another" >
+                  {t({
+                    en: "Book Another Appointment",
+                    ar: "احجز موعدًا آخر",
+                  })}
+                </Button>
+
+                <Button asChild variant="outline" size="lg" className="min-w-[220px]" >
+                  <a href="/businesses/medical/">
+                    {t({
+                      en: "Back to Medical Center",
+                      ar: "العودة إلى المركز الطبي",
+                    })}
+                  </a>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>

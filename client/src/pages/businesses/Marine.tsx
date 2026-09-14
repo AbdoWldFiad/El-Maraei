@@ -24,13 +24,15 @@ export default function Marine() {
     { icon: Wrench, title: { en: 'Marine Maintenance', ar: 'الصيانة البحرية' }, description: { en: 'Ongoing maintenance of maritime structures', ar: 'صيانة مستمرة للهياكل البحرية' } },
     { icon: HardHat, title: { en: 'Underwater Construction', ar: 'البناء تحت الماء' }, description: { en: 'Specialized submarine construction projects', ar: 'مشاريع بناء تحت الماء متخصصة' } },
     { icon: TrendingUp, title: { en: 'Infrastructure Development', ar: 'تطوير البنية التحتية' }, description: { en: 'Marine infrastructure planning and execution', ar: 'تخطيط وتنفيذ البنية التحتية البحرية' } },
+    { icon: Anchor, title: { en: 'Marine Trailer Rental', ar: 'تأجير المقطورات البحرية' }, description: { en: 'Reliable marine trailer rental solutions for transporting heavy, oversized, and specialized cargo.', ar: 'حلول موثوقة لتأجير المقطورات البحرية لنقل البضائع الثقيلة والكبيرة الحجم والمتخصصة.' } },
   ];
 
-  const projects = [
-    { name: { en: 'Port Expansion Project', ar: 'مشروع توسعة الميناء' }, description: { en: 'Major harbor expansion in Alexandria', ar: 'توسعة كبرى للميناء في الإسكندرية' } },
-    { name: { en: 'Coastal Protection', ar: 'حماية السواحل' }, description: { en: 'Erosion prevention along Red Sea coast', ar: 'منع التآكل على طول ساحل البحر الأحمر' } },
-    { name: { en: 'Marina Development', ar: 'تطوير المارينا' }, description: { en: 'Luxury yacht marina construction', ar: 'بناء مارينا يخوت فاخرة' } },
-  ];
+  const operations = [
+  { name: { en: 'Heavy Equipment Transport', ar: 'نقل المعدات الثقيلة' }, description: { en: 'Successful transportation of heavy construction equipment between marine facilities using specialized transport solutions and careful route planning.', ar: 'نجحنا في نقل معدات إنشائية ثقيلة بين المنشآت البحرية باستخدام حلول نقل متخصصة وتخطيط دقيق للمسار.' } },
+  { name: { en: 'Industrial Cargo Delivery', ar: 'نقل وتسليم البضائع الصناعية' }, description: { en: 'Coordinated the safe movement of industrial cargo, ensuring efficient handling and delivery while meeting demanding project requirements.', ar: 'تنسيق عملية نقل آمنة للبضائع الصناعية، مع ضمان كفاءة المناولة والتسليم وتلبية متطلبات المشروع.' } },
+  { name: { en: 'Oversized Project Cargo', ar: 'نقل البضائع كبيرة الحجم' }, description: { en: 'Transported oversized project cargo using suitable marine trailers and specialized logistics planning to support a smooth operation.', ar: 'نقل بضائع كبيرة الحجم خاصة بالمشروعات باستخدام المقطورات البحرية المناسبة وتخطيط لوجستي متخصص لضمان تنفيذ العملية بسلاسة.' } },
+];
+
 
   return (
     <div className="min-h-screen">
@@ -69,9 +71,9 @@ export default function Marine() {
               {t({ en: 'About Our Marine Works', ar: 'عن أشغالنا البحرية' })}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {t({ 
-                en: 'El maraie Marine Works specializes in coastal engineering, harbor construction, and marine infrastructure development. Our team of experts delivers innovative solutions for complex maritime projects.', 
-                ar: 'تتخصص أشغال المرعي البحرية في الهندسة الساحلية وبناء الموانئ وتطوير البنية التحتية البحرية. يقدم فريق خبرائنا حلولاً مبتكرة للمشاريع البحرية المعقدة.' 
+              {t({
+                en: 'El maraie Marine Works provides integrated marine solutions covering coastal engineering, harbor construction, marine infrastructure, cargo transportation, and marine trailer rental. Our team combines practical experience with reliable equipment and careful planning to support demanding marine and logistics operations.',
+                ar: 'تقدم المرعي للأشغال البحرية حلولاً بحرية متكاملة تشمل الهندسة الساحلية وبناء الموانئ والبنية التحتية البحرية ونقل البضائع وتأجير المقطورات البحرية. ويجمع فريقنا بين الخبرة العملية والمعدات الموثوقة والتخطيط الدقيق لدعم العمليات البحرية واللوجستية المختلفة.'
               })}
             </p>
           </div>
@@ -96,17 +98,27 @@ export default function Marine() {
 
           <div>
             <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-              {t({ en: 'Featured Projects', ar: 'مشاريع مميزة' })}
+              {t({
+                en: 'Successful Marine Operations',
+                ar: 'عمليات بحرية ناجحة'
+              })}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {projects.map((project, index) => (
-                <Card key={index} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-testid={`project-card-${index}`}>
+              {operations.map((operation, index) => (
+                <Card key={index} className="transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" 
+                  data-testid={`operation-card-${index}`} >
                   <CardContent className="p-6">
                     <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center mb-4">
-                      <Waves className="h-6 w-6 text-gold" />
+                      <Anchor className="h-6 w-6 text-gold" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">{t(project.name)}</h3>
-                    <p className="text-sm text-muted-foreground">{t(project.description)}</p>
+
+                    <h3 className="text-lg font-semibold mb-2 text-foreground">
+                      {t(operation.name)}
+                    </h3>
+
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {t(operation.description)}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -114,6 +126,38 @@ export default function Marine() {
           </div>
         </div>
       </section>
+
+      <section className="py-16 bg-primary text-primary-foreground">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <Anchor className="h-12 w-12 text-gold mx-auto mb-4" />
+
+            <h2 className="text-3xl font-bold mb-4">
+              {t({
+                en: 'Marine Trailer Rental',
+                ar: 'تأجير المقطورات البحرية'
+              })}
+            </h2>
+            <p className="text-lg text-primary-foreground/80 leading-relaxed mb-8">
+              {t({
+                en: 'We offer marine trailer rental solutions for heavy, oversized, and specialized cargo transportation. Our rental services are designed to support construction, industrial, infrastructure, and marine logistics operations.',
+                ar: 'نوفر حلول تأجير المقطورات البحرية لنقل البضائع الثقيلة وكبيرة الحجم والمتخصصة. وقد تم تصميم خدمات التأجير لدينا لدعم عمليات الإنشاءات والمشروعات الصناعية والبنية التحتية والخدمات اللوجستية البحرية.'
+              })}
+            </p>
+
+            <a
+              href="/contact"
+              className="inline-block px-8 py-3 bg-gold text-primary rounded-md hover-elevate active-elevate-2 font-medium"
+            >
+              {t({
+                en: 'Request Trailer Rental',
+                ar: 'طلب تأجير مقطورة'
+              })}
+            </a>
+          </div>
+        </div>
+      </section>
+
 
       <section className="py-16 bg-muted/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
