@@ -1,19 +1,5 @@
 import { Link } from 'wouter';
-import {
-  ArrowRight,
-  Building2,
-  Ship,
-  Waves,
-  Mountain,
-  Handshake,
-  Stethoscope,
-  ChevronDown,
-  Pill,
-  CheckCircle2,
-  Globe2,
-  Users,
-  Award,
-} from 'lucide-react';
+import { ArrowRight, Building2, Ship, Waves, Mountain, Handshake, Stethoscope, ChevronDown, Pill, CheckCircle2, Globe2, Users, Award, } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -32,7 +18,7 @@ const businesses = [
       ar: 'خدمات رعاية صحية متكاملة يقدمها فريق من المتخصصين ذوي الخبرة داخل مرافق حديثة.',
     },
     href: '/businesses/medical',
-    color: 'from-rose-500 to-red-600',
+    color: 'from-blue-500 to-cyan-500',
   },
   {
     id: 'shipping',
@@ -43,7 +29,7 @@ const businesses = [
       ar: 'خدمات ملاحية ووكالات موانئ احترافية لدعم السفن والبضائع والتجارة الدولية.',
     },
     href: '/businesses/shipping',
-    color: 'from-blue-500 to-blue-700',
+    color: 'from-cyan-500 to-teal-500',
   },
   {
     id: 'marine',
@@ -54,7 +40,7 @@ const businesses = [
       ar: 'حلول للبنية التحتية البحرية والهندسة الساحلية للمشروعات البحرية المتخصصة.',
     },
     href: '/businesses/marine',
-    color: 'from-cyan-500 to-teal-600',
+    color: 'from-teal-500 to-emerald-500',
   },
   {
     id: 'mining',
@@ -65,7 +51,7 @@ const businesses = [
       ar: 'استخراج ومعالجة المعادن مع التركيز على الجودة المستمرة والعمليات المسؤولة.',
     },
     href: '/businesses/mining',
-    color: 'from-amber-500 to-orange-600',
+    color: 'from-amber-500 to-orange-500',
   },
   {
     id: 'trade',
@@ -76,7 +62,7 @@ const businesses = [
       ar: 'التمثيل التجاري والوكالات والشراكات التجارية التي تربط الفرص المحلية والدولية.',
     },
     href: '/businesses/trade',
-    color: 'from-violet-500 to-purple-700',
+    color: 'from-purple-500 to-indigo-500',
   },
   {
     id: 'medical-products',
@@ -87,7 +73,7 @@ const businesses = [
       ar: 'منتجات وحلول طبية لدعم مقدمي الرعاية الصحية والبيئات الطبية المتخصصة.',
     },
     href: '/businesses/midicalproduts',
-    color: 'from-emerald-500 to-green-700',
+    color: 'from-rose-500 to-pink-500',
   },
 ];
 
@@ -209,13 +195,7 @@ export default function Home() {
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-7">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm">
-                <img
-                  src={logo}
-                  alt="El Maraie Group"
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                />
+                <img src={logo} alt="El Maraie Group" width={48} height={48} className="object-contain" />
               </div>
 
               <div>
@@ -258,11 +238,9 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/about">
-                <Button
-                  size="lg"
+                <Button size="lg"
                   className="w-full sm:w-auto bg-gold text-gold-foreground hover:bg-gold/90 min-w-[190px] h-12"
-                  data-testid="button-learn-more"
-                >
+                  data-testid="button-learn-more" >
                   {t({
                     en: 'Discover El Maraie',
                     ar: 'اكتشف المرعي',
@@ -277,12 +255,10 @@ export default function Home() {
               </Link>
 
               <Link href="/contact">
-                <Button
-                  size="lg"
+                <Button size="lg"
                   variant="outline"
                   className="w-full sm:w-auto bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 min-w-[190px] h-12"
-                  data-testid="button-contact-us"
-                >
+                  data-testid="button-contact-us" >
                   {t({
                     en: 'Contact Us',
                     ar: 'تواصل معنا',
@@ -296,16 +272,11 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 bg-primary/80 backdrop-blur-md border-t border-white/10">
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {stats.map((stat, index) => (
-              <div
-                key={index}
+              <div key={index}
                 className="py-5 px-3 text-center"
-                data-testid={`hero-stat-${index}`}
-              >
+                data-testid={`hero-stat-${index}`} >
                 <div className="text-2xl md:text-3xl font-bold text-gold">
-                  <CountUp
-                    end={stat.value}
-                    suffix={stat.suffix}
-                  />
+                  <CountUp end={stat.value} suffix={stat.suffix} />
                 </div>
 
                 <div className="text-xs md:text-sm text-white/65 mt-1">
@@ -463,10 +434,7 @@ export default function Home() {
             </div>
 
             <Link href="/businesses">
-              <Button
-                variant="outline"
-                className="gap-2"
-              >
+              <Button variant="outline" className="gap-2" >
                 {t({
                   en: 'View All Businesses',
                   ar: 'عرض جميع الأعمال',
@@ -483,11 +451,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {businesses.map((business, index) => (
-              <Card
-                key={business.id}
+              <Card key={business.id}
                 className="group overflow-hidden border-border/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-                data-testid={`business-card-${index}`}
-              >
+                data-testid={`business-card-${index}`} >
                 <CardContent className="p-0">
                   <div
                     className={`h-2 bg-gradient-to-r ${business.color}`}
@@ -515,11 +481,9 @@ export default function Home() {
                     </p>
 
                     <Link href={business.href}>
-                      <Button
-                        variant="ghost"
+                      <Button variant="ghost"
                         className="text-primary hover:text-gold p-0 h-auto gap-2 group-hover:gap-3 transition-all"
-                        data-testid={`button-learn-more-${index}`}
-                      >
+                        data-testid={`button-learn-more-${index}`} >
                         {t({
                           en: 'Explore Business',
                           ar: 'استكشف النشاط',

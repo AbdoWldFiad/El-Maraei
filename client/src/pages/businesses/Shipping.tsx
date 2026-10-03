@@ -1,4 +1,4 @@
-import { Ship, Anchor, Globe, Package, Clock, Shield, Users, Headphones, FileCheck, ArrowRight, } from 'lucide-react';
+import { Ship, Anchor, Globe, Package, Clock, Shield, Users, Headphones, FileCheck, ArrowRight, Gem, } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
@@ -561,36 +561,44 @@ export default function Shipping() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold/20 mb-6">
-            <Ship className="h-7 w-7 text-gold" aria-hidden="true" />
+      <section className="py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/90 p-8 md:p-12 lg:p-16 text-center">
+            <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+            <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+
+            <div className="relative max-w-3xl mx-auto">
+              <Gem className="h-10 w-10 text-gold mx-auto mb-5" />
+
+              <h2 className="text-3xl md:text-4xl font-bold mb-5">
+                {t({
+                  en: 'Ready to Move Your Cargo?',
+                  ar: 'هل أنت مستعد لشحن بضائعك؟',
+                })}
+              </h2>
+
+              <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto leading-relaxed mb-8">
+                {t({
+                  en: 'Contact our team today to discuss your vessel, cargo, or port requirements and receive a tailored shipping solution.',
+                  ar: 'تواصل مع فريقنا اليوم لمناقشة متطلبات السفينة أو البضائع أو الميناء والحصول على حل شحن مخصص.',
+                })}
+              </p>
+
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md bg-gold text-primary font-semibold transition-all duration-300 hover:bg-gold/90 hover:scale-[1.02]"
+              >
+                {t({
+                  en: 'Get a Quote',
+                  ar: 'احصل على عرض سعر',
+                })}
+
+                <ArrowRight
+                  className={`h-5 w-5 ${language === 'ar' ? 'rotate-180' : ''}`}
+                />
+              </a>
+            </div>
           </div>
-
-          <h2 className="text-3xl md:text-4xl font-bold mb-5">
-            {t({
-              en: 'Ready to Move Your Cargo?',
-              ar: 'هل أنت مستعد لشحن بضائعك؟',
-            })}
-          </h2>
-
-          <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto leading-relaxed mb-8">
-            {t({
-              en: 'Contact our team today to discuss your vessel, cargo, or port requirements and receive a tailored shipping solution.',
-              ar: 'تواصل مع فريقنا اليوم لمناقشة متطلبات السفينة أو البضائع أو الميناء والحصول على حل شحن مخصص.',
-            })}
-          </p>
-
-          <a href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-md bg-gold text-gold-foreground hover-elevate active-elevate-2 font-semibold"
-            data-testid="button-contact" >
-            {t({
-              en: 'Get a Quote',
-              ar: 'احصل على عرض سعر',
-            })}
-
-            <ArrowRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} aria-hidden="true" />
-          </a>
         </div>
       </section>
     </div>

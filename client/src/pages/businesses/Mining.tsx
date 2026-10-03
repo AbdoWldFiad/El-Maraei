@@ -1,16 +1,4 @@
-import {
-  Mountain,
-  Gem,
-  TrendingUp,
-  Shield,
-  Leaf,
-  Factory,
-  Truck,
-  FlaskConical,
-  CheckCircle2,
-  ArrowRight,
-  Building2,
-} from 'lucide-react';
+import { Mountain, Gem, TrendingUp, Shield, Leaf, Factory, Truck, FlaskConical, CheckCircle2, ArrowRight, Building2, } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';

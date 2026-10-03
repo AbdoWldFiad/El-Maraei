@@ -1,4 +1,4 @@
-import { Waves, Wrench, Building, Anchor, HardHat, TrendingUp, MailIcon, Truck, Construction, Settings, Factory, Ship, ChevronLeft, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Waves, Wrench, Building, Anchor, HardHat, TrendingUp, MailIcon, Truck, Construction, Settings, Factory, Ship, ChevronLeft, CheckCircle2, ChevronRight, Gem, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Helmet } from 'react-helmet-async';
@@ -528,9 +528,14 @@ export default function Marine() {
         </section>
 
         {/* Final Contact CTA */}
-        <section className="py-20 bg-primary">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <Waves className="h-12 w-12 text-gold mx-auto mb-5" />
+      <section className="py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/90 p-8 md:p-12 lg:p-16 text-center">
+            <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+            <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+
+            <div className="relative max-w-3xl mx-auto">
+              <Gem className="h-10 w-10 text-gold mx-auto mb-5" />
 
             <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-5">
               {t({
@@ -546,15 +551,18 @@ export default function Marine() {
               })}
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="/contact"
-                className="inline-block px-8 py-3 bg-gold text-primary rounded-md hover-elevate active-elevate-2 font-medium"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md bg-gold text-primary font-semibold transition-all duration-300 hover:bg-gold/90 hover:scale-[1.02]"
               >
                 {t({
                   en: 'Request a Quote',
                   ar: 'طلب عرض سعر'
                 })}
+
+                <ArrowRight
+                  className={`h-5 w-5 ${language === 'ar' ? 'rotate-180' : ''}`}
+                />
               </a>
             </div>
             <div
@@ -573,9 +581,10 @@ export default function Marine() {
             <span className="text-xs text-muted-foreground group-hover:text-primary transition">
               {copied ? "Copied!" : "Click to copy"}
             </span>
+            </div>
           </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
                 {/* Industries We Serve */}
         <section className="py-16">
