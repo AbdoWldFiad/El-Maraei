@@ -415,10 +415,10 @@ export default function Marine() {
               })}
             </p>
 
-            <a href="/contact" className="inline-block px-8 py-3 bg-gold text-primary rounded-md hover-elevate active-elevate-2 font-medium" >
+            <a href="https://marine.elmaraie.com" className="inline-block px-8 py-3 bg-gold text-primary rounded-md hover-elevate active-elevate-2 font-medium" >
               {t({
-                en: 'Request Trailer Rental',
-                ar: 'طلب تأجير مقطورة'
+                en: 'Request Trailer Rental on our agency site',
+                ar: 'طلب تأجير مقطورة علي موقعنا الرسمي'
               })}
             </a>
           </div>
@@ -552,22 +552,28 @@ export default function Marine() {
             </p>
 
               <a
-                href="/contact"
+                href="https://marine.elmaraie.com"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md bg-gold text-primary font-semibold transition-all duration-300 hover:bg-gold/90 hover:scale-[1.02]"
               >
                 {t({
-                  en: 'Request a Quote',
-                  ar: 'طلب عرض سعر'
-                })}
+                en: 'Request a Quote on our agency site',
+                ar: 'طلب عرض سعر علي موقعنا الرسمي'
+              })}
 
                 <ArrowRight
                   className={`h-5 w-5 ${language === 'ar' ? 'rotate-180' : ''}`}
                 />
               </a>
             </div>
+            <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-8 leading-relaxed py-6 mt-4">
+              {t({
+                en: 'Or mail us directly',
+                ar: 'أو تواصل معنا مباشرتا بالبريد'
+              })}
+            </p>
             <div
             onClick={handleCopy}
-            className="mt-12 mx-auto flex items-center justify-between gap-4 max-w-xl px-5 py-3 bg-muted/60 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:bg-muted transition-all duration-200 cursor-pointer group" >
+            className=" mx-auto flex items-center justify-between gap-4 max-w-xl px-5 py-3 bg-muted/60 backdrop-blur rounded-lg border border-border hover:border-primary/40 hover:bg-muted transition-all duration-200 cursor-pointer group" >
             <div className="flex items-center  gap-3">
               <div className="p-2 bg-primary/10 rounded-md group-hover:bg-primary/20 transition">
                 <MailIcon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
@@ -585,51 +591,6 @@ export default function Marine() {
           </div>
         </div>
       </section>
-
-                {/* Industries We Serve */}
-        <section className="py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-foreground">
-                {t({
-                  en: 'Industries We Serve',
-                  ar: 'القطاعات التي نخدمها'
-                })}
-              </h2>
-
-              <p className="text-lg text-muted-foreground">
-                {t({
-                  en: 'Our marine and transportation solutions support a wide range of industries and project requirements.',
-                  ar: 'تدعم حلولنا البحرية وحلول النقل مجموعة واسعة من القطاعات ومتطلبات المشروعات المختلفة.'
-                })}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {[
-                { icon: Building, title: { en: 'Construction', ar: 'الإنشاءات' } },
-                { icon: TrendingUp, title: { en: 'Infrastructure', ar: 'البنية التحتية' } },
-                { icon: Wrench, title: { en: 'Industrial Projects', ar: 'المشروعات الصناعية' } },
-                { icon: Anchor, title: { en: 'Ports & Marine', ar: 'الموانئ والقطاع البحري' } },
-                { icon: HardHat, title: { en: 'Heavy Equipment', ar: 'المعدات الثقيلة' } },
-                { icon: Waves, title: { en: 'Project Logistics', ar: 'الخدمات اللوجستية للمشروعات' } }
-              ].map((industry, index) => (
-                <div
-                  key={index}
-                  className="rounded-xl border bg-card p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-3">
-                    <industry.icon className="h-6 w-6 text-gold" />
-                  </div>
-
-                  <h3 className="text-sm font-semibold text-foreground">
-                    {t(industry.title)}
-                  </h3>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
     </div>
   );
 }
